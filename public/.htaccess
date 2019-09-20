@@ -3,9 +3,10 @@ AuthName "My dev Protected Area"
 AuthUserFile /home/taxidriverscuba/taxidriversCorp/public/.htpasswd
 Require valid-user
 
-AllowOverride None
+AllowOverride All
 Order Allow,Deny
 Allow from All
 
 FallbackResource /index.php
 RewriteEngine on
+RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
