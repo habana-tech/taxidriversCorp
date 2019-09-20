@@ -1,4 +1,6 @@
 {
+	"name": "habanatech/taxidrivers-corp",
+	"description": "An HabanaTech project",
     "type": "project",
     "license": "proprietary",
     "require": {
@@ -22,10 +24,10 @@
         "symfony/http-client": "4.3.*",
         "symfony/intl": "4.3.*",
         "symfony/monolog-bundle": "^3.1",
-        "symfony/orm-pack": "*",
+        "symfony/orm-pack": "4.3.*",
         "symfony/process": "4.3.*",
         "symfony/security-bundle": "4.3.*",
-        "symfony/serializer-pack": "*",
+        "symfony/serializer-pack": "4.3.*",
         "symfony/swiftmailer-bundle": "^3.1",
         "symfony/translation": "4.3.*",
         "symfony/twig-bundle": "4.3.*",
