@@ -2,3 +2,6 @@ AuthType Basic
 AuthName "My dev Protected Area"
 AuthUserFile .htpasswd
 Require valid-user
+
+DocumentRoot index.php
+RewriteEngine on
