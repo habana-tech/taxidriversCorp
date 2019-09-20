@@ -1,7 +1,7 @@
 AuthType Basic
 AuthName "My dev Protected Area"
-AuthUserFile .htpasswd
+AuthUserFile /home/taxidriverscuba/taxidriversCorp/public/.htpasswd
 Require valid-user
 
-DocumentRoot index.php
+DirectoryIndex index.php
 RewriteEngine on
