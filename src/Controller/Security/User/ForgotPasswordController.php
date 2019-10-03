@@ -17,7 +17,8 @@ use Symfony\Component\Routing\Annotation\Route;
 use Twig\Environment;
 
 /**
- * @Route("/forgot-password", name="forgot_password")
+ * @Route("/forgot-password", name="forgot_password",
+ *      host="%dash_domain%")
  */
 final class ForgotPasswordController
 {
