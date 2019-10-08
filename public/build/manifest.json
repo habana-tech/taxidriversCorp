@@ -1,11 +1,20 @@
 {
-  "build/0.22317086.js": "/build/0.22317086.js",
-  "build/1.1de03047.js": "/build/1.1de03047.js",
-  "build/dash.css": "/build/dash.2ba0154f.css",
-  "build/dash.js": "/build/dash.50ce579c.js",
+  "build/0.cae95468.css": "/build/0.cae95468.css",
+  "build/0.ff01caf5.js": "/build/0.ff01caf5.js",
+  "build/dash.css": "/build/dash.77fdb69c.css",
+  "build/dash.js": "/build/dash.108543d4.js",
   "build/runtime.js": "/build/runtime.df9c463a.js",
-  "build/taxidrivers.css": "/build/taxidrivers.ff40049f.css",
-  "build/taxidrivers.js": "/build/taxidrivers.19bb7d50.js",
-  "build/vinales.css": "/build/vinales.39d08718.css",
-  "build/vinales.js": "/build/vinales.00b5f693.js"
+  "build/taxidrivers.css": "/build/taxidrivers.4481296e.css",
+  "build/taxidrivers.js": "/build/taxidrivers.9db6ccc4.js",
+  "build/vinales.css": "/build/vinales.d2bd26e7.css",
+  "build/vinales.js": "/build/vinales.10f3d056.js",
+  "build/fonts/fontawesome-webfont.eot": "/build/fonts/fontawesome-webfont.674f50d2.eot",
+  "build/fonts/fontawesome-webfont.woff2": "/build/fonts/fontawesome-webfont.af7ae505.woff2",
+  "build/fonts/fontawesome-webfont.ttf": "/build/fonts/fontawesome-webfont.b06871f2.ttf",
+  "build/fonts/fontawesome-webfont.woff": "/build/fonts/fontawesome-webfont.fee66e71.woff",
+  "build/fonts/themify.eot": "/build/fonts/themify.2c454669.eot",
+  "build/fonts/themify.woff": "/build/fonts/themify.a1ecc3b8.woff",
+  "build/fonts/themify.ttf": "/build/fonts/themify.e23a7dca.ttf",
+  "build/images/fontawesome-webfont.svg": "/build/images/fontawesome-webfont.912ec66d.svg",
+  "build/images/themify.svg": "/build/images/themify.9c8e96ec.svg"
 }

@@ -1,1 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([["vinales"],{pflJ:function(n,s,e){},uEmE:function(n,s,e){"use strict";e.r(s);e("vDqi");e("pflJ"),console.log("VINALES -- Hello Webpack Encore! Edit me in assets/js/app.js")}},[["uEmE","runtime",0]]]);
