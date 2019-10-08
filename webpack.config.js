@@ -26,13 +26,13 @@ Encore
 
 
      /**DASH*/
-    .addEntry('dash', './assets/js/dash/dash.js')
+    .addEntry('dash', './assets/dash/scripts/index.js')
 
     /*Taxidrivers**/
-    .addEntry('taxidrivers', './assets/js/taxidrivers/home.js')
+    .addEntry('taxidrivers', './assets/taxidrivers/js/app.js')
 
     /*Vinales**/
-    .addEntry('vinales', './assets/js/vinales/home.js')
+    .addEntry('vinales', './assets/vinales/js/app.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

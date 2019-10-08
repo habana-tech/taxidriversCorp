@@ -23,6 +23,18 @@
         "node-sass": "^4.12.0",
         "sass-loader": "^7.3.1",
         "vue": "^2.6.10",
-        "vue-loader": "^15.7.1"
+        "vue-loader": "^15.7.1",
+        "bootstrap": "^4.0.0",
+        "perfect-scrollbar": "^1.1.0",
+        "bootstrap-datepicker": "^1.7.1",
+        "chart.js": "^2.7.1",
+        "datatables": "^1.10.13",
+        "fullcalendar": "^3.6.2",
+        "jquery-sparkline": "^2.4.0",
+        "jquery": "^3.2.1",
+        "masonry-layout": "^4.2.0",
+        "moment": "^2.19.1",
+        "popper.js": "^1.12.6",
+        "jvectormap": "^2.0.4"
     }
 }
