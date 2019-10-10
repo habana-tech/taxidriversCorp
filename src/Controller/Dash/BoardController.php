@@ -21,6 +21,19 @@ class BoardController extends AbstractController
     }
 
     /**
+     * @Route("/bookings", name="bookings")
+     */
+    public function bookingList()
+    {
+        return $this->render('dash/board/blank.html.twig', [
+            'controller_name' => 'bookingList',
+            'page_title' => 'Booking List',
+            'iframe_path' => 'easyadmin',
+        ]);
+    }
+
+
+    /**
      * @Route("/info", name="phpinfo")
      */
     public function info()

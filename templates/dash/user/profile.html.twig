@@ -1,32 +1,95 @@
 {% extends 'dash/base.html.twig' %}
 
 {% block body %}
-    <h1>Your Profile</h1>
 
-    <p>Logged in as: <em>{{ msgphp_user.current.email }}</em></p>
-    <p><a href="{{ path('logout') }}">Logout</a></p>
+<div class="row gap-20 masonry pos-r">
 
-    <h2>Change username</h2>
-    {{ form_start(username_form) }}
-        {{ form_errors(username_form) }}
-        {{ form_row(username_form.email) }}
-
-        <div>
-            <input type="submit" value="Change" />
+    <div class="masonry-sizer col-md-6"></div>
+    <div class="masonry-item  w-100">
+        <div class="row gap-20">
+            <div class='col-md-3'>
+                <div class="layers bd bgc-white p-20">
+                    <div class="layer w-100 mB-10">
+                    <h6 class="lh-1">Logged in as:</h6>
+                    </div>
+                    <div class="layer w-100">
+                    <div class="peers ai-sb fxw-nw">
+                        
+                        <div class="peer">
+                        <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500"><em>{{ msgphp_user.current.email }}</em></span>
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+      
+      
         </div>
-    {{ form_end(username_form) }}
+    </div>
+        
+    <div class="masonry-item col-md-4">
+          
+        <!-- #Your Profile ==================== -->
+          <div class="bd bgc-white">
+            <div class="layers">
+                <div class="layer w-100 pX-20 pT-20">
+                    <h6 class="lh-1">Change username</h6>
+                    {{ form_start(username_form) }}
+            
+                        <div class="form-group">
+                                {{ form_errors(username_form) }}
+                                {{ form_widget(username_form.email, {'attr': {'class': "form-control", 'placeholder':msgphp_user.current.email } } ) }}
+                        </div>
 
-    <h2>Change password</h2>
-    {{ form_start(password_form) }}
-        {{ form_errors(password_form) }}
-        <h3>Current password</h3>
-        {{ form_row(password_form.current) }}
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-primary" value="Change username" />
+                        </div>
+                        
+                    {{ form_end(username_form) }}
 
-        <h3>New password</h3>
-        {{ form_row(password_form.password) }}
-
-        <div>
-            <input type="submit" value="Change" />
+                </div>
+            </div>
         </div>
-    {{ form_end(password_form) }}
+    </div>
+        
+    <div class="masonry-item col-md-4">
+        <!-- #Your Profile ==================== -->
+        <div class="bd bgc-white">
+            <div class="layers">
+                <div class="layer w-100 pX-20 pT-20">
+                    <h6 class="lh-1">Change password</h6>
+                    
+    
+                    {{ form_start(password_form) }}
+
+                        <div class="form-group">
+                                {{ form_errors(password_form) }}
+                        </div>
+
+                        <div class="form-group">
+                            {{ form_row(password_form.current.plain, {'attr': {'class': "form-control" }, 'label':"Current Password" }) }}
+                        </div>
+            
+            
+    
+                        <h6 class="lh-1">New password</h6>
+                        <div class="form-group">
+                            {{ form_row(password_form.password.plain,  {'attr': {'class': "form-control" }, 'label':"New Password" }) }}
+                            {{ form_row(password_form.password.confirmation,  {'attr': {'class': "form-control" }, 'label':"Confirm the Password" }) }}
+            
+                        </div>
+                        
+                        <div class="form-group">
+                            <input type="submit" class="btn btn-warning" value="Change Password" />
+                        </div>
+                    {{ form_end(password_form) }}
+                </div>
+                
+            </div>
+        </div>
+    </div>
+        
+        
+</div>
+    
 {% endblock %}

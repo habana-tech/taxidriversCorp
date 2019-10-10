@@ -1,0 +1,12 @@
+{% extends 'dash/base.html.twig' %}
+
+{% block title %}{{ page_title }}{% endblock %}
+
+{% block body %}
+<div class="full-container">
+
+    {% if iframe_path is defined %}
+        <iframe referrerpolicy="origin"  src="{{path(iframe_path)}}" width="100%" height="100vh" style="border: none;min-height: 80vh; max-width: 100vw"></iframe>
+    {% endif %}
+</div>
+{% endblock %}

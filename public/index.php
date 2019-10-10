@@ -1,5 +1,10 @@
 <?php
 
+ini_set('internal_encoding', 'utf-8');
+define('TIMEZONE', 'America/Havana');
+setlocale(LC_TIME, 'es_ES.UTF-8');
+date_default_timezone_set(TIMEZONE);
+
 use App\Kernel;
 use Symfony\Component\Debug\Debug;
 use Symfony\Component\HttpFoundation\Request;

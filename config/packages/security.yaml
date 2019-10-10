@@ -33,6 +33,7 @@ security:
     # Note: Only the *first* access control that matches will be used
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DASH_DOMAIN)%' }
+        - { path: ^/forgot-password, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DASH_DOMAIN)%' }
         - { path: ^/, roles: ROLE_ADMIN, host: '%env(DASH_DOMAIN)%' }
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/profile, roles: ROLE_USER }
