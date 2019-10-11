@@ -1,7 +1,8 @@
 easy_admin:
     entities:
-#        # List the entity class name you want to manage
-#        - App\Entity\Product
-#        - App\Entity\Category
-#        - App\Entity\User
-        - App\Entity\Booking
+        Booking:
+            class: App\Entity\Booking
+        Client:
+            class: App\Entity\Client
+        Place:
+            class: App\Entity\Place
