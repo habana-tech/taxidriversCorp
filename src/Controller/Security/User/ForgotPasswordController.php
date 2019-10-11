@@ -6,6 +6,7 @@ namespace App\Controller\Security\User;
 
 use App\Entity\User;
 use App\Form\User\ForgotPasswordType;
+use App\Message\User\RequestUserPassword as AppRequestUserPassword;
 use MsgPhp\User\Command\RequestUserPassword;
 use Symfony\Component\Form\FormFactoryInterface;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,6 +40,7 @@ final class ForgotPasswordController
                 /** @var User $user */
                 $user = $data['user'];
                 $bus->dispatch(new RequestUserPassword($user->getId()));
+                $bus->dispatch(new AppRequestUserPassword($user->getId()));
             }
 
             $flashBag->add('success', 'You\'re password is requested.');
