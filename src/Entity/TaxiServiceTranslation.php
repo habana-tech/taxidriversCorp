@@ -48,4 +48,9 @@ class TaxiServiceTranslation
         return $this;
     }
 
+    public function __toString()
+    {
+        return "[". $this->locale . "] ". $this->name;
+    }
+
 }

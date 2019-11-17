@@ -7,12 +7,14 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\HttpFoundation\Request;
 
+/**
+ * @Route(host="%taxidrivers_domain%")
+ */
 class HomeController extends AbstractController
 {
     /**
-     * @Route("/{_locale}", defaults={"_locale": "en"}, requirements={
-     * "_locale": "en|es|fr"
-     * }, name="taxidrivers_home", host="%taxidrivers_domain%")
+     * @Route("/{_locale}",
+     * name="taxidrivers_home")
      */
     public function index(Request $request, $_locale, ClientRepository $clientRepository)
     {

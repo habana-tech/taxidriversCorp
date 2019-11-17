@@ -8,6 +8,46 @@ easy_admin:
             class: App\Entity\Place
         TaxiService:
               class: App\Entity\TaxiService
+              show:
+                   fields:
+                      - { property: 'id' }
+                      - { property: 'active' }
+                      - { property: 'internalName' }
+                      - { property: 'category' }
+                      - { property: 'image', type: 'image', base_path: '%app.path.uploaded_images%' }
+                      - { property: 'AlternativeText' }
+                      - { property: 'updatedAt' }
+                      - { property: 'origin' }
+                      - { property: 'intermedialPlaces' }
+                      - { property: 'destination' }
+                      - { property: 'translations' }
+
+              list:
+                    fields:
+                        - { property: 'internalName' }
+                        - { property: 'active' }
+                        - { property: 'image', type: 'image', base_path: '%app.path.uploaded_images%' }
+                        - { property: 'category'}
+                        - { property: 'origin'}
+                        - { property: 'destination'}
               form:
                   fields:
-                  #  - { property: 'imageFile', type: 'vich_image' }
+                    - { property: 'internalName' }
+                    - { property: 'active' }
+                    - { property: 'imageFile', type: 'vich_image' }
+                    - { property: 'alternativeText'}
+                    - { property: 'category'}
+                    - { property: 'origin'}
+                    - { property: 'intermedialPlaces'}
+                    - { property: 'destination'}
+                    - { property: 'translations'}
+        TaxiServiceTranslation:
+              class: App\Entity\TaxiServiceTranslation
+              form:
+                  fields:
+                        - { property: 'translatable', label: 'Translation from', }
+                        - { property: 'locale', type: 'choice', type_options: {choices: {en: 'en', de: 'de',es: 'es'}}}
+                        - { property: 'name' }
+                        - { property: 'description'}
+
+

@@ -9,7 +9,7 @@ parameters:
     vinales_domain: '%env(VINALES_DOMAIN)%'
     dash_domain: '%env(DASH_DOMAIN)%'
     default_locale: en
-    locale: 'en'
+    locale: '%default_locale%'
     # This parameter defines the codes of the locales (languages) enabled in the application
     app_locales: en|fr|de|es
     app.path.uploaded_images: /uploads/images
