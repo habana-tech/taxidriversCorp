@@ -6,3 +6,8 @@ easy_admin:
             class: App\Entity\Client
         Place:
             class: App\Entity\Place
+        TaxiService:
+              class: App\Entity\TaxiService
+              form:
+                  fields:
+                  #  - { property: 'imageFile', type: 'vich_image' }

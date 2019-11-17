@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -24,7 +26,7 @@ class Place
     /**
      * @ORM\Column(type="boolean")
      */
-    private $official;
+    private $public;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
@@ -35,6 +37,12 @@ class Place
      * @ORM\Column(type="json", nullable=true)
      */
     private $mapPoint = [];
+
+
+    public function __construct()
+    {
+        $this->taxiServices = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -58,14 +66,14 @@ class Place
         return $this->getName();
     }
 
-    public function isOfficial(): ?bool
+    public function isPublic(): ?bool
     {
-        return $this->official;
+        return $this->public;
     }
 
-    public function setOfficial(bool $official): self
+    public function setPublic(bool $public): self
     {
-        $this->official = $official;
+        $this->public = $public;
 
         return $this;
     }
@@ -106,5 +114,6 @@ class Place
 
         return $this;
     }
+
 
 }

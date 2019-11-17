@@ -151,4 +151,9 @@ class Client
         return $tmp;
     }
 
+    public function getSessionLang()
+    {
+        return $_SESSION['_locale'];
+    }
+
 }

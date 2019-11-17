@@ -10,7 +10,7 @@ security:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
-            anonymous: true
+            anonymous: lazy
             provider: msgphp_user
 
             # activate different ways to authenticate
