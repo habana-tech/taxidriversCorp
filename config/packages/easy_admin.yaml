@@ -6,6 +6,17 @@ easy_admin:
           - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
 
     entities:
+        Client:
+                     class: App\Entity\Client
+                     form:
+                           fields:
+                                 - { property: 'name' }
+                                 - { property: 'email' }
+                                 - { property: 'telephone' }
+                                 - { property: 'country'}
+                                 - { property: 'locale', type: 'choice', type_options: '%easyadmin.options.language.choices%' }
+                                 - { property: 'bookings' }
+
         Booking:
               class: App\Entity\Booking
               form:
@@ -33,21 +44,15 @@ easy_admin:
                         - { property: 'price'}
                         - { property: 'currency'}
 
-        Client:
-             class: App\Entity\Client
-             form:
-                   fields:
-                         - { property: 'name' }
-                         - { property: 'email' }
-                         - { property: 'telephone' }
-                         - { property: 'country'}
-                         - { property: 'locale', type: 'choice', type_options: '%easyadmin.options.language.choices%' }
-                         - { property: 'bookings' }
         Place:
               class: App\Entity\Place
               form:
                   fields:
-                      - { property: 'location' }
+                      - { property: 'name' }
+                      - { property: 'public' }
+                      - { property: 'address' }
+                      - { property: 'address' }
+                      #- { property: 'location' }
         TaxiService:
               class: App\Entity\TaxiService
               show:
@@ -92,4 +97,18 @@ easy_admin:
                         - { property: 'name' }
                         - { property: 'description', type: 'fos_ckeditor'}
 
-
+#        GalleryImage:
+#              class: App\Entity\GalleryImage
+#              form:
+#                  fields:
+###                      - { property: 'title'}
+#                      - { property: 'imageFile', type: 'vich_image' }
+###                      - { property: 'alternativeText'}
+###                      - { property: 'taxiService'}
+##              list:
+##                  fields:
+##                      - { property: 'title'}
+##                      - { property: 'image', type: 'image', base_path: '%app.path.uploaded_images%' }
+##                      - { property: 'taxiService'}
+##
+#

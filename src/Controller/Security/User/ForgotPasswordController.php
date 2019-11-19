@@ -41,7 +41,7 @@ final class ForgotPasswordController
                 $bus->dispatch(new RequestUserPassword($user->getId()));
             }
 
-            $flashBag->add('success', 'You\'re password is requested.');
+            $flashBag->add('success', 'You\'re password is requested. Check your email inbox.');
 
             return new RedirectResponse('/login');
         }

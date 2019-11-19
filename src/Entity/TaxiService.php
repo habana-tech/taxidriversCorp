@@ -56,10 +56,16 @@ class TaxiService
      */
     private $active;
 
+    /**
+     * @ORM\OneToMany(targetEntity="App\Entity\GalleryImage", mappedBy="taxiService")
+     */
+    private $gallery;
+
 
     public function __construct()
     {
         $this->intermedialPlaces = new ArrayCollection();
+//        $this->gallery = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -157,5 +163,36 @@ class TaxiService
 
         return $this;
     }
+//
+//    /**
+//     * @return Collection|GalleryImage[]
+//     */
+//    public function getGallery(): Collection
+//    {
+//        return $this->gallery;
+//    }
+//
+//    public function addGallery(GalleryImage $gallery): self
+//    {
+//        if (!$this->gallery->contains($gallery)) {
+//            $this->gallery[] = $gallery;
+//            $gallery->setTaxiService($this);
+//        }
+//
+//        return $this;
+//    }
+//
+//    public function removeGallery(GalleryImage $gallery): self
+//    {
+//        if ($this->gallery->contains($gallery)) {
+//            $this->gallery->removeElement($gallery);
+//            // set the owning side to null (unless already changed)
+//            if ($gallery->getTaxiService() === $this) {
+//                $gallery->setTaxiService(null);
+//            }
+//        }
+//
+//        return $this;
+//    }
 
 }

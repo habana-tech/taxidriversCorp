@@ -35,12 +35,6 @@ class Place
      */
     private $address;
 
-    /**
-     * @ORM\Column(type="json", nullable=true)
-     */
-    private $mapPoint = [];
-
-
     public function __construct()
     {
         $this->taxiServices = new ArrayCollection();

@@ -37,7 +37,6 @@ final class SendPasswordResetUrl implements MessageHandlerInterface
         }
 
         $email = (new NotificationEmail())
-            ->from('web@taxidriverscuba.com')
             ->to($user->getEmail())
             ->subject('PasswordRequested via TaxidriversCorp')
             ->markdown(<<<EOF

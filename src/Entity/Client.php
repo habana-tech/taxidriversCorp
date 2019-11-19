@@ -168,7 +168,7 @@ class Client
         return $this->locale;
     }
 
-    public function setLocalee(?string $locale): self
+    public function setLocale(?string $locale): self
     {
         $this->locale = $locale;
 

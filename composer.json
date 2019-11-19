@@ -14,7 +14,7 @@
 		"dompdf/dompdf": "^0.8",
 		"easycorp/easyadmin-bundle": "^2.3",
 		"erusev/parsedown": "dev-master",
-		"friendsofsymfony/ckeditor-bundle": "^3.0@dev",
+		"friendsofsymfony/ckeditor-bundle": "^3.0",
 		"google/recaptcha": "^1.2",
 		"knplabs/doctrine-behaviors": "^1.5",
 		"liip/imagine-bundle": "^2.1",
@@ -48,9 +48,9 @@
 		"symfony/web-link": "*",
 		"symfony/webpack-encore-bundle": "^1.6",
 		"symfony/yaml": "*",
-		"twig/cssinliner-extra": "3.x-dev",
-		"twig/inky-extra": "3.x-dev",
-		"twig/markdown-extra": "3.x-dev",
+		"twig/cssinliner-extra": "^3.0",
+		"twig/inky-extra": "^3.0",
+		"twig/markdown-extra": "^3.0",
 		"vich/uploader-bundle": "^1.1"
 	},
     "require-dev": {
