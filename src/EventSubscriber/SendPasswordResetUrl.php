@@ -41,7 +41,6 @@ final class SendPasswordResetUrl implements MessageHandlerInterface
             ->to($user->getEmail())
             ->subject('PasswordRequested via TaxidriversCorp')
             ->markdown(<<<EOF
-
 Recently you have requested a **new password**.
 To create a new one, just click the btn.
 

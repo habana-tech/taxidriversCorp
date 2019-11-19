@@ -14,6 +14,7 @@
 		"dompdf/dompdf": "^0.8",
 		"easycorp/easyadmin-bundle": "^2.3",
 		"erusev/parsedown": "dev-master",
+		"friendsofsymfony/ckeditor-bundle": "^3.0@dev",
 		"google/recaptcha": "^1.2",
 		"knplabs/doctrine-behaviors": "^1.5",
 		"liip/imagine-bundle": "^2.1",

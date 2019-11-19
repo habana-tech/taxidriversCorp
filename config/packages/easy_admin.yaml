@@ -1,4 +1,10 @@
 easy_admin:
+    design:
+        #form_theme: ['@FOSCKEditor/Form/ckeditor_widget.html.twig']
+        form_theme:
+          - '@EasyAdmin/form/bootstrap_4.html.twig'
+          - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+
     entities:
         Booking:
               class: App\Entity\Booking
@@ -39,6 +45,9 @@ easy_admin:
                          - { property: 'bookings' }
         Place:
               class: App\Entity\Place
+              form:
+                  fields:
+                      - { property: 'location' }
         TaxiService:
               class: App\Entity\TaxiService
               show:
@@ -81,6 +90,6 @@ easy_admin:
                         - { property: 'translatable', label: 'Translation from', }
                         - { property: 'locale', type: 'choice', type_options: '%easyadmin.options.language.choices%' }
                         - { property: 'name' }
-                        - { property: 'description'}
+                        - { property: 'description', type: 'fos_ckeditor'}
 
 

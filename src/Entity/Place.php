@@ -5,12 +5,14 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PlaceRepository")
  */
 class Place
 {
+    use ORMBehaviors\Geocodable\Geocodable;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -86,31 +88,6 @@ class Place
     public function setAddress(?string $address): self
     {
         $this->address = $address;
-
-        return $this;
-    }
-
-    public function getMapPoint(): ?array
-    {
-        return $this->mapPoint;
-    }
-
-    public function setMapPoint(?array $mapPoint): self
-    {
-        $this->mapPoint = $mapPoint;
-
-        return $this;
-    }
-
-
-    public function getMapPointString(): ?string
-    {
-        return json_encode($this->mapPoint);
-    }
-
-    public function setMapPointString(?string $mapPoint): self
-    {
-        $this->mapPoint = json_decode($mapPoint);
 
         return $this;
     }
