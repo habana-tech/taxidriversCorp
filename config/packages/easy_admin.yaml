@@ -1,11 +1,44 @@
 easy_admin:
     entities:
         Booking:
-            class: App\Entity\Booking
+              class: App\Entity\Booking
+              form:
+                    fields:
+                          - { property: 'client' }
+                          - { property: 'passenger' }
+
+                          - { property: 'travelDate' }
+                          - { property: 'travelTime' }
+                          - { property: 'price'}
+                          - { property: 'currency', type: 'choice', type_options: '%easyadmin.options.currency.choices%' }
+
+                          - { property: 'origin' }
+                          - { property: 'destination' }
+                          - { property: 'comment' }
+              list:
+                    fields:
+                        - { property: 'id' }
+                        - { property: 'client' }
+                        - { property: 'passenger' }
+                        - { property: 'travelDate' }
+                        - { property: 'travelTime'}
+                        - { property: 'destination'}
+                        - { property: 'destination'}
+                        - { property: 'price'}
+                        - { property: 'currency'}
+
         Client:
-            class: App\Entity\Client
+             class: App\Entity\Client
+             form:
+                   fields:
+                         - { property: 'name' }
+                         - { property: 'email' }
+                         - { property: 'telephone' }
+                         - { property: 'country'}
+                         - { property: 'locale', type: 'choice', type_options: '%easyadmin.options.language.choices%' }
+                         - { property: 'bookings' }
         Place:
-            class: App\Entity\Place
+              class: App\Entity\Place
         TaxiService:
               class: App\Entity\TaxiService
               show:
@@ -36,7 +69,7 @@ easy_admin:
                     - { property: 'active' }
                     - { property: 'imageFile', type: 'vich_image' }
                     - { property: 'alternativeText'}
-                    - { property: 'category'}
+                    - { property: 'category', type: 'choice', type_options: '%easyadmin.options.service_categories.choices%' }
                     - { property: 'origin'}
                     - { property: 'intermedialPlaces'}
                     - { property: 'destination'}
@@ -46,7 +79,7 @@ easy_admin:
               form:
                   fields:
                         - { property: 'translatable', label: 'Translation from', }
-                        - { property: 'locale', type: 'choice', type_options: {choices: {en: 'en', de: 'de',es: 'es'}}}
+                        - { property: 'locale', type: 'choice', type_options: '%easyadmin.options.language.choices%' }
                         - { property: 'name' }
                         - { property: 'description'}
 

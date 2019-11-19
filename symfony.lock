@@ -1,4 +1,10 @@
 {
+    "a2lix/auto-form-bundle": {
+        "version": "0.2"
+    },
+    "a2lix/translation-form-bundle": {
+        "version": "3.x-dev"
+    },
     "behat/transliterator": {
         "version": "v1.2.0"
     },
@@ -109,6 +115,9 @@
     "egulias/email-validator": {
         "version": "2.1.11"
     },
+    "erusev/parsedown": {
+        "version": "dev-master"
+    },
     "google/recaptcha": {
         "version": "1.1",
         "recipe": {
@@ -130,6 +139,9 @@
     "jms/metadata": {
         "version": "2.1.0"
     },
+    "knplabs/doctrine-behaviors": {
+        "version": "v1.x-dev"
+    },
     "league/flysystem": {
         "version": "1.0.55"
     },
@@ -145,6 +157,9 @@
             "./config/packages/liip_imagine.yaml",
             "./config/routes/liip_imagine.yaml"
         ]
+    },
+    "lorenzo/pinky": {
+        "version": "1.0.5"
     },
     "monolog/monolog": {
         "version": "1.25.1"
@@ -311,9 +326,6 @@
         "version": "v4.3.4"
     },
     "symfony/error-handler": {
-        "version": "4.4.x-dev"
-    },
-    "symfony/error-renderer": {
         "version": "4.4.x-dev"
     },
     "symfony/event-dispatcher": {
@@ -625,15 +637,6 @@
             "./config/routes/dev/web_profiler.yaml"
         ]
     },
-    "symfony/web-server-bundle": {
-        "version": "3.3",
-        "recipe": {
-            "repo": "github.com/symfony/recipes",
-            "branch": "master",
-            "version": "3.3",
-            "ref": "dae9b39fd6717970be7601101ce5aa960bf53d9a"
-        }
-    },
     "symfony/webpack-encore-bundle": {
         "version": "1.0",
         "recipe": {
@@ -655,7 +658,19 @@
     "symfony/yaml": {
         "version": "v4.3.4"
     },
+    "tijsverkoyen/css-to-inline-styles": {
+        "version": "2.2.x-dev"
+    },
+    "twig/cssinliner-extra": {
+        "version": "3.x-dev"
+    },
     "twig/extra-bundle": {
+        "version": "3.x-dev"
+    },
+    "twig/inky-extra": {
+        "version": "3.x-dev"
+    },
+    "twig/markdown-extra": {
         "version": "3.x-dev"
     },
     "twig/twig": {

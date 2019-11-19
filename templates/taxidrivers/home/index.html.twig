@@ -14,6 +14,12 @@
             <li>{{ client.email }} - {{ client.getSessionLang }}</li>
         {% endfor %}
     </ul>
+
+    <hr>
+    {% for service in taxiServices %}
+        <li>{{ service }}</li>
+    {% endfor %}
+
 <div class="example-wrapper">
     <h1>Hello {{ controller_name }}! ✅</h1>
 

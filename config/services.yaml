@@ -8,11 +8,20 @@ parameters:
     taxidrivers_domain: '%env(TAXIDRIVERS_DOMAIN)%'
     vinales_domain: '%env(VINALES_DOMAIN)%'
     dash_domain: '%env(DASH_DOMAIN)%'
+
+    mailer.sender.address: 'web@taxidriverscuba.com'
+
+    # This parameter defines the codes of the locales (languages) enabled in the application
     default_locale: en
     locale: '%default_locale%'
-    # This parameter defines the codes of the locales (languages) enabled in the application
     app_locales: en|fr|de|es
+
+    # This parameter defines the PATH for save and show the images uploaded
     app.path.uploaded_images: /uploads/images
+
+    easyadmin.options.language.choices: {choices: {INGLES: 'en', ALEMAN: 'de',ESPAÑOL: 'es', FRANCES: 'fr'}}
+    easyadmin.options.currency.choices: {choices: {USD: 'USD', EUR: 'EUR',CUC: 'CUC'}}
+    easyadmin.options.service_categories.choices: {choices: {Transfer: 'transfer', Experiencia: 'experiencia',Transf_Aeropuerto: 'transf_aeropuerto'}}
 
 services:
     # default configuration for services in *this* file

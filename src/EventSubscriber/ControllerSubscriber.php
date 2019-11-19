@@ -24,6 +24,11 @@ class ControllerSubscriber implements  EventSubscriberInterface{
         ];
     }
 
+
+    /**
+     * @param ControllerArgumentsEvent $event
+     * Set the current language from the request in controller event as global in the $_SESSION var
+     */
     public function setLanguageRequestAsGlobal(ControllerArgumentsEvent $event)
     {
         $parameters = $event->getRequest()->attributes->all();

@@ -6,12 +6,16 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\DataHelpers\CountryTelephoneNumber;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
  */
 class Client
 {
+    use ORMBehaviors\Timestampable\Timestampable,
+        UniqueIdProperty;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -44,9 +48,17 @@ class Client
      */
     private $bookings;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $locale;
+
     public function __construct()
     {
         $this->bookings = new ArrayCollection();
+        $current_locale = isset($_SESSION['_locale']) ? $_SESSION['_locale'] : 'en';
+        $this->locale = $current_locale;
+        $this->setUniqueId('txd-c');
     }
 
     public function getId(): ?int
@@ -151,9 +163,16 @@ class Client
         return $tmp;
     }
 
-    public function getSessionLang()
+    public function getLocale(): ?string
     {
-        return $_SESSION['_locale'];
+        return $this->locale;
+    }
+
+    public function setLocalee(?string $locale): self
+    {
+        $this->locale = $locale;
+
+        return $this;
     }
 
 }

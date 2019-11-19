@@ -22,9 +22,13 @@ security:
             form_login:
                 login_path: /login
                 check_path: /login
-                default_target_path: /profile
                 username_parameter: email
                 password_parameter: password
+                default_target_path: dash_home
+                remember_me: true
+            remember_me:
+                secret: '%kernel.secret%'
+                remember_me_parameter: remember_me
 
             logout:
                 path: logout
@@ -34,6 +38,7 @@ security:
     access_control:
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DASH_DOMAIN)%' }
         - { path: ^/forgot-password, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DASH_DOMAIN)%' }
+        - { path: ^/reset-password, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DASH_DOMAIN)%' }
         - { path: ^/, roles: ROLE_ADMIN, host: '%env(DASH_DOMAIN)%' }
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/profile, roles: ROLE_USER }

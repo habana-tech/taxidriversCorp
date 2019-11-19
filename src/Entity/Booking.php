@@ -3,23 +3,22 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
  */
 class Booking
 {
+    use UniqueIdProperty,
+        ORMBehaviors\SoftDeletable\SoftDeletable,
+        ORMBehaviors\Timestampable\Timestampable;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="datetime")
-     */
-    public $creationDate;
 
     /**
      * @ORM\Column(type="float", nullable=true)
@@ -69,28 +68,21 @@ class Booking
      */
     private $campaign = [];
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $passenger;
+
 
     public function __construct()
     {
-        $this->creationDate = new \DateTime();
+        $this->setUniqueId('txd-b');
     }
 
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getCreationDate(): ?\DateTimeInterface
-    {
-        return $this->creationDate;
-    }
-
-    public function setCreationDate(\DateTimeInterface $creationDate): self
-    {
-        $this->creationDate = $creationDate;
-
-        return $this;
     }
 
     public function getPrice(): ?float
@@ -197,6 +189,27 @@ class Booking
     public function setCampaign(?array $campaign): self
     {
         $this->campaign = $campaign;
+
+        return $this;
+    }
+
+    public function __toString()
+    {
+        $id = $this->id;
+        $date = $this->travelDate->format('d/m/Y');
+        $origin = $this->origin->getName();
+        $destination = $this->destination->getName();
+        return "($date) $origin -> $destination";
+    }
+
+    public function getPassenger(): ?int
+    {
+        return $this->passenger;
+    }
+
+    public function setPassenger(int $passenger): self
+    {
+        $this->passenger = $passenger;
 
         return $this;
     }

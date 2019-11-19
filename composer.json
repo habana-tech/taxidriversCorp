@@ -9,10 +9,11 @@
 		"ext-ctype": "*",
 		"ext-iconv": "*",
 		"ext-json": "*",
+		"a2lix/auto-form-bundle": "0.2",
 		"a2lix/translation-form-bundle": "^3.0",
-        "a2lix/auto-form-bundle": "0.2",
 		"dompdf/dompdf": "^0.8",
 		"easycorp/easyadmin-bundle": "^2.3",
+		"erusev/parsedown": "dev-master",
 		"google/recaptcha": "^1.2",
 		"knplabs/doctrine-behaviors": "^1.5",
 		"liip/imagine-bundle": "^2.1",
@@ -46,6 +47,9 @@
 		"symfony/web-link": "*",
 		"symfony/webpack-encore-bundle": "^1.6",
 		"symfony/yaml": "*",
+		"twig/cssinliner-extra": "3.x-dev",
+		"twig/inky-extra": "3.x-dev",
+		"twig/markdown-extra": "3.x-dev",
 		"vich/uploader-bundle": "^1.1"
 	},
     "require-dev": {
