@@ -29,16 +29,8 @@ class BoardController extends AbstractController
             'controller_name' => 'bookingList',
             'page_title' => 'Booking List',
             'iframe_path' => 'easyadmin',
+            'iframe_path_parameters' => ['entity'=>'Booking'],
         ]);
     }
 
-
-    /**
-     * @Route("/info", name="phpinfo")
-     */
-    public function info()
-    {
-        phpinfo();
-        exit();
-    }
 }

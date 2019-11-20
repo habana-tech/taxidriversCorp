@@ -12,8 +12,8 @@ use Symfony\Component\HttpKernel\Event\ExceptionEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Mailer\Event\MessageEvent;
 use Symfony\Component\Mime\Message;
-use Symfony\Bridge\Twig\Mime\NotificationEmail;
 use Symfony\Component\Mime\Email;
+use Symfony\Component\Mime\NamedAddress;
 
 class MessageSubscriber implements EventSubscriberInterface
 {
@@ -31,7 +31,7 @@ class MessageSubscriber implements EventSubscriberInterface
     {
         if($event->getMessage() instanceof Email)
         {
-            $event->getMessage()->from('web@taxidriverscuba.com'); //TODO: set the real email
+            $event->getMessage()->from(new NamedAddress('web@taxidriverscuba.com', 'TaxidriversCorp')); //TODO: set the real email
         }
 
 
