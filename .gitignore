@@ -24,4 +24,5 @@ yarn-error.log
 ###< symfony/webpack-encore-bundle ###
 
 public/.htpasswd
+public/uploads
 .idea/
