@@ -1,4 +1,4 @@
-import 'selectPointMap';
+import './selectPointMap';
 
 
     setup = function( element ) {

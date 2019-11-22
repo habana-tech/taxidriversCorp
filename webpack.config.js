@@ -27,7 +27,7 @@ Encore
 
      /**DASH*/
     .addEntry('dash', './assets/dash/scripts/index.js')
-    .addEntry('dash-eadmin-place', './assets/dash/scripts/mapBox/index.js')
+    //.addEntry('dash-eadmin-place', './assets/dash/scripts/mapBox/index.js')
 
     /*Taxidrivers**/
     .addEntry('taxidrivers', './assets/taxidrivers/js/app.js')

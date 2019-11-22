@@ -130,7 +130,7 @@ class SelectPointMap{
 }
 
 let map = null;
-
+/*
 CKEDITOR.dialog.add( 'MapMarkerDialog', function( editor ) {
     return {
         title: 'MapMarker Properties',
