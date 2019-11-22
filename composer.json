@@ -3,7 +3,6 @@
 	"description": "An HabanaTech project",
     "type": "project",
     "license": "proprietary",
-    "minimum-stability": "dev",
     "require": {
 		"php": "^7.1.3",
 		"ext-ctype": "*",
@@ -14,7 +13,7 @@
 		"dompdf/dompdf": "^0.8",
 		"easycorp/easyadmin-bundle": "^2.3",
 		"erusev/parsedown": "dev-master",
-		"friendsofsymfony/ckeditor-bundle": "^3.0",
+		"friendsofsymfony/ckeditor-bundle": "*",
 		"google/recaptcha": "^1.2",
 		"knplabs/doctrine-behaviors": "^1.5",
 		"liip/imagine-bundle": "^2.1",
@@ -101,7 +100,7 @@
     "extra": {
         "symfony": {
             "allow-contrib": false,
-            "require": "4.4.*@dev"
+            "require": "4.4"
         }
     }
 

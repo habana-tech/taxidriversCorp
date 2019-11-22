@@ -13,7 +13,7 @@ use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Mailer\Event\MessageEvent;
 use Symfony\Component\Mime\Message;
 use Symfony\Component\Mime\Email;
-use Symfony\Component\Mime\NamedAddress;
+use Symfony\Component\Mime\Address;
 
 class MessageSubscriber implements EventSubscriberInterface
 {
@@ -31,7 +31,7 @@ class MessageSubscriber implements EventSubscriberInterface
     {
         if($event->getMessage() instanceof Email)
         {
-            $event->getMessage()->from(new NamedAddress('web@taxidriverscuba.com', 'TaxidriversCorp')); //TODO: set the real email
+            $event->getMessage()->from(new Address('web@taxidriverscuba.com', 'TaxidriversCorp')); //TODO: set the real email
         }
 
 

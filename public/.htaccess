@@ -1,6 +1,7 @@
 AuthType Basic
 AuthName "My dev Protected Area"
-AuthUserFile /home/taxidriverscuba/taxidriversCorp/public/.htpasswd
+#AuthUserFile /home/taxidriverscuba/taxidriversCorp/public/.htpasswd
+AuthUserFile D:\WebWork\taxidriversCorp\public\.htpasswd
 Require valid-user
 
 #AllowOverride All
