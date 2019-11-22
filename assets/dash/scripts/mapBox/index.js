@@ -82,8 +82,7 @@ onShow = function() {
 
     // Invoke the setup methods of all dialog window elements, so they can load the element attributes.
     this.setupContent(this.element['$']);
-}
 };
-});/**
+/**
  * Created by jo on 11/19/2019.
  */
