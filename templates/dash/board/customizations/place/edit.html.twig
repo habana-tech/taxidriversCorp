@@ -9,6 +9,7 @@
             {% if field.vars.name != 'locationString' %}
                 {{ form_row(field) }}
             {% else %}
+                {%  include 'dash/board/customizations/location.html.twig' %}
                 <div class="locationString MapBox location">
                     {{ form_row(field) }}
                 </div>

@@ -26,6 +26,8 @@
         "jquery-sparkline": "^2.4.0",
         "jvectormap": "^2.0.4",
         "lazysizes": "^4.0.4",
+        "mapbox": "^1.0.0-beta10",
+        "mapbox-gl": "^1.4.1",
         "masonry-layout": "^4.2.0",
         "moment": "^2.19.1",
         "node-sass": "^4.13.0",
