@@ -27,3 +27,4 @@ public/.htpasswd
 public/.htaccess
 .idea/
 public/uploads
+.env
