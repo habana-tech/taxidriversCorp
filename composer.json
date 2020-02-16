@@ -58,6 +58,11 @@
         "symfony/test-pack": "*"
     },
     "config": {
+        "platform": {
+
+            "php": "7.3.12"
+
+        },
         "preferred-install": {
             "*": "dist"
         },

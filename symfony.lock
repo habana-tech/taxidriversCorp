@@ -217,7 +217,7 @@
         "version": "v0.3.3"
     },
     "php": {
-        "version": "7.4"
+        "version": "7.3.12"
     },
     "phpdocumentor/reflection-common": {
         "version": "2.0.0"
@@ -690,9 +690,6 @@
         "files": [
             "./config/packages/vich_uploader.yaml"
         ]
-    },
-    "webimpress/safe-writer": {
-        "version": "2.0.0"
     },
     "webmozart/assert": {
         "version": "1.5.0"
