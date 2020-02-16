@@ -2,40 +2,31 @@
   "entrypoints": {
     "dash": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors~dash~dash-eadmin-place.js",
-        "/build/vendors~dash.js",
-        "/build/dash.js"
+        "/build/runtime.08beddea.js",
+        "/build/0.d3ab7744.js",
+        "/build/dash.903063c4.js"
       ],
       "css": [
-        "/build/vendors~dash.css",
-        "/build/dash.css"
-      ]
-    },
-    "dash-eadmin-place": {
-      "js": [
-        "/build/runtime.js",
-        "/build/vendors~dash~dash-eadmin-place.js",
-        "/build/vendors~dash-eadmin-place.js",
-        "/build/dash-eadmin-place.js"
+        "/build/0.f87da28c.css",
+        "/build/dash.62ab32e2.css"
       ]
     },
     "taxidrivers": {
       "js": [
-        "/build/runtime.js",
-        "/build/taxidrivers.js"
+        "/build/runtime.08beddea.js",
+        "/build/taxidrivers.f633753c.js"
       ],
       "css": [
-        "/build/taxidrivers.css"
+        "/build/taxidrivers.67601ba8.css"
       ]
     },
     "vinales": {
       "js": [
-        "/build/runtime.js",
-        "/build/vinales.js"
+        "/build/runtime.08beddea.js",
+        "/build/vinales.b385b2f0.js"
       ],
       "css": [
-        "/build/vinales.css"
+        "/build/vinales.d9eab54f.css"
       ]
     }
   }
