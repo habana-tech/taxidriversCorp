@@ -5,10 +5,10 @@
 # https://symfony.com/doc/current/best_practices/configuration.html#application-related-configuration
 parameters:
     google_recaptcha_site_key: '%env(GOOGLE_RECAPTCHA_SITE_KEY)%'
-    taxidrivers_domain: '%env(TAXIDRIVERS_DOMAIN)%'
-    vinales_domain: '%env(VINALES_DOMAIN)%'
-    dash_domain: '%env(DASH_DOMAIN)%'
 
+    domain.taxidrivers: '%env(DOMAIN_TAXIDRIVERS)%'
+    domain.vinales: '%env(DOMAIN_VINALES)%'
+    domain.dash: '%env(DOMAIN_DASH)%'
     mailer.sender.address: 'web@taxidriverscuba.com'
 
     # This parameter defines the codes of the locales (languages) enabled in the application
@@ -16,12 +16,13 @@ parameters:
     locale: '%default_locale%'
     app_locales: en|fr|de|es
 
-    # This parameter defines the PATH for save and show the images uploaded
-    app.path.uploaded_images: /uploads/images
-
     easyadmin.options.language.choices: {choices: {INGLES: 'en', ALEMAN: 'de',ESPAÑOL: 'es', FRANCES: 'fr'}}
     easyadmin.options.currency.choices: {choices: {USD: 'USD', EUR: 'EUR',CUC: 'CUC'}}
     easyadmin.options.service_categories.choices: {choices: {Transfer: 'transfer', Experiencia: 'experiencia',Transf_Aeropuerto: 'transf_aeropuerto'}}
+
+    # This parameter defines the PATH for save and show the images uploaded
+    app.path.uploaded_images: /uploads/images
+
 
 services:
     # default configuration for services in *this* file

@@ -2,9 +2,9 @@
   "entrypoints": {
     "dash": {
       "js": [
-        "/build/runtime.08beddea.js",
-        "/build/0.d3ab7744.js",
-        "/build/dash.903063c4.js"
+        "/build/runtime.1103dde6.js",
+        "/build/0.24c7ceef.js",
+        "/build/dash.912c2ffb.js"
       ],
       "css": [
         "/build/0.f87da28c.css",
@@ -13,8 +13,8 @@
     },
     "taxidrivers": {
       "js": [
-        "/build/runtime.08beddea.js",
-        "/build/taxidrivers.f633753c.js"
+        "/build/runtime.1103dde6.js",
+        "/build/taxidrivers.20e8b1e5.js"
       ],
       "css": [
         "/build/taxidrivers.67601ba8.css"
@@ -22,8 +22,8 @@
     },
     "vinales": {
       "js": [
-        "/build/runtime.08beddea.js",
-        "/build/vinales.b385b2f0.js"
+        "/build/runtime.1103dde6.js",
+        "/build/vinales.5a684eef.js"
       ],
       "css": [
         "/build/vinales.d9eab54f.css"

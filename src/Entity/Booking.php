@@ -2,17 +2,18 @@
 
 namespace App\Entity;
 
+use App\Entity\Fields\Timestampable\Timestampable;
+use App\Entity\Fields\UniqueIdProperty;
 use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\BookingRepository")
  */
 class Booking
 {
-    use UniqueIdProperty,
-        ORMBehaviors\SoftDeletable\SoftDeletable,
-        ORMBehaviors\Timestampable\Timestampable;
+    use UniqueIdProperty;
+    use Timestampable;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

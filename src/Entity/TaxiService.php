@@ -2,20 +2,34 @@
 
 namespace App\Entity;
 
+use App\Entity\Fields\ActiveFieldTrait;
+use App\Entity\Fields\GalleryFieldInterface;
+use App\Entity\Fields\GalleryFieldTrait;
+use App\Entity\Fields\ImageFieldInterface;
+use App\Entity\Fields\ImageFieldTrait;
+use App\Entity\Fields\MachineNameInterface;
+use App\Entity\Fields\MachineNameTrait;
+use App\Entity\Fields\MetadataField;
+use App\Entity\Fields\PriorityFieldTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\TaxiServiceRepository")
  * @Vich\Uploadable
+ * @ORM\HasLifecycleCallbacks
  */
-class TaxiService
+class TaxiService implements ImageFieldInterface, GalleryFieldInterface, MachineNameInterface
 {
-    use ORMBehaviors\Translatable\Translatable,
-        ImageFieldTrait;
+    use Fields\ImageFieldTrait;
+    use ActiveFieldTrait;
+    use MetadataField;
+    use ImageFieldTrait;
+    use GalleryFieldTrait;
+    use PriorityFieldTrait;
+    use MachineNameTrait;
 
     /**
      * @ORM\Id()
@@ -44,52 +58,76 @@ class TaxiService
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Place")
      */
-    private $intermedialPlaces;
+    private $intermediatePlaces;
+
 
     /**
      * @ORM\Column(type="string", length=255)
      */
-    private $internalName;
+    private $name;
 
     /**
-     * @ORM\Column(type="boolean", nullable=true)
+     * @ORM\Column(type="text")
      */
-    private $active;
+    private $description;
 
-    /**
-     * @ORM\OneToMany(targetEntity="App\Entity\GalleryImage", mappedBy="taxiService")
-     */
-    private $gallery;
-
-
-    public function __construct()
+    public function getName(): ?string
     {
-        $this->intermedialPlaces = new ArrayCollection();
-//        $this->gallery = new ArrayCollection();
+        return $this->name;
     }
 
+    public function setName(string $name): self
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
+
+
+    /**
+     * TaxiService constructor.
+     */
+    public function __construct()
+    {
+        $this->gallery            = new ArrayCollection();
+        $this->intermediatePlaces = new ArrayCollection();
+
+    }//end __construct()
+
+
+    /**
+     * @return int|null
+     */
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getCategory(): ?string
-    {
-        return $this->category;
-    }
-
-    public function setCategory(string $category): self
-    {
-        $this->category = $category;
-
-        return $this;
-    }
-
+    /**
+     * @return Place|null
+     */
     public function getOrigin(): ?Place
     {
         return $this->origin;
     }
 
+
+    /**
+     * @param Place|null $origin
+     * @return $this
+     */
     public function setOrigin(?Place $origin): self
     {
         $this->origin = $origin;
@@ -97,11 +135,19 @@ class TaxiService
         return $this;
     }
 
+
+    /**
+     * @return Place|null
+     */
     public function getDestination(): ?Place
     {
         return $this->destination;
     }
 
+    /**
+     * @param Place|null $destination
+     * @return $this
+     */
     public function setDestination(?Place $destination): self
     {
         $this->destination = $destination;
@@ -109,90 +155,59 @@ class TaxiService
         return $this;
     }
 
+
     /**
      * @return Collection|Place[]
      */
-    public function getIntermedialPlaces(): Collection
+    public function getIntermediatePlaces(): Collection
     {
-        return $this->intermedialPlaces;
+        return $this->intermediatePlaces;
     }
 
-    public function addIntermedialPlace(Place $intermedialPlace): self
+
+    /**
+     * @param Place $intermediatePlaces
+     * @return $this
+     */
+    public function addIntermediatePlace(Place $intermediatePlaces): self
     {
-        if (!$this->intermedialPlaces->contains($intermedialPlace)) {
-            $this->intermedialPlaces[] = $intermedialPlace;
+        if (!$this->intermediatePlaces->contains($intermediatePlaces)) {
+            $this->intermediatePlaces[] = $intermediatePlaces;
         }
 
         return $this;
     }
 
-    public function removeIntermedialPlace(Place $intermedialPlace): self
+
+    /**
+     * @param  Place $intermediatePlaces
+     * @return $this
+     */
+    public function removeIntermediatePlace(Place $intermediatePlaces): self
     {
-        if ($this->intermedialPlaces->contains($intermedialPlace)) {
-            $this->intermedialPlaces->removeElement($intermedialPlace);
+        if ($this->intermediatePlaces->contains($intermediatePlaces)) {
+            $this->intermediatePlaces->removeElement($intermediatePlaces);
         }
 
         return $this;
     }
 
+
+    /**
+     * @return string
+     */
     public function __toString()
     {
-        return $this->internalName;
+        return $this->machineName ?? 'empty';
     }
 
-    public function getInternalName(): ?string
+
+    /**
+     * @return string|null
+     */
+    public function getNameFieldValue(): ?string
     {
-        return $this->internalName;
+        return $this->name;
     }
-
-    public function setInternalName(string $internalName): self
-    {
-        $this->internalName = $internalName;
-
-        return $this;
-    }
-
-    public function getActive(): ?bool
-    {
-        return $this->active;
-    }
-
-    public function setActive(?bool $active): self
-    {
-        $this->active = $active;
-
-        return $this;
-    }
-//
-//    /**
-//     * @return Collection|GalleryImage[]
-//     */
-//    public function getGallery(): Collection
-//    {
-//        return $this->gallery;
-//    }
-//
-//    public function addGallery(GalleryImage $gallery): self
-//    {
-//        if (!$this->gallery->contains($gallery)) {
-//            $this->gallery[] = $gallery;
-//            $gallery->setTaxiService($this);
-//        }
-//
-//        return $this;
-//    }
-//
-//    public function removeGallery(GalleryImage $gallery): self
-//    {
-//        if ($this->gallery->contains($gallery)) {
-//            $this->gallery->removeElement($gallery);
-//            // set the owning side to null (unless already changed)
-//            if ($gallery->getTaxiService() === $this) {
-//                $gallery->setTaxiService(null);
-//            }
-//        }
-//
-//        return $this;
-//    }
 
 }

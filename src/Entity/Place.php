@@ -3,17 +3,14 @@
 namespace App\Entity;
 
 use Doctrine\Common\Collections\ArrayCollection;
-use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Knp\DoctrineBehaviors\Model as ORMBehaviors;
-use Knp\DoctrineBehaviors\ORM\Geocodable\Type\Point;
+use App\DataHelpers\LocationPoint;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PlaceRepository")
  */
 class Place
 {
-    use ORMBehaviors\Geocodable\Geocodable;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -48,7 +45,7 @@ class Place
         return $this->id;
     }
 
-    public function getName(): ?string
+    public function getName(): string
     {
         return $this->name;
     }
@@ -89,17 +86,21 @@ class Place
         return $this;
     }
 
+    /**
+     * @param $string
+     * @return $this
+     */
     public function setLocationString($string)
     {
-        $this->setLocation(Point::fromString($string));
+        $this->locationString = $string;
         return $this;
-
     }
 
+    /**
+     * @return mixed
+     */
     public function getLocationString()
     {
-        if($this->getLocation())
-            return $this->getLocation()->__toString();
+        return $this->locationString;
     }
-
 }

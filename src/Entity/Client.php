@@ -2,11 +2,12 @@
 
 namespace App\Entity;
 
+use App\Entity\Fields\Timestampable\Timestampable;
+use App\Entity\Fields\UniqueIdProperty;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\DataHelpers\CountryTelephoneNumber;
-use Knp\DoctrineBehaviors\Model as ORMBehaviors;
 
 
 /**
@@ -14,8 +15,8 @@ use Knp\DoctrineBehaviors\Model as ORMBehaviors;
  */
 class Client
 {
-    use ORMBehaviors\Timestampable\Timestampable,
-        UniqueIdProperty;
+    use UniqueIdProperty;
+    use Timestampable;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -174,5 +175,11 @@ class Client
 
         return $this;
     }
+
+    public function getSessionLang()
+    {
+        return $this->getLocale();
+    }
+
 
 }

@@ -6,7 +6,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\Routing\Annotation\Route;
 
 	/**
-     * @Route(host="%dash_domain%")
+     * @Route(host="%domain.dash%")
      */
 class BoardController extends AbstractController
 {

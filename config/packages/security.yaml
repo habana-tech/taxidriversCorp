@@ -1,44 +1,47 @@
-# see https://github.com/symfony/recipes/blob/master/symfony/security-bundle/3.3/config/packages/security.yaml
 security:
     encoders:
-        MsgPhp\User\Infrastructure\Security\UserIdentity: auto
+        App\Entity\User:
+            algorithm: auto
+
     # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
     providers:
-        msgphp_user: { id: MsgPhp\User\Infrastructure\Security\UserIdentityProvider }
+        # used to reload user from session & other features (e.g. switch_user)
+        app_user_provider:
+            entity:
+                class: App\Entity\User
+                property: email
     firewalls:
         dev:
             pattern: ^/(_(profiler|wdt)|css|images|js)/
             security: false
         main:
             anonymous: lazy
-            provider: msgphp_user
-
-            # activate different ways to authenticate
-
-            # http_basic: true
-            # https://symfony.com/doc/current/security.html#a-configuring-how-your-users-will-authenticate
-
-            # https://symfony.com/doc/current/security/form_login_setup.html
-            form_login:
-                login_path: /login
-                check_path: /login
-                username_parameter: email
-                password_parameter: password
-                default_target_path: dash_home
-                remember_me: true
+            provider: app_user_provider
+            guard:
+                authenticators:
+                    - App\Security\AppAuthenticator
+            logout:
+                path: app_logout
+                # where to redirect after logout
+                target: app_login
             remember_me:
                 secret: '%kernel.secret%'
                 remember_me_parameter: remember_me
 
-            logout:
-                path: logout
+            # activate different ways to authenticate
+            # https://symfony.com/doc/current/security.html#firewalls-authentication
+
+            # https://symfony.com/doc/current/security/impersonating_user.html
+            # switch_user: true
 
     # Easy way to control access for large sections of your site
     # Note: Only the *first* access control that matches will be used
     access_control:
-        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DASH_DOMAIN)%' }
-        - { path: ^/forgot-password, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DASH_DOMAIN)%' }
-        - { path: ^/reset-password, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DASH_DOMAIN)%' }
-        - { path: ^/, roles: ROLE_ADMIN, host: '%env(DASH_DOMAIN)%' }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DOMAIN_DASH)%' }
+        - { path: ^/forgot-password, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DOMAIN_DASH)%' }
+        - { path: ^/reset-password, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DOMAIN_DASH)%' }
+        - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DOMAIN_DASH)%' }
+        - { path: ^/, roles: ROLE_ADMIN, host: '%env(DOMAIN_DASH)%' }
         - { path: ^/admin, roles: ROLE_ADMIN }
         - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DOMAIN_VINALES)%|%env(DOMAIN_TAXIDRIVERS)%' }

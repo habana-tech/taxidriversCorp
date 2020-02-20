@@ -14,7 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class FormController extends AbstractController
 {
     /**
-     * @Route("/form", name="taxidrivers_form", host="%taxidrivers_domain%")
+     * @Route("/form", name="taxidrivers_form", host="%domain.taxidrivers%")
      */
     public function index()
     {
