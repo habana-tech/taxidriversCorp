@@ -45,7 +45,7 @@ class Place
         return $this->id;
     }
 
-    public function getName(): string
+    public function getName(): ?string
     {
         return $this->name;
     }
@@ -59,7 +59,7 @@ class Place
 
     public function __toString()
     {
-        return $this->getName();
+        return $this->getName()?? '';
     }
 
     public function isPublic(): ?bool

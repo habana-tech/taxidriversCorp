@@ -12,14 +12,17 @@ use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\HttpKernel\Event\ControllerArgumentsEvent;
 use Symfony\Component\HttpKernel\KernelEvents;
 
-class ControllerSubscriber implements  EventSubscriberInterface{
-
+class ControllerSubscriber implements EventSubscriberInterface
+{
     public static function getSubscribedEvents()
     {
-        // return the subscribed events, their methods and priorities
+        // Return the subscribed events, their methods and priorities.
         return [
             KernelEvents::CONTROLLER_ARGUMENTS => [
-                ['setLanguageRequestAsGlobal', 0],
+                [
+                    'setLanguageRequestAsGlobal',
+                    0,
+                ],
             ],
         ];
     }
@@ -33,8 +36,8 @@ class ControllerSubscriber implements  EventSubscriberInterface{
     {
         $parameters = $event->getRequest()->attributes->all();
 
-        if(isset($parameters['_locale']))
+        if (isset($parameters['_locale']) === true) {
             $_SESSION['_locale'] = $parameters['_locale'];
-    }
-
+        }
+    }//end setLanguageRequestAsGlobal()
 }

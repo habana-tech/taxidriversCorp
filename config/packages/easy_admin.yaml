@@ -21,17 +21,18 @@ easy_admin:
               class: App\Entity\Booking
               form:
                     fields:
-                          - { property: 'client' }
-                          - { property: 'passenger' }
+                          - { property: 'client', label: 'Cliente', help: 'Selecciona un cliente existente, o agrega uno nuevo.', type_options: {attr: {required: false}} }
+                          - { property: 'newClient', label: 'Nuevo Cliente', help: 'Puede agregar un nuevo cliente aqui' , type: 'App\Form\ClientType'}
+                          - { property: 'passenger', type_options: {attr: { min: 1} }, label: 'Cantidad de pasajeros' }
 
-                          - { property: 'travelDate' }
-                          - { property: 'travelTime' }
-                          - { property: 'price'}
-                          - { property: 'currency', type: 'choice', type_options: '%easyadmin.options.currency.choices%' }
+                          - { property: 'travelDate', label: 'Fecha del viaje' }
+                          - { property: 'travelTime', label: 'Hora del viaje' }
+                          - { property: 'price',  label: 'Precio', type: 'money' }
+                          - { property: 'currency', label: 'Moneda a cobrar', type: 'choice', type_options: '%easyadmin.options.currency.choices%' }
 
-                          - { property: 'origin' }
-                          - { property: 'destination' }
-                          - { property: 'comment' }
+                          - { property: 'origin', label: 'Lugar de destino' }
+                          - { property: 'destination', label: 'Lugar de destino' }
+                          - { property: 'comment', label: 'Comentario del cliente' }
               list:
                     fields:
                         - { property: 'id' }

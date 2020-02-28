@@ -17,25 +17,33 @@ use Symfony\Component\Mime\Address;
 
 class MessageSubscriber implements EventSubscriberInterface
 {
-    public static function getSubscribedEvents()
+
+
+    /**
+     * @return array
+     */
+    public static function getSubscribedEvents(): array
     {
-        // return the subscribed events, their methods and priorities
+        // Return the subscribed events, their methods and priorities.
         return [
             MessageEvent::class => [
-                ['addFromToEmails', 0],
+                [
+                    'addFromToEmails',
+                    0,
+                ],
             ],
         ];
-    }
+    }//end getSubscribedEvents
 
-    public function addFromToEmails(MessageEvent $event)
+
+    /**
+     * @param MessageEvent $event
+     */
+    public function addFromToEmails(MessageEvent $event): void
     {
-        if($event->getMessage() instanceof Email)
-        {
-            $event->getMessage()->from(new Address('web@taxidriverscuba.com', 'TaxidriversCorp')); //TODO: set the real email
+        if ($event->getMessage() instanceof Email) {
+            // TODO: set the real email.
+            $event->getMessage()->from(new Address('web@taxidriverscuba.com', 'TaxidriversCorp'));
         }
-
-
     }
-
-
 }

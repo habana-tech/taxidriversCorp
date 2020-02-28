@@ -27,7 +27,7 @@ class Booking
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="bookings")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="bookings", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $client;
@@ -213,6 +213,18 @@ class Booking
         $this->passenger = $passenger;
 
         return $this;
+    }
+
+    public function setNewClient(Client $client)
+    {
+        if ($this->client === null){
+            $this->client = $client;
+        }
+    }
+
+    public function getNewClient()
+    {
+        return null;
     }
 
 }
