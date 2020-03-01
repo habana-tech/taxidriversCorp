@@ -1,2 +1,19 @@
-{{ encore_entry_script_tags('dash_placemap') }}
-<div id='map' style="height: 60vh"></div>
+{{ form_start(form) }}
+    {% for field in form.children %}
+        {% if field.vars.name != 'lngLat' %}
+            {% if field.vars.name == 'referencePlace' %}
+                {{ form_row(field, { 'attr': { 'class': 'lngLat_referencePlace_input' }}) }}
+            {% else %}
+                {{ form_row(field) }}
+            {% endif %}
+        {% else %}
+            <div id='map' style="height: 60vh"></div>
+
+            <div class="longLat MapBox location">
+                {{ form_row(field, { 'attr': { 'class': 'lngLat_input' }}) }}
+            </div>
+        {% endif %}
+    {% endfor %}
+
+{{ form_end(form) }}
+ {{ encore_entry_script_tags('dash_placemap') }}
