@@ -1,8 +1,112 @@
 easy_admin:
+    design:
+        #form_theme: ['@FOSCKEditor/Form/ckeditor_widget.html.twig']
+        form_theme:
+          - '@EasyAdmin/form/bootstrap_4.html.twig'
+          - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+
     entities:
-        Booking:
-            class: App\Entity\Booking
         Client:
-            class: App\Entity\Client
+             class: App\Entity\Client
+             form:
+                   fields:
+                         - { property: 'name' }
+                         - { property: 'email' }
+                         - { property: 'telephone' }
+                         - { property: 'country'}
+                         - { property: 'locale', type: 'choice', type_options: '%easyadmin.options.language.choices%' }
+                         - { property: 'bookings' }
+
+        Booking:
+              class: App\Entity\Booking
+              form:
+                    fields:
+                          - { property: 'client', label: 'Cliente', help: 'Selecciona un cliente existente, o agrega uno nuevo.', type_options: {attr: {required: false}} }
+                          - { property: 'newClient', label: 'Nuevo Cliente', help: 'Puede agregar un nuevo cliente aqui' , type: 'App\Form\ClientType'}
+                          - { property: 'passenger', type_options: {attr: { min: 1} }, label: 'Cantidad de pasajeros' }
+
+                          - { property: 'travelDate', label: 'Fecha del viaje' }
+                          - { property: 'travelTime', label: 'Hora del viaje' }
+                          - { property: 'price',  label: 'Precio', type: 'money' }
+                          - { property: 'currency', label: 'Moneda a cobrar', type: 'choice', type_options: '%easyadmin.options.currency.choices%' }
+
+                          - { property: 'origin', label: 'Lugar de destino' }
+                          - { property: 'destination', label: 'Lugar de destino' }
+                          - { property: 'comment', label: 'Comentario del cliente' }
+              list:
+                    fields:
+                        - { property: 'id' }
+                        - { property: 'client' }
+                        - { property: 'passenger' }
+                        - { property: 'travelDate' }
+                        - { property: 'travelTime'}
+                        - { property: 'destination'}
+                        - { property: 'destination'}
+                        - { property: 'price'}
+                        - { property: 'currency'}
+
         Place:
-            class: App\Entity\Place
+              class: App\Entity\Place
+              form:
+                  fields:
+                      - { property: 'name' }
+                      - { property: 'public' }
+                      - { property: 'address' }
+                      - { property: 'locationString', type: 'text'}
+              templates:
+                  edit: 'dash/board/customizations/place/edit.html.twig'
+                  new: 'dash/board/customizations/place/new.html.twig'
+
+        TaxiService:
+              class: App\Entity\TaxiService
+              show:
+                   fields:
+                      - { property: 'id' }
+                      - { property: 'active' }
+                      - { property: 'name' }
+                      - { property: 'category' }
+                      - { property: 'image', type: 'image', base_path: '%app.path.uploaded_images%' }
+                      - { property: 'AlternativeText' }
+                      - { property: 'updatedAt' }
+                      - { property: 'origin' }
+                      - { property: 'intermedialPlaces' }
+                      - { property: 'destination' }
+                      - { property: 'translations' }
+
+              list:
+                    fields:
+                        - { property: 'active' }
+                        - { property: 'name' }
+                        - { property: 'image', type: 'image', base_path: '%app.path.uploaded_images%' }
+                        - { property: 'category'}
+                        - { property: 'origin'}
+                        - { property: 'destination'}
+              form:
+                  fields:
+                    - { property: 'internalName' }
+                    - { property: 'active' }
+                    - { property: 'imageField', label: 'Main Image', help: 'You can replace the current image with one from gallery or upload a new one', type: 'App\Form\SingleImageFromGalleryType',  type_options: { block_name: 'image_field' }}
+                    - { property: 'alternativeText'}
+                    - { property: 'category', type: 'choice', type_options: '%easyadmin.options.service_categories.choices%' }
+                    - { property: 'origin'}
+                    - { property: 'intermedialPlaces'}
+                    - { property: 'destination'}
+                    - { property: 'translations'}
+                    - { property: 'name' }
+                    - { property: 'description', type: 'fos_ckeditor'}
+
+#        GalleryImage:
+#              class: App\Entity\GalleryImage
+#              form:
+#                  fields:
+###                      - { property: 'title'}
+#                      - { property: 'imageFile', type: 'vich_image' }
+###                      - { property: 'alternativeText'}
+###                      - { property: 'taxiService'}
+##              list:
+##                  fields:
+##                      - { property: 'title'}
+##                      - { property: 'image', type: 'image', base_path: '%app.path.uploaded_images%' }
+##                      - { property: 'taxiService'}
+##
+#

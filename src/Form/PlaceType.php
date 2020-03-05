@@ -13,7 +13,6 @@ class PlaceType extends AbstractType
     {
         $builder
             ->add('address')
-            ->add('mapPointString')
         ;
     }
 

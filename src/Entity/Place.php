@@ -2,7 +2,9 @@
 
 namespace App\Entity;
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use App\DataHelpers\LocationPoint;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PlaceRepository")
@@ -24,17 +26,19 @@ class Place
     /**
      * @ORM\Column(type="boolean")
      */
-    private $official;
+    private $public;
 
     /**
      * @ORM\Column(type="string", length=255, nullable=true)
      */
     private $address;
 
-    /**
-     * @ORM\Column(type="json", nullable=true)
-     */
-    private $mapPoint = [];
+    private $locationString;
+
+    public function __construct()
+    {
+        $this->taxiServices = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -55,17 +59,17 @@ class Place
 
     public function __toString()
     {
-        return $this->getName();
+        return $this->getName()?? '';
     }
 
-    public function isOfficial(): ?bool
+    public function isPublic(): ?bool
     {
-        return $this->official;
+        return $this->public;
     }
 
-    public function setOfficial(bool $official): self
+    public function setPublic(bool $public): self
     {
-        $this->official = $official;
+        $this->public = $public;
 
         return $this;
     }
@@ -82,29 +86,21 @@ class Place
         return $this;
     }
 
-    public function getMapPoint(): ?array
+    /**
+     * @param $string
+     * @return $this
+     */
+    public function setLocationString($string)
     {
-        return $this->mapPoint;
-    }
-
-    public function setMapPoint(?array $mapPoint): self
-    {
-        $this->mapPoint = $mapPoint;
-
+        $this->locationString = $string;
         return $this;
     }
 
-
-    public function getMapPointString(): ?string
+    /**
+     * @return mixed
+     */
+    public function getLocationString()
     {
-        return json_encode($this->mapPoint);
+        return $this->locationString;
     }
-
-    public function setMapPointString(?string $mapPoint): self
-    {
-        $this->mapPoint = json_decode($mapPoint);
-
-        return $this;
-    }
-
 }

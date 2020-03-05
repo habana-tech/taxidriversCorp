@@ -2,16 +2,21 @@
 
 namespace App\Entity;
 
+use App\Entity\Fields\Timestampable\Timestampable;
+use App\Entity\Fields\UniqueIdProperty;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use App\DataHelpers\CountryTelephoneNumber;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
  */
 class Client
 {
+    use UniqueIdProperty;
+    use Timestampable;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -44,9 +49,17 @@ class Client
      */
     private $bookings;
 
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $locale;
+
     public function __construct()
     {
         $this->bookings = new ArrayCollection();
+        $current_locale = isset($_SESSION['_locale']) ? $_SESSION['_locale'] : 'en';
+        $this->locale = $current_locale;
+        $this->setUniqueId('txd-c');
     }
 
     public function getId(): ?int
@@ -150,5 +163,23 @@ class Client
             $tmp.= " [".$this->getCountry()."]";
         return $tmp;
     }
+
+    public function getLocale(): ?string
+    {
+        return $this->locale;
+    }
+
+    public function setLocale(?string $locale): self
+    {
+        $this->locale = $locale;
+
+        return $this;
+    }
+
+    public function getSessionLang()
+    {
+        return $this->getLocale();
+    }
+
 
 }

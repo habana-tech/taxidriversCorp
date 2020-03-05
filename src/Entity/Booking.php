@@ -2,6 +2,8 @@
 
 namespace App\Entity;
 
+use App\Entity\Fields\Timestampable\Timestampable;
+use App\Entity\Fields\UniqueIdProperty;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -9,6 +11,9 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Booking
 {
+    use UniqueIdProperty;
+    use Timestampable;
+
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -17,17 +22,12 @@ class Booking
     private $id;
 
     /**
-     * @ORM\Column(type="datetime")
-     */
-    public $creationDate;
-
-    /**
      * @ORM\Column(type="float", nullable=true)
      */
     private $price;
 
     /**
-     * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="bookings")
+     * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="bookings", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
     private $client;
@@ -69,28 +69,21 @@ class Booking
      */
     private $campaign = [];
 
+    /**
+     * @ORM\Column(type="integer")
+     */
+    private $passenger;
+
 
     public function __construct()
     {
-        $this->creationDate = new \DateTime();
+        $this->setUniqueId('txd-b');
     }
 
 
     public function getId(): ?int
     {
         return $this->id;
-    }
-
-    public function getCreationDate(): ?\DateTimeInterface
-    {
-        return $this->creationDate;
-    }
-
-    public function setCreationDate(\DateTimeInterface $creationDate): self
-    {
-        $this->creationDate = $creationDate;
-
-        return $this;
     }
 
     public function getPrice(): ?float
@@ -199,6 +192,39 @@ class Booking
         $this->campaign = $campaign;
 
         return $this;
+    }
+
+    public function __toString()
+    {
+        $id = $this->id;
+        $date = $this->travelDate->format('d/m/Y');
+        $origin = $this->origin->getName();
+        $destination = $this->destination->getName();
+        return "($date) $origin -> $destination";
+    }
+
+    public function getPassenger(): ?int
+    {
+        return $this->passenger;
+    }
+
+    public function setPassenger(int $passenger): self
+    {
+        $this->passenger = $passenger;
+
+        return $this;
+    }
+
+    public function setNewClient(Client $client)
+    {
+        if ($this->client === null){
+            $this->client = $client;
+        }
+    }
+
+    public function getNewClient()
+    {
+        return null;
     }
 
 }

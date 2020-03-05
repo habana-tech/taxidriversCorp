@@ -6,7 +6,7 @@ setlocale(LC_TIME, 'es_ES.UTF-8');
 date_default_timezone_set(TIMEZONE);
 
 use App\Kernel;
-use Symfony\Component\Debug\Debug;
+use Symfony\Component\ErrorHandler\Debug;
 use Symfony\Component\HttpFoundation\Request;
 
 require dirname(__DIR__).'/config/bootstrap.php';
