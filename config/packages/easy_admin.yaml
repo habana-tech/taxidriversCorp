@@ -52,7 +52,8 @@ easy_admin:
                       - { property: 'name' }
                       - { property: 'public' }
                       - { property: 'address' }
-                      - { property: 'locationString', type: 'text'}
+                      - { property: 'lngLat', label: 'Longitud y Latitud', help: 'Seleccione un punto en el mapa para rellenar automaticamente' , type: 'text'}
+                      - { property: 'referencePlace', label: 'Punto de referencia', help: 'Cuando se llena automaticamente, se refiere a un punto relativamente cercano al marcado realmente',  type: 'text'}
               templates:
                   edit: 'dash/board/customizations/place/edit.html.twig'
                   new: 'dash/board/customizations/place/new.html.twig'
