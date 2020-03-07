@@ -2,13 +2,13 @@
 
 namespace App\Form;
 
-use App\Entity\TaxiService;
+use App\Entity\Service;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use A2lix\TranslationFormBundle\Form\Type\TranslationsType;
 
-class TaxiServiceType extends AbstractType
+class ServiceType extends AbstractType
 {
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -26,7 +26,7 @@ class TaxiServiceType extends AbstractType
     public function configureOptions(OptionsResolver $resolver)
     {
         $resolver->setDefaults([
-            'data_class' => TaxiService::class,
+            'data_class' => Service::class,
         ]);
     }
 }

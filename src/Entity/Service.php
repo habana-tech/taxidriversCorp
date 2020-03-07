@@ -17,11 +17,11 @@ use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 
 /**
- * @ORM\Entity(repositoryClass="App\Repository\TaxiServiceRepository")
+ * @ORM\Entity(repositoryClass="App\Repository\ServiceRepository")
  * @Vich\Uploadable
  * @ORM\HasLifecycleCallbacks
  */
-class TaxiService implements ImageFieldInterface, GalleryFieldInterface, MachineNameInterface
+class Service implements ImageFieldInterface, GalleryFieldInterface, MachineNameInterface
 {
     use Fields\ImageFieldTrait;
     use ActiveFieldTrait;
@@ -30,6 +30,12 @@ class TaxiService implements ImageFieldInterface, GalleryFieldInterface, Machine
     use GalleryFieldTrait;
     use PriorityFieldTrait;
     use MachineNameTrait;
+
+    public const SERVICE_CATEGORY = [
+        0 => 'transfer',
+        1 => 'experiencia',
+        2 => 'aeropuerto',
+    ];
 
     /**
      * @ORM\Id()

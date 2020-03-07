@@ -58,8 +58,8 @@ easy_admin:
                   edit: 'dash/board/customizations/place/edit.html.twig'
                   new: 'dash/board/customizations/place/new.html.twig'
 
-        TaxiService:
-              class: App\Entity\TaxiService
+        Services:
+              class: App\Entity\Service
               show:
                    fields:
                       - { property: 'id' }
@@ -70,7 +70,7 @@ easy_admin:
                       - { property: 'AlternativeText' }
                       - { property: 'updatedAt' }
                       - { property: 'origin' }
-                      - { property: 'intermedialPlaces' }
+                      - { property: 'intermediatePlaces' }
                       - { property: 'destination' }
                       - { property: 'translations' }
 
