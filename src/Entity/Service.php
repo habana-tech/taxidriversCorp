@@ -15,13 +15,16 @@ use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
+use Knp\DoctrineBehaviors\Contract\Entity\TranslatableInterface;
+use Knp\DoctrineBehaviors\Model\Translatable\TranslatableTrait;
+
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ServiceRepository")
  * @Vich\Uploadable
  * @ORM\HasLifecycleCallbacks
  */
-class Service implements ImageFieldInterface, GalleryFieldInterface, MachineNameInterface
+class Service implements ImageFieldInterface, GalleryFieldInterface, MachineNameInterface, TranslatableInterface
 {
     use Fields\ImageFieldTrait;
     use ActiveFieldTrait;
@@ -30,12 +33,8 @@ class Service implements ImageFieldInterface, GalleryFieldInterface, MachineName
     use GalleryFieldTrait;
     use PriorityFieldTrait;
     use MachineNameTrait;
+    use TranslatableTrait;
 
-    public const SERVICE_CATEGORY = [
-        0 => 'transfer',
-        1 => 'experiencia',
-        2 => 'aeropuerto',
-    ];
 
     /**
      * @ORM\Id()
@@ -43,11 +42,6 @@ class Service implements ImageFieldInterface, GalleryFieldInterface, MachineName
      * @ORM\Column(type="integer")
      */
     private $id;
-
-    /**
-     * @ORM\Column(type="string")
-     */
-    private $category;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Place")
