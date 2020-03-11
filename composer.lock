@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1da93f7f0bb3e2d31d969a61ba76a28f",
+    "content-hash": "ac861d0696ff96f560868e776e74cbb1",
     "packages": [
         {
             "name": "a2lix/auto-form-bundle",
@@ -1630,6 +1630,49 @@
                 "spam"
             ],
             "time": "2019-08-16T15:48:25+00:00"
+        },
+        {
+            "name": "habanatech/business-model",
+            "version": "v1.0.3",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/habana-tech/business-model.git",
+                "reference": "7464a1b81f8fa7c10b1240eb0edc417dbd0ba073"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/habana-tech/business-model/zipball/7464a1b81f8fa7c10b1240eb0edc417dbd0ba073",
+                "reference": "7464a1b81f8fa7c10b1240eb0edc417dbd0ba073",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.4.0",
+                "symfony/dependency-injection": "*",
+                "symfony/event-dispatcher": "*",
+                "symfony/form": "*",
+                "symfony/http-kernel": "*",
+                "symfony/options-resolver": "*",
+                "symfony/orm-pack": "*",
+                "symfony/property-access": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "HabanaTech\\BusinessModel\\": "BusinessModel"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Josue Miguel",
+                    "email": "josmiguel92@gmail.com"
+                }
+            ],
+            "description": "A package to group the diferent pieces of a common project",
+            "time": "2020-03-11T02:59:57+00:00"
         },
         {
             "name": "imagine/imagine",
@@ -8582,10 +8625,11 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": "^7.2.5",
+        "php": "^7.4",
         "ext-ctype": "*",
         "ext-gd": "*",
-        "ext-iconv": "*"
+        "ext-iconv": "*",
+        "ext-json": "*"
     },
     "platform-dev": []
 }

@@ -1,10 +1,9 @@
 easy_admin:
     design:
-        #form_theme: ['@FOSCKEditor/Form/ckeditor_widget.html.twig']
         form_theme:
           - '@EasyAdmin/form/bootstrap_4.html.twig'
           - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
-          - '@A2lixTranslationForm/bootstrap_4_layout.html.twig'
+          - '@HabanaTech_BusinessModel\metadata_translation_bootstrap_4_layout.html.twig'
 
     entities:
         Client:
@@ -88,10 +87,15 @@ easy_admin:
                     - { type: 'tab' , label: 'Información general del Recorrido' }
                     - { type: 'group', label: 'Lugares', icon: 'gear', columns: 8 }
                     - { type: 'section', label: 'User Details' }
-                    - { property: 'translations', type: A2lix\TranslationFormBundle\Form\Type\TranslationsType }
+                    - { property: 'title', label: 'Titulo', type: 'HabanaTech\BusinessModel\Form\MetadataTranslationType', type_options: { field: 'title'} }
+                    - { property: 'description', type: 'HabanaTech\BusinessModel\Form\MetadataTranslationType', type_options: { field: 'description',  'current_field_type': FOS\CKEditorBundle\Form\Type\CKEditorType } }
+#                    - { property: 'translations', type: A2lix\TranslationFormBundle\Form\Type\TranslationsType, type_options: { fields: {'description': { 'field_type': FOS\CKEditorBundle\Form\Type\CKEditorType } }  } }
+
 
                     - { type: 'group', label: 'Administrar', icon: 'gear', columns: 4 }
+#                    - { property: 'translations.name', type: A2lix\TranslationFormBundle\Form\Type\TranslatedEntityType }
                     - { type: 'section', label: 'Origen' }
+                    - { property: 'name', label: 'Nombre interno' }
                     - { property: 'active', label: 'Activar servicio' }
                     - { property: 'priority', label: 'Prioridad', help: 'Los mayores valor se muestran primero al cliente' }
 

@@ -136,6 +136,9 @@
             "./config/packages/google_recaptcha.yaml"
         ]
     },
+    "habanatech/business-model": {
+        "version": "v1.0.0"
+    },
     "imagine/imagine": {
         "version": "1.2.3"
     },
