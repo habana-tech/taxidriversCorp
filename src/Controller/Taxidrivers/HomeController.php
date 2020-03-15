@@ -3,7 +3,7 @@
 namespace App\Controller\Taxidrivers;
 
 use App\Repository\ClientRepository;
-use App\Repository\TaxiServiceRepository;
+use App\Repository\ServiceRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
