@@ -2,21 +2,21 @@
 
 namespace App\Entity;
 
-use App\Entity\Fields\ActiveFieldTrait;
-use App\Entity\Fields\GalleryFieldInterface;
-use App\Entity\Fields\GalleryFieldTrait;
-use App\Entity\Fields\ImageFieldInterface;
-use App\Entity\Fields\ImageFieldTrait;
-use App\Entity\Fields\MachineNameInterface;
-use App\Entity\Fields\MachineNameTrait;
-use App\Entity\Fields\PriorityFieldTrait;
+use HabanaTech\BusinessModel\ORM\Traits\ActiveFieldTrait;
+use HabanaTech\BusinessModel\ORM\Interfaces\GalleryFieldInterface;
+use HabanaTech\BusinessModel\ORM\Traits\GalleryFieldTrait;
+use HabanaTech\BusinessModel\ORM\Interfaces\ImageFieldInterface;
+use HabanaTech\BusinessModel\ORM\Traits\ImageFieldTrait;
+use HabanaTech\BusinessModel\ORM\Interfaces\MachineNameInterface;
+use HabanaTech\BusinessModel\ORM\Traits\MachineNameTrait;
+use HabanaTech\BusinessModel\ORM\Traits\PriorityFieldTrait;
+use HabanaTech\BusinessModel\ORM\Interfaces\TranslatableInterface;
+use HabanaTech\BusinessModel\ORM\Traits\TranslationTrait;
+use HabanaTech\BusinessModel\ORM\Traits\MetadataFieldTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
-use HabanaTech\BusinessModel\ORM\Interfaces\TranslatableInterface;
-use HabanaTech\BusinessModel\ORM\Traits\TranslationTrait;
-use HabanaTech\BusinessModel\ORM\Traits\MetadataFieldTrait;
 
 
 /**
@@ -26,10 +26,9 @@ use HabanaTech\BusinessModel\ORM\Traits\MetadataFieldTrait;
  */
 class Service implements ImageFieldInterface, GalleryFieldInterface, MachineNameInterface, TranslatableInterface
 {
-    use Fields\ImageFieldTrait;
+    use ImageFieldTrait;
     use ActiveFieldTrait;
     use MetadataFieldTrait;
-    use ImageFieldTrait;
     use GalleryFieldTrait;
     use PriorityFieldTrait;
     use MachineNameTrait;
@@ -155,7 +154,7 @@ class Service implements ImageFieldInterface, GalleryFieldInterface, MachineName
      */
     public function addIntermediatePlace(Place $intermediatePlaces): self
     {
-        if (!$this->intermediatePlaces->contains($intermediatePlaces)) {
+        if ($this->intermediatePlaces->contains($intermediatePlaces) === false) {
             $this->intermediatePlaces[] = $intermediatePlaces;
         }
 
@@ -169,7 +168,7 @@ class Service implements ImageFieldInterface, GalleryFieldInterface, MachineName
      */
     public function removeIntermediatePlace(Place $intermediatePlaces): self
     {
-        if ($this->intermediatePlaces->contains($intermediatePlaces)) {
+        if ($this->intermediatePlaces->contains($intermediatePlaces) === true) {
             $this->intermediatePlaces->removeElement($intermediatePlaces);
         }
 
@@ -182,7 +181,7 @@ class Service implements ImageFieldInterface, GalleryFieldInterface, MachineName
      */
     public function __toString()
     {
-        return $this->machineName ?? 'empty';
+        return ($this->machineName ?? 'empty');
     }
 
 

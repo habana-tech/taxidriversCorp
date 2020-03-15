@@ -116,7 +116,7 @@ easy_admin:
                     - { type: 'tab' , label: 'Información mas Básica',  icon: 'phone'  }
                     - { property: 'active' }
 
-                    - { property: 'imageField', label: 'Main Image', help: 'You can replace the current image with one from gallery or upload a new one', type: 'App\Form\SingleImageFromGalleryType',  type_options: { block_name: 'image_field' }}
+                    - { property: 'imageField', label: 'Main Image', help: 'You can replace the current image with one from gallery or upload a new one', type: 'HabanaTech\BusinessModel\Form\SingleImageFromGalleryType',  type_options: { block_name: 'image_field' }}
                     - { property: 'alternativeText'}
 #                    - { property: 'category', type: 'choice', type_options: '%easyadmin.options.service_categories.choices%' }
 

@@ -2,20 +2,19 @@
 
 namespace App\Entity;
 
-use App\Entity\Fields\Timestampable\Timestampable;
-use App\Entity\Fields\UniqueIdProperty;
+use HabanaTech\BusinessModel\ORM\Fields\Timestampable;
+use HabanaTech\BusinessModel\ORM\Traits\UniqueIdPropertyTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use App\DataHelpers\CountryTelephoneNumber;
-
+use HabanaTech\BusinessModel\Services\CountryTelephoneNumber;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
  */
 class Client
 {
-    use UniqueIdProperty;
+    use UniqueIdPropertyTrait;
     use Timestampable;
     /**
      * @ORM\Id()
@@ -57,9 +56,13 @@ class Client
     public function __construct()
     {
         $this->bookings = new ArrayCollection();
-        $current_locale = isset($_SESSION['_locale']) ? $_SESSION['_locale'] : 'en';
-        $this->locale = $current_locale;
         $this->setUniqueId('txd-c');
+
+        if (isset($_SESSION['_locale']) === true) {
+            $this->locale = $_SESSION['_locale'];
+        } else {
+            $this->locale = 'en';
+        }
     }
 
     public function getId(): ?int
@@ -113,10 +116,11 @@ class Client
      */
     public function setCountry($country): void
     {
-        if($country)
+        if ($country) {
             $this->country = $country;
-        else
+        } else {
             $this->setCountryByTelephone();
+        }
     }
 
 
@@ -142,7 +146,7 @@ class Client
     {
         if ($this->bookings->contains($booking)) {
             $this->bookings->removeElement($booking);
-            // set the owning side to null (unless already changed)
+            // Set the owning side to null (unless already changed)
             if ($booking->getClient() === $this) {
                 $booking->setClient(null);
             }
@@ -151,7 +155,8 @@ class Client
         return $this;
     }
 
-    protected  function setCountryByTelephone(){
+    protected function setCountryByTelephone()
+    {
         $country = new CountryTelephoneNumber($this->telephone);
         $this->country = $country->getCountryName();
     }
@@ -159,8 +164,9 @@ class Client
     {
         // TODO: Implement __toString() method.
         $tmp = $this->getName() . " (". $this->getEmail() .")";
-        if($this->getCountry())
+        if ($this->getCountry()) {
             $tmp.= " [".$this->getCountry()."]";
+        }
         return $tmp;
     }
 
@@ -180,6 +186,4 @@ class Client
     {
         return $this->getLocale();
     }
-
-
 }

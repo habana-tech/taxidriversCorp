@@ -2,10 +2,10 @@
 
 namespace App\Entity;
 
-use App\DataHelpers\ImageBase64ThumbCreator;
-use App\Entity\Fields\Timestampable\Timestampable;
+use HabanaTech\BusinessModel\Services\ImageBase64ThumbCreator;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
+use HabanaTech\BusinessModel\ORM\Fields\Timestampable;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
@@ -113,7 +113,7 @@ class Image
     {
         $this->imageFile = $file;
         if ($file !== null) {
-            $base64Converter = new ImageBase64ThumbCreator($file->getRealPath(), false);
+            $base64Converter = new ImageBase64ThumbCreator($file->getRealPath());
             $this->setBase64($base64Converter->getBase64data());
             $this->updatedAt = new DateTimeImmutable();
             if (!$this->description && $file->getFilename()) {

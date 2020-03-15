@@ -4,157 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "ac861d0696ff96f560868e776e74cbb1",
+    "content-hash": "0fe1ccc1f7cdf3db4a84520caf786139",
     "packages": [
-        {
-            "name": "a2lix/auto-form-bundle",
-            "version": "0.3",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/a2lix/AutoFormBundle.git",
-                "reference": "a22365315c704bcc5358ddeecd66b9668de4eea4"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/a2lix/AutoFormBundle/zipball/a22365315c704bcc5358ddeecd66b9668de4eea4",
-                "reference": "a22365315c704bcc5358ddeecd66b9668de4eea4",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1.3",
-                "symfony/config": "^3.4|^4.0|^5.0",
-                "symfony/dependency-injection": "^3.4|^4.0|^5.0",
-                "symfony/doctrine-bridge": "^3.4|^4.0|^5.0",
-                "symfony/form": "^3.4|^4.0|^5.0",
-                "symfony/http-kernel": "^3.4|^4.0|^5.0"
-            },
-            "require-dev": {
-                "doctrine/orm": "^2.4",
-                "friendsofphp/php-cs-fixer": "^2.10",
-                "symfony/phpunit-bridge": "^4.0",
-                "symfony/validator": "^3.4|^4.0",
-                "vimeo/psalm": "^1.0"
-            },
-            "suggest": {
-                "a2lix/translation-form-bundle": "For translation form"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "0.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "A2lix\\AutoFormBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David ALLIX",
-                    "homepage": "http://a2lix.fr"
-                },
-                {
-                    "name": "Contributors",
-                    "homepage": "https://github.com/a2lix/AutoFormBundle/contributors"
-                }
-            ],
-            "description": "Automate form building",
-            "homepage": "https://github.com/a2lix/AutoFormBundle",
-            "keywords": [
-                "automate",
-                "automation",
-                "building",
-                "field",
-                "form",
-                "magic",
-                "symfony"
-            ],
-            "time": "2019-12-02T19:07:13+00:00"
-        },
-        {
-            "name": "a2lix/translation-form-bundle",
-            "version": "3.0.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/a2lix/TranslationFormBundle.git",
-                "reference": "b806d72585c9832e4eb3f67cd70b5ac548edfa90"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/a2lix/TranslationFormBundle/zipball/b806d72585c9832e4eb3f67cd70b5ac548edfa90",
-                "reference": "b806d72585c9832e4eb3f67cd70b5ac548edfa90",
-                "shasum": ""
-            },
-            "require": {
-                "a2lix/auto-form-bundle": "^0.2|^0.3",
-                "php": "^7.1.3",
-                "symfony/config": "^3.4|^4.0|^5.0",
-                "symfony/dependency-injection": "^3.4|^4.0|^5.0",
-                "symfony/doctrine-bridge": "^3.4|^4.0|^5.0",
-                "symfony/event-dispatcher": "^3.4|^4.0|^5.0",
-                "symfony/form": "^3.4|^4.0|^5.0",
-                "symfony/http-foundation": "^3.4|^4.0|^5.0",
-                "symfony/http-kernel": "^3.4|^4.0|^5.0",
-                "symfony/options-resolver": "^3.4|^4.0|^5.0"
-            },
-            "require-dev": {
-                "doctrine/orm": "^2.4",
-                "friendsofphp/php-cs-fixer": "^2.10",
-                "knplabs/doctrine-behaviors": "^1.4",
-                "matthiasnoback/symfony-dependency-injection-test": "^3.0",
-                "symfony/phpunit-bridge": "^4.0|^5.0",
-                "symfony/validator": "^3.4|^4.0|^5.0",
-                "vimeo/psalm": "^1.0"
-            },
-            "suggest": {
-                "knplabs/doctrine-behaviors": "For Knp strategy",
-                "prezent/doctrine-translatable-bundle": "For Prezent strategy"
-            },
-            "type": "symfony-bundle",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "3.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "A2lix\\TranslationFormBundle\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "David ALLIX",
-                    "homepage": "http://a2lix.fr"
-                },
-                {
-                    "name": "Contributors",
-                    "homepage": "https://github.com/a2lix/TranslationFormBundle/contributors"
-                }
-            ],
-            "description": "Translate your doctrine objects easily with some helps",
-            "homepage": "https://github.com/a2lix/TranslationFormBundle",
-            "keywords": [
-                "doctrine2",
-                "form",
-                "i18n",
-                "internationalization",
-                "knplabs",
-                "prezent",
-                "symfony",
-                "translatable",
-                "translation"
-            ],
-            "time": "2019-12-10T19:06:38+00:00"
-        },
         {
             "name": "doctrine/annotations",
             "version": "v1.8.0",
@@ -1633,19 +1484,22 @@
         },
         {
             "name": "habanatech/business-model",
-            "version": "v1.0.3",
+            "version": "v1.0.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/habana-tech/business-model.git",
-                "reference": "7464a1b81f8fa7c10b1240eb0edc417dbd0ba073"
+                "reference": "15f53b524199fb1f71922580ad2183b5e0674536"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/habana-tech/business-model/zipball/7464a1b81f8fa7c10b1240eb0edc417dbd0ba073",
-                "reference": "7464a1b81f8fa7c10b1240eb0edc417dbd0ba073",
+                "url": "https://api.github.com/repos/habana-tech/business-model/zipball/15f53b524199fb1f71922580ad2183b5e0674536",
+                "reference": "15f53b524199fb1f71922580ad2183b5e0674536",
                 "shasum": ""
             },
             "require": {
+                "ext-gd": "*",
+                "friendsofsymfony/ckeditor-bundle": "^2.2",
+                "liip/imagine-bundle": "^2.3",
                 "php": ">=7.4.0",
                 "symfony/dependency-injection": "*",
                 "symfony/event-dispatcher": "*",
@@ -1653,7 +1507,8 @@
                 "symfony/http-kernel": "*",
                 "symfony/options-resolver": "*",
                 "symfony/orm-pack": "*",
-                "symfony/property-access": "*"
+                "symfony/property-access": "*",
+                "vich/uploader-bundle": "^1.13"
             },
             "type": "library",
             "autoload": {
@@ -1672,7 +1527,7 @@
                 }
             ],
             "description": "A package to group the diferent pieces of a common project",
-            "time": "2020-03-11T02:59:57+00:00"
+            "time": "2020-03-12T00:04:29+00:00"
         },
         {
             "name": "imagine/imagine",

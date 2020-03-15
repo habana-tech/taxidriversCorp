@@ -4,10 +4,3 @@ framework:
         default_path: '%kernel.project_dir%/translations'
         fallbacks:
             - en
-
-a2lix_translation_form:
-    locale_provider: default       # [1]
-    locales: [es, en, fr]      # [1-a]
-    default_locale: es             # [1-b]
-    required_locales: [en]         # [1-c]
-    templating: "@A2lixTranslationForm/bootstrap_4_layout.html.twig"      # [2]
