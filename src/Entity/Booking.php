@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
-use App\Entity\Fields\Timestampable\Timestampable;
-use App\Entity\Fields\UniqueIdProperty;
+use HabanaTech\BusinessModel\ORM\Fields\Timestampable;
+use HabanaTech\BusinessModel\ORM\Traits\UniqueIdPropertyTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Booking
 {
-    use UniqueIdProperty;
+    use UniqueIdPropertyTrait;
     use Timestampable;
 
     /**

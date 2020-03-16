@@ -14,7 +14,7 @@ parameters:
     # This parameter defines the codes of the locales (languages) enabled in the application
     default_locale: en
     locale: '%default_locale%'
-    app_locales: en|fr|de|es
+    app_locales: en|es|fr|de
 
     easyadmin.options.language.choices: {choices: {INGLES: 'en', ALEMAN: 'de',ESPAÑOL: 'es', FRANCES: 'fr'}}
     easyadmin.options.currency.choices: {choices: {USD: 'USD', EUR: 'EUR',CUC: 'CUC'}}
@@ -44,3 +44,8 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+
+    HabanaTech\BusinessModel\:
+        resource: '../vendor/habanatech/business-model/BusinessModel/*'
+        exclude: '../vendor/habanatech/business-model/BusinessModel/{DependencyInjection,Entity,templates}'
+#    HabanaTech\BusinessModel\EventSubscriber\TranslationsSubscriber: ~

@@ -1,9 +1,9 @@
 easy_admin:
     design:
-        #form_theme: ['@FOSCKEditor/Form/ckeditor_widget.html.twig']
         form_theme:
           - '@EasyAdmin/form/bootstrap_4.html.twig'
           - '@FOSCKEditor/Form/ckeditor_widget.html.twig'
+          - '@HabanaTech_BusinessModel\metadata_translation_bootstrap_4_layout.html.twig'
 
     entities:
         Client:
@@ -52,24 +52,25 @@ easy_admin:
                       - { property: 'name' }
                       - { property: 'public' }
                       - { property: 'address' }
-                      - { property: 'locationString', type: 'text'}
+                      - { property: 'lngLat', label: 'Longitud y Latitud', help: 'Seleccione un punto en el mapa para rellenar automaticamente' , type: 'text'}
+                      - { property: 'referencePlace', label: 'Punto de referencia', help: 'Cuando se llena automaticamente, se refiere a un punto relativamente cercano al marcado realmente',  type: 'text'}
               templates:
                   edit: 'dash/board/customizations/place/edit.html.twig'
                   new: 'dash/board/customizations/place/new.html.twig'
 
-        TaxiService:
-              class: App\Entity\TaxiService
+        Services:
+              class: App\Entity\Service
               show:
                    fields:
                       - { property: 'id' }
                       - { property: 'active' }
-                      - { property: 'name' }
-                      - { property: 'category' }
+#                      - { property: 'name' }
+#                      - { property: 'category' }
                       - { property: 'image', type: 'image', base_path: '%app.path.uploaded_images%' }
                       - { property: 'AlternativeText' }
                       - { property: 'updatedAt' }
                       - { property: 'origin' }
-                      - { property: 'intermedialPlaces' }
+                      - { property: 'intermediatePlaces' }
                       - { property: 'destination' }
                       - { property: 'translations' }
 
@@ -83,17 +84,46 @@ easy_admin:
                         - { property: 'destination'}
               form:
                   fields:
-                    - { property: 'internalName' }
-                    - { property: 'active' }
-                    - { property: 'imageField', label: 'Main Image', help: 'You can replace the current image with one from gallery or upload a new one', type: 'App\Form\SingleImageFromGalleryType',  type_options: { block_name: 'image_field' }}
-                    - { property: 'alternativeText'}
-                    - { property: 'category', type: 'choice', type_options: '%easyadmin.options.service_categories.choices%' }
+                    - { type: 'tab' , label: 'Información general del Recorrido' }
+                    - { type: 'group', label: 'Lugares', icon: 'gear', columns: 8 }
+                    - { type: 'section', label: 'User Details' }
+                    - { property: 'title', label: 'Titulo', type: 'HabanaTech\BusinessModel\Form\MetadataTranslationType', type_options: { field: 'title'} }
+                    - { property: 'description', type: 'HabanaTech\BusinessModel\Form\MetadataTranslationType', type_options: { field: 'description',  'current_field_type': FOS\CKEditorBundle\Form\Type\CKEditorType } }
+#                    - { property: 'translations', type: A2lix\TranslationFormBundle\Form\Type\TranslationsType, type_options: { fields: {'description': { 'field_type': FOS\CKEditorBundle\Form\Type\CKEditorType } }  } }
+
+
+                    - { type: 'group', label: 'Administrar', icon: 'gear', columns: 4 }
+#                    - { property: 'translations.name', type: A2lix\TranslationFormBundle\Form\Type\TranslatedEntityType }
+                    - { type: 'section', label: 'Origen' }
+                    - { property: 'name', label: 'Nombre interno' }
+                    - { property: 'active', label: 'Activar servicio' }
+                    - { property: 'priority', label: 'Prioridad', help: 'Los mayores valor se muestran primero al cliente' }
+
+                    - { type: 'group', label: 'Lugares', icon: 'gear', columns: 8 }
+                    - { type: 'section', label: 'Origen' }
                     - { property: 'origin'}
-                    - { property: 'intermedialPlaces'}
+
+                    - { type: 'section', label: 'Puntos intermedios' }
+                    - { property: 'intermediatePlaces'}
+
+                    - { type: 'section', label: 'Destino final' }
                     - { property: 'destination'}
-                    - { property: 'translations'}
-                    - { property: 'name' }
-                    - { property: 'description', type: 'fos_ckeditor'}
+
+
+
+                    - { type: 'tab' , label: 'Información Básica',  icon: 'phone'  }
+                    - { property: 'internalName', type: 'fos_ckeditor' }
+                    - { type: 'tab' , label: 'Información mas Básica',  icon: 'phone'  }
+                    - { property: 'active' }
+
+                    - { property: 'imageField', label: 'Main Image', help: 'You can replace the current image with one from gallery or upload a new one', type: 'HabanaTech\BusinessModel\Form\SingleImageFromGalleryType',  type_options: { block_name: 'image_field' }}
+                    - { property: 'alternativeText'}
+#                    - { property: 'category', type: 'choice', type_options: '%easyadmin.options.service_categories.choices%' }
+
+
+
+#                    - { property: 'name' }
+#                    - { property: 'description', type: 'fos_ckeditor'}
 
 #        GalleryImage:
 #              class: App\Entity\GalleryImage

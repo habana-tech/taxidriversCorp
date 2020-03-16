@@ -1,26 +1,5 @@
-{# templates/admin/new.html.twig #}
-    {% extends '@EasyAdmin/default/new.html.twig' %}
+{% extends '@EasyAdmin/default/new.html.twig' %}
 
-    {% block entity_form %}
-
-    {{ form_start(form) }}
-
-        {% for field in form.children %}
-            {% if field.vars.name != 'locationString' %}
-                {{ form_row(field) }}
-            {% else %}
-                {%  include 'dash/board/customizations/place/location.html.twig' %}
-                <div class="locationString MapBox location">
-                    {{ form_row(field) }}
-                </div>
-            {% endif %}
-        {% endfor %}
-
-        {{ form_end(form) }}
-
-        {#{{ form(form) }}#}
-
-        {# ... customize the content title ... #}
-
-
-    {% endblock %}
+{% block entity_form %}
+    {%  include 'dash/board/customizations/place/location.html.twig' %}
+{% endblock %}

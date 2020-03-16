@@ -2,15 +2,17 @@
 
 namespace App\Entity;
 
+use HabanaTech\BusinessModel\ORM\Traits\MetadataFieldTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
-use App\DataHelpers\LocationPoint;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PlaceRepository")
  */
 class Place
 {
+
+    use MetadataFieldTrait;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()

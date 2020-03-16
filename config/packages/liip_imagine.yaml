@@ -2,3 +2,132 @@
 liip_imagine:
     # valid drivers options include "gd" or "gmagick" or "imagick"
     driver: "gd"
+
+    # define your filter sets under this option
+    filter_sets:
+
+        # use the default cache configuration
+        cache: ~
+
+        squared_thumbnail:
+            # set your image quality defaults
+            jpeg_quality:          85
+            png_compression_level: 8
+            # setup the filter steps to apply for this transformation
+            filters:
+                # auto rotate the image using EXIF metadata
+                auto_rotate: ~
+                # strip the image of all metadata
+                strip: ~
+                # scale and square the image to the given dimensions
+                thumbnail:
+                    size:          [256, 256]
+                    mode:          outbound
+                    allow_upscale: true
+
+        min_width_1920:
+            jpeg_quality: 85
+            png_compression_level: 8
+            filters:
+                auto_rotate: ~
+                strip: ~
+                relative_resize:
+                    widen: 1920
+
+        min_width_1366:
+            jpeg_quality: 85
+            png_compression_level: 8
+            filters:
+                auto_rotate: ~
+                strip: ~
+                relative_resize:
+                    widen: 1366
+
+        min_width_1200:
+            jpeg_quality: 85
+            png_compression_level: 8
+            filters:
+                auto_rotate: ~
+                strip: ~
+                relative_resize:
+                    widen: 1200
+
+        min_width_1000:
+            # set your image quality defaults
+            jpeg_quality:          85
+            png_compression_level: 8
+            # setup the filter steps to apply for this transformation
+            filters:
+                auto_rotate: ~
+                strip: ~
+                relative_resize:
+                    widen: 1000
+
+        min_width_900:
+            # set your image quality defaults
+            jpeg_quality:          85
+            png_compression_level: 8
+            # setup the filter steps to apply for this transformation
+            filters:
+                auto_rotate: ~
+                strip: ~
+                relative_resize:
+                    widen: 900
+
+        min_width_800:
+            # set your image quality defaults
+            jpeg_quality:          85
+            png_compression_level: 8
+            # setup the filter steps to apply for this transformation
+            filters:
+                auto_rotate: ~
+                strip: ~
+                relative_resize:
+                    widen: 800
+
+        min_width_600:
+            # set your image quality defaults
+            jpeg_quality:          85
+            png_compression_level: 8
+            # setup the filter steps to apply for this transformation
+            filters:
+                auto_rotate: ~
+                strip: ~
+                relative_resize:
+                    widen: 600
+
+        min_width_250:
+            # set your image quality defaults
+            jpeg_quality:          85
+            png_compression_level: 8
+            # setup the filter steps to apply for this transformation
+            filters:
+                auto_rotate: ~
+                strip: ~
+                relative_resize:
+                    widen: 250
+
+        min_width_40:
+            # set your image quality defaults
+            jpeg_quality:          85
+            png_compression_level: 8
+            # setup the filter steps to apply for this transformation
+            filters:
+                auto_rotate: ~
+                strip: ~
+                thumbnail:
+                    size:          [40, 40]
+                    mode:          outbound
+                    allow_upscale: true
+
+        min_width_15:
+            # set your image quality defaults
+            jpeg_quality:          85
+            png_compression_level: 8
+            # setup the filter steps to apply for this transformation
+            filters:
+                auto_rotate: ~
+                strip: ~
+                relative_resize:
+                    widen: 15
+
