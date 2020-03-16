@@ -30,5 +30,8 @@ public/.htpasswd
 public/.htaccess
 .idea/
 public/uploads
-.env
+
+# vamos a incluir el archivo .env en el repo, tus cambios locales, dejalos en el archivo .env.local
+#.env
+
 
