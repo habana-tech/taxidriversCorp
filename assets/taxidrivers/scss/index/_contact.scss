@@ -1,0 +1,47 @@
+.contact{
+    display: flex;
+    width: 95%;
+    margin: auto;
+
+    &__info{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        & ul{
+            padding: 0;
+
+            & li{
+                list-style: none;
+            }
+        }
+    }
+
+    &__social{
+        display: flex;
+        width: 100%;
+        justify-content: center;
+
+        & ul{
+            padding: 0;
+
+            & li{
+                list-style: none;
+                display: inline;
+                margin: auto .5em;
+
+                & img{
+                    width: 1.75em;
+                    height: auto;
+                }
+            }
+        }
+    }
+
+    &__message{
+        &__title{
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

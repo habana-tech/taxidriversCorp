@@ -1,0 +1,47 @@
+.form{
+    padding: 1em;
+    box-shadow: $box-shadow;
+    border-radius: $border-radius;
+
+    &--no-shadow{
+        box-shadow: none;
+    }
+
+    &__item{
+        margin: 1em;
+
+        &--inline{
+            display: flex;
+            align-items: center;
+            flex-wrap: nowrap;
+
+            & label{
+                width: auto;
+            }
+
+            & input{
+                width: 30%;
+            }
+        }
+    }
+
+    & input{
+        &[type='text'], &[type='email'], &[type='date'], &[type='time'], &[type='number']{
+            padding: .5em;
+            border-radius: $border-radius;
+            margin: .5em auto;
+            border: 1px $main-light-gray solid;
+        }
+
+        &[type='submit']{
+            border: 1px transparent solid;
+        }
+    }
+
+    & textarea{
+        padding: .5em;
+        border-radius: $border-radius;
+        margin: .5em auto;
+        border: 1px $main-light-gray solid;
+    }
+}

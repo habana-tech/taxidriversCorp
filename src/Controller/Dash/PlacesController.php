@@ -7,7 +7,7 @@ use Symfony\Component\Routing\Annotation\Route;
 use App\Repository\PlaceRepository;
 
 /**
-     * @Route("/places", host="%dash_domain%")
+     * @Route("/places", host="%domain.dash%")
      */
 class PlacesController extends AbstractController
 {

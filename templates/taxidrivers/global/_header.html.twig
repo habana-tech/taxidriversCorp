@@ -1,0 +1,41 @@
+<header class="header">
+
+    <div class="logo">
+        <a href="/">
+            <img src="{{ asset('images/logo.png') }}" alt="Viñales-Taxi-Cuba-logo">
+        </a>
+    </div>
+
+    <div class="menu-icon">
+        <div class="menu-icon__middle"></div>
+    </div>
+
+    <nav class="nav swing-out-top-bck">
+        <ul>
+            <li><a href="{{ path('index') }}#activities" data-section="#activities">
+                    {% trans %}global.header.places{% endtrans %}
+                </a></li>
+            <li><a href="{{ path('index') }}#why_with_us" data-section="#why_with_us">
+                    {% trans %}global.header.review{% endtrans %}
+                </a></li>
+            <li><a href="{{ path('index') }}#more_places" data-section="#more_places">
+                    {% trans %}global.header.us{% endtrans %}
+                </a></li>
+            <li><a href="{{ path('index') }}#contact_faq" data-section="#contact_faq">
+                    {% trans %}global.header.contact{% endtrans %}
+                </a></li>
+            <li class="nav--special">
+                <a target="_self" href="">
+                    {% trans %}global.header.book{% endtrans %}
+                </a>
+            </li>
+        </ul>
+    </nav>
+
+    <div class="lang">
+        <ul>
+            <li class="{% if app.request.locale == 'en' %}selected{% endif %}"><a href="#">EN</a></li>
+            <li class="{% if app.request.locale == 'es' %}selected{% endif %}"><a href="#">ES</a></li>
+        </ul>
+    </div>
+</header>

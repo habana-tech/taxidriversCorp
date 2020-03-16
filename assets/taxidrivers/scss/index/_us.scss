@@ -1,0 +1,59 @@
+.us{
+    display: flex;
+    width: 95%;
+    margin: auto;
+
+    &__content{
+
+    }
+
+    &__team{
+
+        &__member{
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            margin: 1em auto 2em auto;
+
+            @include atLarge{
+
+            }
+
+            &__image{
+                order: 1;
+                display: flex;
+                width: 48%;
+                height: 10em;
+                border-radius: $border-radius;
+            }
+
+            &__text{
+                order: 2;
+
+                display: flex;
+                width: 48%;
+                flex-wrap: wrap;
+                justify-content: center;
+
+                & h3{
+                    margin: 0 auto;
+                }
+
+                & p{
+                    margin: 0 auto;
+                }
+            }
+
+            &--inverse{
+
+                & .us__team__member__image{
+                    order: 2;
+                }
+                & .us__team__member__text{
+                    order: 1;
+                }
+            }
+
+        }
+    }
+}

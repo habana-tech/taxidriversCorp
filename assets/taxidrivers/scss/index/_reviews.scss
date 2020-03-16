@@ -1,0 +1,20 @@
+.reviews{
+    display: flex;
+    width: 95%;
+    margin: auto;
+
+    &__content{
+        display: flex;
+        flex-wrap: wrap;
+
+        &__widget{
+            display: flex;
+            width: 100%;
+            justify-content: center;
+        }
+
+        &__gallery{
+            overflow: hidden;
+        }
+    }
+}

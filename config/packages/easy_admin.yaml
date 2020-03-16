@@ -21,17 +21,18 @@ easy_admin:
               class: App\Entity\Booking
               form:
                     fields:
-                          - { property: 'client' }
-                          - { property: 'passenger' }
+                          - { property: 'client', label: 'Cliente', help: 'Selecciona un cliente existente, o agrega uno nuevo.', type_options: {attr: {required: false}} }
+                          - { property: 'newClient', label: 'Nuevo Cliente', help: 'Puede agregar un nuevo cliente aqui' , type: 'App\Form\ClientType'}
+                          - { property: 'passenger', type_options: {attr: { min: 1} }, label: 'Cantidad de pasajeros' }
 
-                          - { property: 'travelDate' }
-                          - { property: 'travelTime' }
-                          - { property: 'price'}
-                          - { property: 'currency', type: 'choice', type_options: '%easyadmin.options.currency.choices%' }
+                          - { property: 'travelDate', label: 'Fecha del viaje' }
+                          - { property: 'travelTime', label: 'Hora del viaje' }
+                          - { property: 'price',  label: 'Precio', type: 'money' }
+                          - { property: 'currency', label: 'Moneda a cobrar', type: 'choice', type_options: '%easyadmin.options.currency.choices%' }
 
-                          - { property: 'origin' }
-                          - { property: 'destination' }
-                          - { property: 'comment' }
+                          - { property: 'origin', label: 'Lugar de destino' }
+                          - { property: 'destination', label: 'Lugar de destino' }
+                          - { property: 'comment', label: 'Comentario del cliente' }
               list:
                     fields:
                         - { property: 'id' }
@@ -62,7 +63,7 @@ easy_admin:
                    fields:
                       - { property: 'id' }
                       - { property: 'active' }
-                      - { property: 'internalName' }
+                      - { property: 'name' }
                       - { property: 'category' }
                       - { property: 'image', type: 'image', base_path: '%app.path.uploaded_images%' }
                       - { property: 'AlternativeText' }
@@ -74,8 +75,8 @@ easy_admin:
 
               list:
                     fields:
-                        - { property: 'internalName' }
                         - { property: 'active' }
+                        - { property: 'name' }
                         - { property: 'image', type: 'image', base_path: '%app.path.uploaded_images%' }
                         - { property: 'category'}
                         - { property: 'origin'}
@@ -84,21 +85,15 @@ easy_admin:
                   fields:
                     - { property: 'internalName' }
                     - { property: 'active' }
-                    - { property: 'imageFile', type: 'vich_image' }
+                    - { property: 'imageField', label: 'Main Image', help: 'You can replace the current image with one from gallery or upload a new one', type: 'App\Form\SingleImageFromGalleryType',  type_options: { block_name: 'image_field' }}
                     - { property: 'alternativeText'}
                     - { property: 'category', type: 'choice', type_options: '%easyadmin.options.service_categories.choices%' }
                     - { property: 'origin'}
                     - { property: 'intermedialPlaces'}
                     - { property: 'destination'}
                     - { property: 'translations'}
-        TaxiServiceTranslation:
-              class: App\Entity\TaxiServiceTranslation
-              form:
-                  fields:
-                        - { property: 'translatable', label: 'Translation from', }
-                        - { property: 'locale', type: 'choice', type_options: '%easyadmin.options.language.choices%' }
-                        - { property: 'name' }
-                        - { property: 'description', type: 'fos_ckeditor'}
+                    - { property: 'name' }
+                    - { property: 'description', type: 'fos_ckeditor'}
 
 #        GalleryImage:
 #              class: App\Entity\GalleryImage
