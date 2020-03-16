@@ -41,7 +41,8 @@ security:
         - { path: ^/forgot-password, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DOMAIN_DASH)%' }
         - { path: ^/reset-password, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DOMAIN_DASH)%' }
         - { path: ^/register, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DOMAIN_DASH)%' }
-        - { path: ^/, roles: ROLE_ADMIN, host: '%env(DOMAIN_DASH)%' }
-        - { path: ^/admin, roles: ROLE_ADMIN }
-        - { path: ^/profile, roles: ROLE_USER }
+        - { path: ^/admin, roles: ROLE_ADMIN, host: '%env(DOMAIN_DASH)%' }
+        - { path: ^/profile, roles: ROLE_USER, host: '%env(DOMAIN_DASH)%' }
+        - { path: ^/api, roles: IS_AUTHENTICATED_ANONYMOUSLY }
         - { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, host: '%env(DOMAIN_VINALES)%|%env(DOMAIN_TAXIDRIVERS)%' }
+        - { path: ^/, roles: ROLE_ADMIN, host: '%env(DOMAIN_DASH)%' }

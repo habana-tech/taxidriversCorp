@@ -9,6 +9,7 @@ use App\Form\BookingType;
 use App\Form\ClientType;
 use App\Form\PlaceType;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
@@ -24,6 +25,22 @@ class ApiController extends AbstractController
     */
     public function index(): Response
     {
-        return new Response($this->generateUrl('api_home'));
+        return new Response();
     }
+
+
+    /**
+    * @Route("/client/add", name="client_add", methods={"POST"})
+    */
+    public function client_add(Request $request): Response
+    {
+
+        $data = json_decode($request->getContent(), true);
+        $client = Client::createFromArray($data);
+        dump($client);
+        return new Response();
+    }
+
+
+
 }

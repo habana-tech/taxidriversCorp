@@ -53,16 +53,20 @@ class Client
      */
     private $locale;
 
-    public function __construct()
+    public function __construct($email = null, $name = null, $locale = null)
     {
         $this->bookings = new ArrayCollection();
         $this->setUniqueId('txd-c');
 
-        if (isset($_SESSION['_locale']) === true) {
+        if ($locale !== null) {
+            $this->locale = $locale;
+        } elseif (isset($_SESSION['_locale']) === true) {
             $this->locale = $_SESSION['_locale'];
         } else {
             $this->locale = 'en';
         }
+        $this->name  = $name;
+        $this->email = $email;
     }
 
     public function getId(): ?int
@@ -185,5 +189,18 @@ class Client
     public function getSessionLang()
     {
         return $this->getLocale();
+    }
+
+    public static function createFromArray(array $data)
+    {
+        if (isset($data['name']) === false) {
+            return false;
+        }
+
+        if (isset($data['email']) === false) {
+            return false;
+        }
+
+        return (new Client($data['name'], $data['email']));
     }
 }
