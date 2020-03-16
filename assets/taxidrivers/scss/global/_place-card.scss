@@ -1,0 +1,86 @@
+.place-card{
+    position: relative;
+    width: 80%;
+    margin: .5em .25em;
+    display: flex;
+    flex-wrap: wrap;
+    flex-shrink: 0;
+
+    @include atLarge{
+        width: 32%;
+        margin: .5em .25em;
+        flex-shrink: 1;
+    }
+
+    &__image{
+        width: 100%;
+        overflow: hidden;
+        position: relative;
+        height: 35vh;
+        border-radius: $border-radius;
+
+        @include atLarge{
+            height: 45vh;
+        }
+    }
+
+    &__content{
+        width: 95%;
+        margin: auto;
+        padding: 1em .75em;
+        box-shadow: $box-shadow;
+        background-color: white;
+        position: relative;
+        top: -1.5em;
+        z-index: 1;
+        border-radius: $border-radius;
+
+        &__title{
+            width: 100%;
+
+            & h4{
+                margin: 0;
+            }
+        }
+
+        &__prices{
+            width: 100%;
+
+            &__main{
+            }
+
+            &__others{
+                font-size: .8em;
+
+                @include atLarge{
+                    font-size: .9em;
+                }
+
+                & span{
+                    color: white;
+                    background: linear-gradient(45deg, $light-orange, $dark-orange);
+                    padding: .05em;
+                    border-radius: 2px;
+
+                    @include atLarge{
+                        padding: .25em;
+                    }
+                }
+            }
+        }
+
+        &__description{
+            width: 100%;
+
+            & p{
+                margin: .5em auto;
+            }
+        }
+
+        &__action{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+        }
+    }
+}

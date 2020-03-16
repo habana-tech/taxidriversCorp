@@ -1,0 +1,41 @@
+.services{
+    display: flex;
+    width: 95%;
+    margin: auto;
+
+    &__types{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        justify-content: space-evenly;
+
+        & button{
+            border: 1px transparent solid;
+            background-color: white;
+            border-bottom: 2px rgba($main-light-gray, .25) solid;
+
+            &.active{
+                border-bottom: 2px $main-light-gray solid;
+            }
+        }
+    }
+
+    &__content{
+        display: flex;
+        position: relative;
+        overflow: hidden;
+
+        &__type{
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            position: absolute;
+            top: 0;
+            transition: transform .3s ease-in-out;
+
+            &:first-child{
+                position: relative;
+            }
+        }
+    }
+}

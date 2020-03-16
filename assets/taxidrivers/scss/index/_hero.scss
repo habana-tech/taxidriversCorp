@@ -1,0 +1,56 @@
+.hero{
+    display: flex;
+    position: relative;
+
+    @include atLarge{
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
+    &__image{
+        width: 100%;
+        margin: auto;
+        height: 40vh;
+
+        @include atLarge{
+            width: 60%;
+        }
+
+        & div{
+            overflow: hidden;
+            border-radius: $border-radius;
+        }
+    }
+
+    &__heading{
+        position: absolute;
+        display: flex;
+        height: 40vh;
+        width: 85%;
+        margin: auto;
+        justify-content: center;
+
+        & h1{
+            bottom: 0;
+            color: white;
+            position: absolute;
+        }
+    }
+
+    &__form{
+        position: relative;
+        width: 85%;
+        margin: auto;
+        top: -.5em;
+        background-color: white;
+
+
+        @include atLarge{
+            width: 37%;
+        }
+
+        & .form{
+
+        }
+    }
+}

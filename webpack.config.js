@@ -26,14 +26,18 @@ Encore
 
 
      /**DASH*/
-    .addEntry('dash', './assets/dash/scripts/index.js')
+    .addEntry('dashApp', './assets/dash/scripts/index.js')
     //.addEntry('dash-eadmin-place', './assets/dash/scripts/mapBox/index.js')
 
     /*Taxidrivers**/
-    .addEntry('taxidrivers', './assets/taxidrivers/js/app.js')
+    .addEntry('taxiDriversApp', './assets/taxidrivers/js/app.js')
+    .addEntry('taxiDriversAppNoCritical', './assets/taxidrivers/js/app_no_critical.js')
+    .addEntry('taxiDriversIndex', './assets/taxidrivers/js/index.js')
+    .addEntry('taxiDriversIndexNoCritical', './assets/taxidrivers/js/index_no_critical.js')
+    .addEntry('taxiDriversPlace', './assets/taxidrivers/js/place.js')
 
     /*Vinales**/
-    .addEntry('vinales', './assets/vinales/js/app.js')
+    .addEntry('vinalesApp', './assets/vinales/js/app.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

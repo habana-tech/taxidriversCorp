@@ -1,32 +1,71 @@
 {
   "entrypoints": {
-    "dash": {
+    "dashApp": {
       "js": [
         "/build/runtime.1103dde6.js",
-        "/build/0.24c7ceef.js",
-        "/build/dash.912c2ffb.js"
+        "/build/1.2078d38f.js",
+        "/build/dashApp.1bf58314.js"
       ],
       "css": [
-        "/build/0.f87da28c.css",
-        "/build/dash.62ab32e2.css"
+        "/build/1.f87da28c.css",
+        "/build/dashApp.d4150383.css"
       ]
     },
-    "taxidrivers": {
+    "taxiDriversApp": {
       "js": [
         "/build/runtime.1103dde6.js",
-        "/build/taxidrivers.20e8b1e5.js"
+        "/build/taxiDriversApp.1a471fb7.js"
       ],
       "css": [
-        "/build/taxidrivers.67601ba8.css"
+        "/build/taxiDriversApp.1a4dcf9a.css"
       ]
     },
-    "vinales": {
+    "taxiDriversAppNoCritical": {
       "js": [
         "/build/runtime.1103dde6.js",
-        "/build/vinales.5a684eef.js"
+        "/build/2.209e0b29.js",
+        "/build/taxiDriversAppNoCritical.9ab9cdd2.js"
       ],
       "css": [
-        "/build/vinales.d9eab54f.css"
+        "/build/taxiDriversAppNoCritical.59366632.css"
+      ]
+    },
+    "taxiDriversIndex": {
+      "js": [
+        "/build/runtime.1103dde6.js",
+        "/build/taxiDriversIndex.5ceed9d5.js"
+      ],
+      "css": [
+        "/build/taxiDriversIndex.ccb05232.css"
+      ]
+    },
+    "taxiDriversIndexNoCritical": {
+      "js": [
+        "/build/runtime.1103dde6.js",
+        "/build/0.176421fb.js",
+        "/build/taxiDriversIndexNoCritical.4864bf25.js"
+      ],
+      "css": [
+        "/build/taxiDriversIndexNoCritical.ce0d28d1.css"
+      ]
+    },
+    "taxiDriversPlace": {
+      "js": [
+        "/build/runtime.1103dde6.js",
+        "/build/0.176421fb.js",
+        "/build/taxiDriversPlace.f8788ea1.js"
+      ],
+      "css": [
+        "/build/taxiDriversPlace.5dffd1ce.css"
+      ]
+    },
+    "vinalesApp": {
+      "js": [
+        "/build/runtime.1103dde6.js",
+        "/build/vinalesApp.2da4792b.js"
+      ],
+      "css": [
+        "/build/vinalesApp.b7d21fa5.css"
       ]
     }
   }
