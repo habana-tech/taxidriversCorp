@@ -1,0 +1,72 @@
+.places{
+
+    &__content{
+        display: flex;
+        flex-wrap: wrap;
+        width: 100%;
+        margin: auto;
+
+        @include atLarge{
+            width: 90%;
+        }
+
+        &__topic{
+            width: 100%;
+            display: flex;
+            flex-wrap: wrap;
+
+            &__title{
+                position: relative;
+                display: flex;
+                align-items: stretch;
+                justify-content: center;
+                width: 100%;
+
+                & h3{
+                    position: relative;
+                    margin: 0;
+
+                    &:after{
+                        content: '';
+                        position: absolute;
+                        width: 120%;
+                        left: -10%;
+                        height: .5em;
+                        border-radius: $border-radius;
+                        background: linear-gradient(-45deg, $main-blue, rgba($main-blue, .45));
+                        bottom: 0;
+                        z-index: -1;
+                    }
+
+                }
+
+
+            }
+
+            &__places{
+                width: 100%;
+
+                display: flex;
+                overflow-x: scroll;
+
+                @include atLarge{
+                    flex-wrap: wrap;
+                    justify-content: space-around;
+                    overflow-x: hidden;
+                }
+            }
+        }
+
+        &__more{
+            display: flex;
+            flex-wrap: wrap;
+            width: 80%;
+            margin: .5em auto;
+            justify-content: space-evenly;
+
+            & p{
+                width: 100%;
+            }
+        }
+    }
+}

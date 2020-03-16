@@ -1,3 +1,15 @@
-body {
-    background-color: lightgray;
-}
+@import '~normalize.css';
+@import 'base/variables';
+@import 'base/mixins';
+@import 'base/global';
+
+@import "global/header";
+@import "global/footer";
+@import "global/section";
+
+
+@import "global/btn";
+@import "global/place-card";
+@import "global/form";
+@import "global/gallery";
+@import "global/review";

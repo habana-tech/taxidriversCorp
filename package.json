@@ -35,7 +35,10 @@
         "normalize.css": "^8.0.0",
         "perfect-scrollbar": "^1.1.0",
         "popper.js": "^1.16.0",
+        "sal.js": "^0.6.5",
         "sass-loader": "^7.3.1",
+        "smooth-scroll": "^16.1.0",
+        "swipe-listener": "^1.1.0",
         "vue": "^2.6.10",
         "vue-loader": "^15.7.2",
         "waypoints": "^4.0.1"
