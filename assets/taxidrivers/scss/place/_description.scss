@@ -1,0 +1,11 @@
+.place-description{
+    display: flex;
+    width: 95%;
+    margin: auto;
+
+    @include atLarge{
+        width: 20%;
+    }
+
+
+}

@@ -1,0 +1,62 @@
+<section id="contact" class="section contact">
+    <div class="section__title">
+        <h2>{% trans %}index.contact.title{% endtrans %}</h2>
+    </div>
+    <div class="section__content">
+        <div class="contact__info">
+            <ul>
+                <li><a href="tel://+53 72144383">+53 72144383</a></li>
+                <li><a href="mailto:info@cubyke.com">info@cubyke.<strong>com</strong></a></li>
+                <li>
+                    <address>
+                        Cubyke Travel<br>
+                        Ave 7ma, No. 8607, e/86 y 88<br>
+                        Miramar-Playa<br>
+                        La Habana 11300, Cuba<br>
+                    </address>
+                </li>
+            </ul>
+        </div>
+
+        <div class="contact__social">
+            <ul>
+                <li>
+                    <a href="http://www.facebook.com/cubyke" target="_blank" rel="noopener" aria-label="Facebook profile">
+                        <img class="lazyload" data-src="{{ asset('images/icons/facebook.svg') }}" alt="Facebook logo" >
+                    </a>
+                </li>
+                <li>
+                    <a href="http://instagram.com/cubyke" target="_blank" rel="noopener" aria-label="Instagram profile">
+                        <img class="lazyload" data-src="{{ asset('images/icons/instagram.svg') }}" alt="Instagram logo">
+                    </a>
+                </li>
+                <li>
+                    <a href="https://www.tripadvisor.com/Attraction_Review-g147271-d13485075-Reviews-Cubyke-Havana_Ciudad_de_la_Habana_Province_Cuba.html" target="_blank" rel="noopener" aria-label="TripAdvisor profile">
+                        <img class="lazyload" data-src="{{ asset('images/icons/tripadvisor.svg') }}" alt="tripadvisor logo">
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div class="contact__message">
+            <div class="contact__message__title">
+                <h3>{% trans %}index.contact.title{% endtrans %}</h3>
+            </div>
+            <form action="" class="form form--no-shadow ">
+                <div class="form__item">
+                    <label for="index_contact_name">{% trans %}index.contact.your_name{% endtrans %}</label>
+                    <input type="text" id="index_contact_name">
+                </div>
+                <div class="form__item">
+                    <label for="index_contact_email">{% trans %}index.contact.your_email{% endtrans %}</label>
+                    <input type="email" id="index_contact_email">
+                </div>
+                <div class="form__item">
+                    <label for="">{% trans %}index.contact.your_message{% endtrans %}</label>
+                    <textarea name="" id="" cols="30" rows="10"></textarea>
+                </div>
+                <input class="btn" type="submit">
+            </form>
+        </div>
+    </div>
+</section>

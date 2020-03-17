@@ -1,0 +1,48 @@
+.review{
+    & blockquote{
+        color: $main-gray;
+
+        &:before{
+            content: '"';
+            position: absolute;
+            top: -.5em;
+            left: .5em;
+            font-size: 4em;
+            transform: rotate(-45deg);
+        }
+
+        &:after{
+            content: '"';
+            position: absolute;
+            bottom: .5em;
+            right: .5em;
+            font-size: 4em;
+            transform: rotate(135deg);
+        }
+
+        & p{
+            font-family: $font-title, serif;
+            margin: auto 1em;
+
+            @include atLarge{
+                font-size: 1.5em;
+            }
+        }
+
+        & footer{
+            margin: 1em 1em 0;
+
+            & cite {
+                background-color: white;
+                border-radius: 2px;
+
+
+                & a {
+                    color: #00604a;
+                    text-decoration: underline;
+                    font-weight: 700;
+                }
+            }
+        }
+    }
+}
