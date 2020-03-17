@@ -34,14 +34,18 @@ class LocaleSubscriber implements EventSubscriberInterface
     {
         // Return the subscribed events, their methods and priorities.
         return [
-            KernelEvents::CONTROLLER_ARGUMENTS => [
-                [
-                    'setLocaleRequestAsGlobal',
-                    0,
-                ],
+            KernelEvents::REQUEST              => [
+                'switchLangIfParam',
+                0,
             ],
-            KernelEvents::REQUEST   => ['switchLangIfParam', 0],
-            KernelEvents::EXCEPTION => ['redirectToLangOn404', 0],
+            KernelEvents::EXCEPTION            => [
+                'redirectToLangOn404',
+                0,
+            ],
+            KernelEvents::CONTROLLER_ARGUMENTS => [
+                'setLocaleRequestAsGlobal',
+                0,
+            ],
         ];
     }
 
@@ -59,19 +63,19 @@ class LocaleSubscriber implements EventSubscriberInterface
         }
     }//end setLanguageRequestAsGlobal()
 
-    public function switchLangIfParam(RequestEvent $event)
+    public function switchLangIfParam(RequestEvent $event): void
     {
-        $requestedLang   = $event->getRequest()->query->get('switchLang');
-        $_route  = $event->getRequest()->attributes->get('_route');
+        $requestedLang = $event->getRequest()->query->get('switchLang');
+        $_route        = $event->getRequest()->attributes->get('_route');
 
 
-        if ($event->isMasterRequest() === false || $requestedLang === null) {
+        if ($requestedLang === null || $event->isMasterRequest() === false) {
             return;
         }
 
         $_routeParams = $event->getRequest()->attributes->get('_route_params');
 
-        if (is_array($_routeParams) && $requestedLang !== null && isset($_routeParams['_locale']) === true) {
+        if ($requestedLang !== null && is_array($_routeParams) === true && isset($_routeParams['_locale']) === true) {
             $_routeParams['_locale'] = $requestedLang;
         }
 
@@ -79,7 +83,7 @@ class LocaleSubscriber implements EventSubscriberInterface
         $event->setResponse(new RedirectResponse($url));
     }
 
-    public function redirectToLangOn404(RequestEvent $event)
+    public function redirectToLangOn404(RequestEvent $event): void
     {
         /**
          * @var \Symfony\Component\HttpKernel\Event\ExceptionEvent $event
@@ -87,7 +91,7 @@ class LocaleSubscriber implements EventSubscriberInterface
         // If the code is 404 and the url is relative to HOME, try using the localized version.
         if ($event->getThrowable() instanceof NotFoundHttpException && $event->getRequest()->getPathInfo() === '/') {
             $event->setResponse(new RedirectResponse('/en/'));
+            $event->stopPropagation();
         }
-        $event->stopPropagation();
     }
 }
