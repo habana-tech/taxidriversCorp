@@ -1,0 +1,9 @@
+{% if locales is defined and locales is not empty %}
+<div class="lang">
+    <ul>
+        {% for locale in locales %}
+            <li class="{% if current == locale %}selected{% endif %}"><a href="?switchLang={{ locale }}">{{ locale | upper }}</a></li>
+        {% endfor %}
+    </ul>
+</div>
+{% endif %}

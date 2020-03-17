@@ -32,10 +32,6 @@
         </ul>
     </nav>
 
-    <div class="lang">
-        <ul>
-            <li class="{% if app.request.locale == 'en' %}selected{% endif %}"><a href="#">EN</a></li>
-            <li class="{% if app.request.locale == 'es' %}selected{% endif %}"><a href="#">ES</a></li>
-        </ul>
-    </div>
+    {{ render(controller('App\\Controller\\Shared\\RegionsController::localeSelector',
+        {'currentLang': app.request.locale})) }}
 </header>
