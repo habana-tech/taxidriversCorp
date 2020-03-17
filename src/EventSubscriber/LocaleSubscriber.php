@@ -13,6 +13,7 @@ use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpKernel\Event\ControllerArgumentsEvent;
 use Symfony\Component\HttpKernel\Event\RequestEvent;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Routing\RouterInterface;
 
@@ -84,7 +85,7 @@ class LocaleSubscriber implements EventSubscriberInterface
          * @var \Symfony\Component\HttpKernel\Event\ExceptionEvent $event
          */
         // If the code is 404 and the url is relative to HOME, try using the localized version.
-        if ($event->getThrowable()->getStatusCode() === 404 && $event->getRequest()->getPathInfo() === '/') {
+        if ($event->getThrowable() instanceof NotFoundHttpException && $event->getRequest()->getPathInfo() === '/') {
             $event->setResponse(new RedirectResponse('/en/'));
         }
         $event->stopPropagation();
