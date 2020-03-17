@@ -1,0 +1,26 @@
+.questions{
+    margin: auto;
+    position: relative;
+}
+
+.question{
+    position: relative;
+
+     &__title{
+        cursor: pointer;
+     }
+
+     &__answer{
+         opacity: 0;
+         transform: translateY(-50%);
+         transition: all .3s ease-in-out;
+         max-height: 0;
+         overflow: hidden;
+
+         &--active{
+             opacity: 1;
+             transform: translateY(0);
+
+         }
+     }
+ }

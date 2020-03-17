@@ -1,7 +1,19 @@
+controllers_dash_security:
+    resource: '../../src/Controller/{Dash,Security}/*'
+    type: annotation
+    requirements:
+        host: "%domain.dash%"
+#        _locale: '%app_locales%'
+#    defaults:
+#        _locale: '%locale%'
+#    prefix:   /{_locale}
+
+
 controllers:
-    resource: ../../src/Controller/
+    resource: '../../src/Controller/{Taxidrivers,Vinales}/*'
     type: annotation
     requirements:
         _locale: '%app_locales%'
     defaults:
         _locale: '%locale%'
+    prefix:   /{_locale}

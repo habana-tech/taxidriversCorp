@@ -1,0 +1,53 @@
+<section class="section services">
+    <div class="section__content">
+
+        <form action="" class="form form--no-shadow">
+
+            <div class="form__item">
+                <label for="">{% trans %}place.book.date{% endtrans %}</label>
+                <input type="date">
+            </div>
+
+            <div class="services__types">
+                {% for type in ['Private', 'Collective', 'Transfer'] %}
+                    <button data-index="{{ loop.index0 }}">{{ type }}</button>
+                {% endfor %}
+            </div>
+
+            <div class="services__content">
+                {% for type in ['Private', 'Collective', 'Transfer'] %}
+                    <div  data-index="{{ loop.index0 }}" class="services__content__type">
+
+                        <div class="form__item form__item--inline">
+                            <label for="">{% trans %}place.book.time{% endtrans %}</label>
+                            <input type="time">
+                        </div>
+                        <div class="form__item form__item--inline">
+                            <label for="">{% trans %}place.book.people{% endtrans %}</label>
+                            <input type="number" min="1" value="1">
+                        </div>
+                        <div class="form__item">
+                            <label for="">{% trans %}place.book.price{% endtrans %}: $45usd</label>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+
+            <div class="form__item">
+                <label for="">{% trans %}place.book.name{% endtrans %}</label>
+                <input type="text">
+            </div>
+            <div class="form__item">
+                <label for="">{% trans %}place.book.email{% endtrans %}</label>
+                <input type="email">
+            </div>
+
+            <div class="form__item">
+                <label for="">{% trans %}place.book.message{% endtrans %}</label>
+                <textarea name="" id="" cols="30" rows="10"></textarea>
+            </div>
+
+            <input class="btn" type="submit">
+        </form>
+    </div>
+</section>
