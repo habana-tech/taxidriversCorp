@@ -1,22 +1,22 @@
 {
   "entrypoints": {
-    "dash": {
+    "dashApp": {
       "js": [
         "/build/runtime.1103dde6.js",
-        "/build/1.2078d38f.js",
-        "/build/dash.a1a57793.js"
+        "/build/1.3ebe7a0d.js",
+        "/build/dashApp.05ea9024.js"
       ],
       "css": [
         "/build/1.f87da28c.css",
-        "/build/dash.d4150383.css"
+        "/build/dashApp.62ab32e2.css"
       ]
     },
-    "dash_placemap": {
+    "dashAppPlaceMap": {
       "js": [
         "/build/runtime.1103dde6.js",
         "/build/0.79932bc7.js",
         "/build/3.80353d2c.js",
-        "/build/dash_placemap.42671cfb.js"
+        "/build/dashAppPlaceMap.ddf0dc15.js"
       ]
     },
     "taxiDriversApp": {
@@ -70,7 +70,7 @@
     "vinalesApp": {
       "js": [
         "/build/runtime.1103dde6.js",
-        "/build/vinalesApp.2da4792b.js"
+        "/build/vinalesApp.e90f534b.js"
       ],
       "css": [
         "/build/vinalesApp.b7d21fa5.css"
