@@ -16,7 +16,7 @@
                     <div class="peers ai-sb fxw-nw">
                         
                         <div class="peer">
-                        <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500"><em>{{ msgphp_user.current.email }}</em></span>
+                        <span class="d-ib lh-0 va-m fw-600 bdrs-10em pX-15 pY-15 bgc-green-50 c-green-500"><em>{{ username_form.email }}</em></span>
                         </div>
                     </div>
                     </div>
@@ -38,7 +38,7 @@
             
                         <div class="form-group">
                                 {{ form_errors(username_form) }}
-                                {{ form_widget(username_form.email, {'attr': {'class': "form-control", 'placeholder':msgphp_user.current.email } } ) }}
+                                {{ form_widget(username_form.email, {'attr': {'class': "form-control", 'placeholder':username_form.email } } ) }}
                         </div>
 
                         <div class="form-group">
