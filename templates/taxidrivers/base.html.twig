@@ -1,15 +1,12 @@
-{#{% if app.request.locale == 'es' %}#}
-{#    {% set lang = 'es' %}#}
-{#{% else %}#}
+{% if app.request.locale == 'es' %}
+    {% set lang = 'es' %}
+{% else %}
     {% set lang = 'en' %}
-{#{% endif %}#}
-
-
+{% endif %}
 <!DOCTYPE html>
-<html lang="{{ lang }}">
+{% apply spaceless %}
+<html lang="{{ app.request.locale }}">
     <head>
-        <meta charset="UTF-8">
-
         {{ include("taxidrivers/global/_meta.html.twig") }}
 
         {% block meta %}{% endblock %}
@@ -21,7 +18,7 @@
         {% block stylesheets %}{% endblock %}
 
         {# Lazzy load for CSS as inline script #}
-        {{ source('utils/loadCssScript.twig') }}
+        {{ include('utils/loadCssScript.twig') }}
 
     </head>
     <body>
@@ -39,3 +36,4 @@
         {% block javascripts %}{% endblock %}
     </body>
 </html>
+{% endapply %}

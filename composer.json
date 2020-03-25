@@ -9,6 +9,7 @@
         "ext-gd": "*",
         "ext-iconv": "*",
         "ext-json": "*",
+        "ext-intl": "*",
         "dompdf/dompdf": "^0.8.4",
         "easycorp/easyadmin-bundle": "^2.3",
         "friendsofsymfony/ckeditor-bundle": "^2.2",
