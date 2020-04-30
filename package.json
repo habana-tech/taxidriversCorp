@@ -23,7 +23,7 @@
         "datatables": "^1.10.13",
         "foundation-sites": "^6.6.1",
         "fullcalendar": "^3.10.1",
-        "jquery": "^3.2.1",
+        "jquery": "^3.5.0",
         "jquery-sparkline": "^2.4.0",
         "jvectormap": "^2.0.4",
         "lazysizes": "^4.0.4",
