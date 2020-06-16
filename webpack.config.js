@@ -27,8 +27,8 @@ Encore
 
      /**DASH*/
 
-    .addEntry('dashApp', './assets/dash/scripts/index.js')
-    .addEntry('dashAppPlaceMap', './assets/dash/scripts/mapBox/adminLocationSelector.js')
+    // .addEntry('dashApp', './assets/dash/scripts/index.js')
+    // .addEntry('dashAppPlaceMap', './assets/dash/scripts/mapBox/adminLocationSelector.js')
 
     /*Taxidrivers**/
     .addEntry('taxiDriversApp', './assets/taxidrivers/js/app.js')
@@ -36,6 +36,10 @@ Encore
     .addEntry('taxiDriversIndex', './assets/taxidrivers/js/index.js')
     .addEntry('taxiDriversIndexNoCritical', './assets/taxidrivers/js/index_no_critical.js')
     .addEntry('taxiDriversPlace', './assets/taxidrivers/js/place.js')
+
+    .addStyleEntry('taxiDrivers', './assets/taxidrivers/css/app.scss')
+    .addEntry('taxiDriversVue', './assets/taxidrivers/js/app_vue.js')
+
 
     /*Vinales**/
     .addEntry('vinalesApp', './assets/vinales/js/app.js')
@@ -69,13 +73,18 @@ Encore
     })
 
     // enables Sass/SCSS support
-    .enableSassLoader()
+    // .enableSassLoader()
+    .enableSassLoader(function (options) {}, {
+    resolveUrlLoader: false
+})
 
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
     // Enable Vue loader
     .enableVueLoader()
+
+     .enablePostCssLoader()
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
@@ -88,5 +97,6 @@ Encore
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
 ;
+
 
 module.exports = Encore.getWebpackConfig();
