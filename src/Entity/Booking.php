@@ -60,7 +60,7 @@ class Booking
     private $comment;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=200)
      */
     private $currency;
 

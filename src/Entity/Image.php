@@ -44,7 +44,7 @@ class Image
     private $imageSize;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=200, nullable=true)
      */
     private $description;
 
