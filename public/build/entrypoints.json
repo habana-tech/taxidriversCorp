@@ -2,78 +2,74 @@
   "entrypoints": {
     "taxiDriversApp": {
       "js": [
-        "/build/runtime.js",
-        "/build/taxiDriversApp.js"
+        "/build/runtime.420770e4.js",
+        "/build/taxiDriversApp.68a56352.js"
       ],
       "css": [
-        "/build/taxiDriversApp.css"
+        "/build/taxiDriversApp.96197096.css"
       ]
     },
     "taxiDriversAppNoCritical": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors~taxiDriversAppNoCritical~taxiDriversIndexNoCritical~taxiDriversPlace.js",
-        "/build/vendors~taxiDriversAppNoCritical.js",
-        "/build/taxiDriversAppNoCritical.js"
+        "/build/runtime.420770e4.js",
+        "/build/1.094c4837.js",
+        "/build/taxiDriversAppNoCritical.74e031f5.js"
       ],
       "css": [
-        "/build/taxiDriversAppNoCritical.css"
+        "/build/taxiDriversAppNoCritical.0e07afef.css"
       ]
     },
     "taxiDriversIndex": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors~taxiDriversIndex.js",
-        "/build/taxiDriversIndex.js"
+        "/build/runtime.420770e4.js",
+        "/build/taxiDriversIndex.ab45d642.js"
       ],
       "css": [
-        "/build/taxiDriversIndex.css"
+        "/build/taxiDriversIndex.78846d6e.css"
       ]
     },
     "taxiDriversIndexNoCritical": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors~taxiDriversAppNoCritical~taxiDriversIndexNoCritical~taxiDriversPlace.js",
-        "/build/vendors~taxiDriversIndexNoCritical~taxiDriversPlace.js",
-        "/build/taxiDriversIndexNoCritical.js"
+        "/build/runtime.420770e4.js",
+        "/build/0.f1ca8bae.js",
+        "/build/taxiDriversIndexNoCritical.f14e1519.js"
       ],
       "css": [
-        "/build/taxiDriversIndexNoCritical.css"
+        "/build/taxiDriversIndexNoCritical.5f3b47f3.css"
       ]
     },
     "taxiDriversPlace": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors~taxiDriversAppNoCritical~taxiDriversIndexNoCritical~taxiDriversPlace.js",
-        "/build/vendors~taxiDriversIndexNoCritical~taxiDriversPlace.js",
-        "/build/taxiDriversPlace.js"
+        "/build/runtime.420770e4.js",
+        "/build/0.f1ca8bae.js",
+        "/build/taxiDriversPlace.175a0e6b.js"
       ],
       "css": [
-        "/build/taxiDriversPlace.css"
+        "/build/taxiDriversPlace.88e02a61.css"
       ]
     },
     "taxiDriversVue": {
       "js": [
-        "/build/runtime.js",
-        "/build/vendors~taxiDriversVue.js",
-        "/build/taxiDriversVue.js"
+        "/build/runtime.420770e4.js",
+        "/build/2.410848bb.js",
+        "/build/taxiDriversVue.48dbc885.js"
       ]
     },
     "vinalesApp": {
       "js": [
-        "/build/runtime.js",
-        "/build/vinalesApp.js"
+        "/build/runtime.420770e4.js",
+        "/build/vinalesApp.099a9ccb.js"
       ],
       "css": [
-        "/build/vinalesApp.css"
+        "/build/vinalesApp.d9eab54f.css"
       ]
     },
     "taxiDrivers": {
       "js": [
-        "/build/runtime.js"
+        "/build/runtime.420770e4.js"
       ],
       "css": [
-        "/build/taxiDrivers.css"
+        "/build/taxiDrivers.4cec9983.css"
       ]
     }
   }
