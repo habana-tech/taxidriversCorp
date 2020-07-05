@@ -37,6 +37,7 @@ Encore
     .addEntry('taxiDriversIndexNoCritical', './assets/taxidrivers/js/index_no_critical.js')
     .addEntry('taxiDriversPlace', './assets/taxidrivers/js/place.js')
 
+    //Taxidrivers-tailwindcss
     .addStyleEntry('taxiDrivers', './assets/taxidrivers/css/app.scss')
     .addEntry('taxiDriversVue', './assets/taxidrivers/js/app_vue.js')
 
