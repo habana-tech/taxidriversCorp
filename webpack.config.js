@@ -79,6 +79,8 @@ Encore
         resolveUrlLoader: false
     })
 
+
+
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
@@ -88,13 +90,20 @@ Encore
     //      useJsx: true
     // })
 
+    .enablePostCssLoader((options) => {
+        options.config = {
+            // directory where the postcss.config.js file is stored
+            path: './postcss.config.js'
+        };
+    })
+
     .configureCssLoader((config)  => {
         if (!Encore.isProduction() && config.modules) {
             config.modules.localIdentName = "[name]_[local]_[hash:base64:5]";
         }
     })
 
-    .enablePostCssLoader()
+
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
@@ -107,6 +116,10 @@ Encore
     //.enableReactPreset()
     //.addEntry('admin', './assets/js/admin.js')
 ;
+    //
+    // if (!Encore.isProduction()) {
+    //     Encore.disableCssExtraction();
+    // }
 
 
 module.exports = Encore.getWebpackConfig();

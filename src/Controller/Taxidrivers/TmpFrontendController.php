@@ -10,32 +10,33 @@ use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
-  * @Route("/index", host="%domain.taxidrivers%")
+  * @Route("/tmp", host="%domain.taxidrivers%")
  */
-class FrontController extends AbstractController
+class TmpFrontendController extends AbstractController
 {
     /**
      * @Route("/", name="_index")
-     * @Cache(public=true, expires="now+2h")
+     * @Cache(mustRevalidate=false, public=true, maxage=10800)
      * @param PlaceRepository $placeRepository
      * @return Response
      */
     public function index(PlaceRepository $placeRepository): Response
     {
+        echo date('m:i:s');
         $places = $placeRepository->findAll();
 
-        return $this->render('taxidrivers/layout.html.twig', [
+        return $this->render('taxidrivers_/index.html.twig', [
             'places'=>$places
         ]);
     }
 
     /**
-     * @Route("/place/{id}", name="place")
+     * @Route("/place/{id}", name="_place")
      * @param Place $id
      */
     public function place(/*, Place $id*/)
     {
-        return $this->render('taxidrivers/place.html.twig', [
+        return $this->render('taxidrivers_/place.html.twig', [
             //'place'=>$place
         ]);
     }

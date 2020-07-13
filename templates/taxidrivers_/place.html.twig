@@ -1,4 +1,4 @@
-{% extends 'taxidrivers/base.html.twig' %}
+{% extends 'taxidrivers_/base.html.twig' %}
 
 {% block title %}{% endblock %}
 
@@ -9,11 +9,11 @@
 
 {% block body %}
     <main>
-        {{ include('taxidrivers/place/_hero.html.twig') }}
-        
-        {{ include('taxidrivers/place/_description.html.twig') }}
+        {{ include('taxidrivers_/place/_hero.html.twig') }}
 
-        {{ include('taxidrivers/place/_services.html.twig') }}
+        {{ include('taxidrivers_/place/_description.html.twig') }}
+
+        {{ include('taxidrivers_/place/_services.html.twig') }}
     </main>
 {% endblock %}
 

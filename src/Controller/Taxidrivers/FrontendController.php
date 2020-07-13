@@ -16,16 +16,15 @@ class FrontendController extends AbstractController
 {
     /**
      * @Route("/", name="index")
-     * @Cache(mustRevalidate=false, public=true, maxage=10800)
+     * @Cache(public=true, expires="now+2h")
      * @param PlaceRepository $placeRepository
      * @return Response
      */
     public function index(PlaceRepository $placeRepository): Response
     {
-        echo date('m:i:s');
         $places = $placeRepository->findAll();
 
-        return $this->render('taxidrivers/index.html.twig', [
+        return $this->render('taxidrivers/layout.html.twig', [
             'places'=>$places
         ]);
     }
@@ -36,7 +35,7 @@ class FrontendController extends AbstractController
      */
     public function place(/*, Place $id*/)
     {
-        return $this->render('taxidrivers/place.html.twig', [
+        return $this->render('taxidrivers_/place.html.twig', [
             //'place'=>$place
         ]);
     }
