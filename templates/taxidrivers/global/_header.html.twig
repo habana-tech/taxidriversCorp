@@ -1,37 +1,33 @@
-<header class="header">
-
-    <div class="logo">
-        <a href="/">
-            <img src="{{ asset('images/logo.png') }}" alt="Viñales-Taxi-Cuba-logo">
+<header  id="header" class="text-gray-700 body-font">
+    <div class="container">
+        <a href="{{ path('index') }}" class="header-link-logo">
+            <img src="{{ asset('images/logo-wide.png') }}" alt="Viñales-Taxi-Cuba-logo">
+{#            <span class="ml-3 text-xl">Taxidrivers</span>#}
         </a>
+        <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
+            <a href="{{ path('index') }}#activities" class="header-link" data-section="#activities">
+                {% trans %}global.header.places{% endtrans %}
+            </a>
+            <a href="{{ path('index') }}#why_with_us" data-section="#why_with_us" class="header-link">
+                {% trans %}global.header.review{% endtrans %}
+            </a>
+            <a href="{{ path('index') }}#more_places" data-section="#more_places" class="header-link">
+                {% trans %}global.header.us{% endtrans %}
+            </a>
+            <a href="{{ path('index') }}#contact_faq" data-section="#contact_faq" class="header-link">
+                {% trans %}global.header.contact{% endtrans %}
+            </a>
+
+
+            {{ render(controller('App\\Controller\\Shared\\RegionsController::localeSelector',
+                {'currentLang': app.request.locale})) }}
+        </nav>
+        <button
+            v-on:click="blackBtn($event)"
+            class="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1" type="button" style="transition: all .15s ease">
+            <i class="fas fa-heart"></i> {% trans %}cta.book{% endtrans %}
+        </button>
     </div>
 
-    <div class="menu-icon">
-        <div class="menu-icon__middle"></div>
-    </div>
-
-    <nav class="nav swing-out-top-bck">
-        <ul>
-            <li><a href="{{ path('index') }}#activities" data-section="#activities">
-                    {% trans %}global.header.places{% endtrans %}
-                </a></li>
-            <li><a href="{{ path('index') }}#why_with_us" data-section="#why_with_us">
-                    {% trans %}global.header.review{% endtrans %}
-                </a></li>
-            <li><a href="{{ path('index') }}#more_places" data-section="#more_places">
-                    {% trans %}global.header.us{% endtrans %}
-                </a></li>
-            <li><a href="{{ path('index') }}#contact_faq" data-section="#contact_faq">
-                    {% trans %}global.header.contact{% endtrans %}
-                </a></li>
-            <li class="nav--special">
-                <a target="_self" href="">
-                    {% trans %}global.header.book{% endtrans %}
-                </a>
-            </li>
-        </ul>
-    </nav>
-
-    {{ render(controller('App\\Controller\\Shared\\RegionsController::localeSelector',
-        {'currentLang': app.request.locale})) }}
+    <tilt-divider fill-color="rgba(20, 161, 230, 0.95)" background="#fff"></tilt-divider>
 </header>

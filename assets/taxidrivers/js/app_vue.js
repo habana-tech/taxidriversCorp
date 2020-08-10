@@ -1,19 +1,19 @@
 import Vue from 'vue';
 
-import tiltDivider from './components/layout/tiltDivider';
+import tiltDivider from "./components/layout/tiltDivider";
 import airportBtn from "./components/cta/airportBtn";
 import customItineraryBtn from "./components/cta/customItineraryBtn";
 import locationSelectInput from "./components/cta/locationSelectInput";
 import slide from "./components/layout/slide";
 
-Vue.component('tiltDivider', tiltDivider);
+Vue.component("tiltDivider", tiltDivider);
 
 new Vue({
     el: '#header',
     methods: {
         blackBtn: function (e) {
             const button = e.target;
-            button.classList.toggle('rounded-full')
+            button.classList.toggle('rounded-full');
             console.log(button);
             // console.log('blackBtn');
         }

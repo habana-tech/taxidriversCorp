@@ -1,378 +1,328 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="theme-color" content="#000000" />
+{% extends 'taxidrivers/base.html.twig' %}
+    {% block body %}
+        <section id="hero" class="text-gray-700 body-font backgroung-sun-tornado">
 
-      {% block stylesheets %}
-          {{ encore_entry_link_tags('taxiDrivers') }}
-          {{ encore_entry_link_tags('taxiDriversVue') }}
-      {% endblock %}
-    <title>Landing page</title>
-    <style type="text/css">
-      .backgroung-sun-tornado{
-        background-color: #89d8ee;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%2389d8ee'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%23c4ecf7'/%3E%3Cstop offset='1' stop-color='%2389d8ee'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg %3E%3Cg transform=''%3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(-136.8 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0.67' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        background-attachment: fixed;
-        background-size: cover;
-      }
-      .cta-custom-route-ilustration{
-        background-color: #89d8ee;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 2000 1500'%3E%3Cdefs%3E%3CradialGradient id='a' gradientUnits='objectBoundingBox'%3E%3Cstop offset='0' stop-color='%23ffffff'/%3E%3Cstop offset='1' stop-color='%2389d8ee'/%3E%3C/radialGradient%3E%3ClinearGradient id='b' gradientUnits='userSpaceOnUse' x1='0' y1='750' x2='1550' y2='750'%3E%3Cstop offset='0' stop-color='%23c4ecf7'/%3E%3Cstop offset='1' stop-color='%2389d8ee'/%3E%3C/linearGradient%3E%3Cpath id='s' fill='url(%23b)' d='M1549.2 51.6c-5.4 99.1-20.2 197.6-44.2 293.6c-24.1 96-57.4 189.4-99.3 278.6c-41.9 89.2-92.4 174.1-150.3 253.3c-58 79.2-123.4 152.6-195.1 219c-71.7 66.4-149.6 125.8-232.2 177.2c-82.7 51.4-170.1 94.7-260.7 129.1c-90.6 34.4-184.4 60-279.5 76.3C192.6 1495 96.1 1502 0 1500c96.1-2.1 191.8-13.3 285.4-33.6c93.6-20.2 185-49.5 272.5-87.2c87.6-37.7 171.3-83.8 249.6-137.3c78.4-53.5 151.5-114.5 217.9-181.7c66.5-67.2 126.4-140.7 178.6-218.9c52.3-78.3 96.9-161.4 133-247.9c36.1-86.5 63.8-176.2 82.6-267.6c18.8-91.4 28.6-184.4 29.6-277.4c0.3-27.6 23.2-48.7 50.8-48.4s49.5 21.8 49.2 49.5c0 0.7 0 1.3-0.1 2L1549.2 51.6z'/%3E%3Cg id='g'%3E%3Cuse href='%23s' transform='scale(0.12) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.2) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.25) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(0.3) rotate(-20)'/%3E%3Cuse href='%23s' transform='scale(0.4) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(0.5) rotate(20)'/%3E%3Cuse href='%23s' transform='scale(0.6) rotate(60)'/%3E%3Cuse href='%23s' transform='scale(0.7) rotate(10)'/%3E%3Cuse href='%23s' transform='scale(0.835) rotate(-40)'/%3E%3Cuse href='%23s' transform='scale(0.9) rotate(40)'/%3E%3Cuse href='%23s' transform='scale(1.05) rotate(25)'/%3E%3Cuse href='%23s' transform='scale(1.2) rotate(8)'/%3E%3Cuse href='%23s' transform='scale(1.333) rotate(-60)'/%3E%3Cuse href='%23s' transform='scale(1.45) rotate(-30)'/%3E%3Cuse href='%23s' transform='scale(1.6) rotate(10)'/%3E%3C/g%3E%3C/defs%3E%3Cg %3E%3Cg transform=''%3E%3Ccircle fill='url(%23a)' r='3000'/%3E%3Cg opacity='0.5'%3E%3Ccircle fill='url(%23a)' r='2000'/%3E%3Ccircle fill='url(%23a)' r='1800'/%3E%3Ccircle fill='url(%23a)' r='1700'/%3E%3Ccircle fill='url(%23a)' r='1651'/%3E%3Ccircle fill='url(%23a)' r='1450'/%3E%3Ccircle fill='url(%23a)' r='1250'/%3E%3Ccircle fill='url(%23a)' r='1175'/%3E%3Ccircle fill='url(%23a)' r='900'/%3E%3Ccircle fill='url(%23a)' r='750'/%3E%3Ccircle fill='url(%23a)' r='500'/%3E%3Ccircle fill='url(%23a)' r='380'/%3E%3Ccircle fill='url(%23a)' r='250'/%3E%3C/g%3E%3Cg transform='rotate(-136.8 0 0)'%3E%3Cuse href='%23g' transform='rotate(10)'/%3E%3Cuse href='%23g' transform='rotate(120)'/%3E%3Cuse href='%23g' transform='rotate(240)'/%3E%3C/g%3E%3Ccircle fill-opacity='0.67' fill='url(%23a)' r='3000'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-        background-attachment: fixed;
-        background-size: cover;
-      }
+            <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center ">
+                <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
+                    <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Knausgaard typewriter readymade marfa</h1>
+                    <p class="mb-8 leading-relaxed">Chillwave portland ugh, knausgaard fam polaroid iPhone. Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
+                    <div class="flex w-full md:justify-start justify-center">
+                        <input class="bg-gray-100 rounded mr-4 border border-gray-400 focus:outline-none focus:border-blue-500 text-base px-4 lg:w-full xl:w-1/2 w-2/4 md:w-full" placeholder="Placeholder" type="text">
 
-    </style>
-  </head>
-  <body>
-    <header  id="header" class="text-gray-700 body-font">
-        <div class="container mx-auto flex flex-wrap p-5 flex-col md:flex-row items-center">
-        <a class="flex title-font font-medium items-center text-gray-900 mb-4 md:mb-0">
-          <img src="{{ asset('favicon.png') }}">
-          <span class="ml-3 text-xl">Taxidrivers</span>
-        </a>
-        <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-          <a class="mr-5 hover:text-gray-900">First Link</a>
-          <a class="mr-5 hover:text-gray-900">Second Link</a>
-          <a class="mr-5 hover:text-gray-900">Third Link</a>
-          <a class="mr-5 hover:text-gray-900">Fourth Link</a>
-        </nav>
-        <button
-            v-on:click="blackBtn($event)"
-            class="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1" type="button" style="transition: all .15s ease">
-          <i class="fas fa-heart"></i> Small
-        </button>
-      </div>
-    </header>
+                        <button class="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">Go!</button>
+                        <location-select-input></location-select-input>
+                    </div>
+                    <p class="text-sm mt-2 text-gray-500 mb-8 w-full">Neutra shabby chic ramps, viral fixie.</p>
+
+                    <div class="flex lg:flex-row md:flex-col">
+                        <airport-btn
+                            description-text="{{ 'Taxi to or from' | trans }}"
+                            action-text="{{ 'Airport' | trans }}"
+                            action-url="#"
+                        >
+                        </airport-btn>
+                        <custom-itinerary-btn
+                            description-text="{{ 'Request a quote for a' | trans }}"
+                            action-text="{{ 'custom itinerary' | trans }}"
+                            action-url="#"
+                        >
+                        </custom-itinerary-btn>
+                    </div>
+                </div>
+                <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
+                    <img class="object-cover object-center shadow-lg rounded max-w-full" alt="hero" src="https://localhost:8000/images/sample.jpg">
+                    {#            <slide#}
+                    {#            slides="{0:{ subTitle: 'hola', title:'hola', placeName:'cuba'} }"></slide>#}
+                </div>
+            </div>
+        </section>
 
 
+        <!--
+          SERVICES
+        -->
+        <section class="text-gray-700 body-font">
+            <div class="container px-5 py-24 mx-auto">
+                <div class="flex flex-wrap w-full mb-20">
+                    <div class="lg:w-1/3 w-full mb-6 lg:mb-0">
+                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Our Services</h1>
+                        <div class="h-1 w-20 bg-blue-500 rounded"></div>
+                    </div>
+                    <div class="lg:w-2/3 w-full mb-6 lg:mb-0">
+                        <p class="w-full leading-relaxed text-base">With us, it is easier to travel through Vinales, Varadero, Cayo Coco or anywhere in Cuba. Our team gives taxi and tours services through several routes, which go deep into the most amazing places of the Island.</p>
+                        <p class="w-full leading-relaxed text-base">We provide a private service only for you and your family, we have professional drivers that will make you feel a safe and confident trip.</p>
+                        <p class="w-full leading-relaxed text-base">The reservations you make on our website are confirmed reservations.</p>
+                    </div>
+                </div>
 
+                <div class="w-full  services-flying-ilustration bg-opacity-25">
+                    <div class="flex flex-col text-center w-full mb-10">
+                        <h3 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1 uppercase">in case you arrive or you leave</h3>
+                        <h2 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Airport transfer</h2>
+                    </div>
 
-    <section id="hero" class="text-gray-700 body-font backgroung-sun-tornado">
-        <tilt-divider></tilt-divider>
-      <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center ">
-        <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-          <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Knausgaard typewriter readymade marfa</h1>
-          <p class="mb-8 leading-relaxed">Chillwave portland ugh, knausgaard fam polaroid iPhone. Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
-          <div class="flex w-full md:justify-start justify-center">
-            <input class="bg-gray-100 rounded mr-4 border border-gray-400 focus:outline-none focus:border-blue-500 text-base px-4 lg:w-full xl:w-1/2 w-2/4 md:w-full" placeholder="Placeholder" type="text">
+                    <div class="flex flex-wrap justify-center -m-4 ">
+                        <div class="xl:w-1/3 md:w-1/3 p-4">
+                            <div class="bg-gray-100 p-6 rounded-lg bg-opacity-75">
+                                <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://static.taxidriverscuba.com/uploads/fbecb2ad79.jpeg-1x1.jpg" alt="content">
+                                <h3 class="tracking-widest text-blue-500 text-xs font-medium title-font uppercase">Transfer from or to</h3>
+                                <h2 class="text-lg text-gray-900 font-medium title-font mb-4"> Juan Gualberto Gómez Airport, Varadero</h2>
+                                <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
 
-            <button class="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">Go!</button>
-              <location-select-input></location-select-input>
-          </div>
-          <p class="text-sm mt-2 text-gray-500 mb-8 w-full">Neutra shabby chic ramps, viral fixie.</p>
-
-          <div class="flex lg:flex-row md:flex-col">
-            <airport-btn
-                description-text="{{ 'Taxi to or from' | trans }}"
-                action-text="{{ 'Airport' | trans }}"
-                action-url="#"
-            >
-            </airport-btn>
-            <custom-itinerary-btn
-                description-text="{{ 'Request a quote for a' | trans }}"
-                action-text="{{ 'custom itinerary' | trans }}"
-                action-url="#"
-            >
-            </custom-itinerary-btn>
-          </div>
-        </div>
-        <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-          <img class="object-cover object-center shadow-lg rounded max-w-full" alt="hero" src="https://localhost:8000/images/sample.jpg">
-{#            <slide#}
-{#            slides="{0:{ subTitle: 'hola', title:'hola', placeName:'cuba'} }"></slide>#}
-        </div>
-      </div>
-    </section>
-
-
-    <!--
-      SERVICES
-    -->
-    <section class="text-gray-700 body-font">
-      <div class="container px-5 py-24 mx-auto">
-        <div class="flex flex-wrap w-full mb-20">
-          <div class="lg:w-1/3 w-full mb-6 lg:mb-0">
-            <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Our Services</h1>
-            <div class="h-1 w-20 bg-blue-500 rounded"></div>
-          </div>
-          <div class="lg:w-2/3 w-full mb-6 lg:mb-0">
-            <p class="w-full leading-relaxed text-base">With us, it is easier to travel through Vinales, Varadero, Cayo Coco or anywhere in Cuba. Our team gives taxi and tours services through several routes, which go deep into the most amazing places of the Island.</p>
-            <p class="w-full leading-relaxed text-base">We provide a private service only for you and your family, we have professional drivers that will make you feel a safe and confident trip.</p>
-            <p class="w-full leading-relaxed text-base">The reservations you make on our website are confirmed reservations.</p>
-          </div>
-        </div>
-
-        <div class="w-full  services-flying-ilustration bg-opacity-25">
-          <div class="flex flex-col text-center w-full mb-10">
-            <h3 class="text-xs text-blue-500 tracking-widest font-medium title-font mb-1 uppercase">in case you arrive or you leave</h3>
-            <h2 class="sm:text-3xl text-2xl font-medium title-font text-gray-900">Airport transfer</h2>
-          </div>
-
-          <div class="flex flex-wrap justify-center -m-4 ">
-            <div class="xl:w-1/3 md:w-1/3 p-4">
-              <div class="bg-gray-100 p-6 rounded-lg bg-opacity-75">
-                <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://static.taxidriverscuba.com/uploads/fbecb2ad79.jpeg-1x1.jpg" alt="content">
-                <h3 class="tracking-widest text-blue-500 text-xs font-medium title-font uppercase">Transfer from or to</h3>
-                <h2 class="text-lg text-gray-900 font-medium title-font mb-4"> Juan Gualberto Gómez Airport, Varadero</h2>
-                <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-
-                <div class="flex items-center flex-wrap mt-4">
-                  <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                  <span class="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-300">
+                                <div class="flex items-center flex-wrap mt-4">
+                                    <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+                                        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M5 12h14"></path>
+                                            <path d="M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                    <span class="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-300">
                     <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                       <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                       <circle cx="12" cy="12" r="3"></circle>
                     </svg>1.2K
                   </span>
-                  <span class="text-gray-600 inline-flex items-center leading-none text-sm">
+                                    <span class="text-gray-600 inline-flex items-center leading-none text-sm">
                     <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                       <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
                     </svg>6
                   </span>
-                </div>
-              </div>
+                                </div>
+                            </div>
 
-            </div>
-            <div class="xl:w-1/3 md:w-1/3 p-4">
-              <div class="bg-blue-300 p-6 rounded-lg bg-opacity-75">
-                <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://static.taxidriverscuba.com/uploads/a8f51a7ebc.jpeg-1x1.jpg" alt="content">
-                <h3 class="tracking-widest text-blue-500 text-xs font-medium title-font uppercase">Transfer from or to</h3>
-                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">José Martí Airport, Havana</h2>
-                <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
-                <div class="flex items-center flex-wrap mt-4">
-                  <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
-                    <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                      <path d="M5 12h14"></path>
-                      <path d="M12 5l7 7-7 7"></path>
-                    </svg>
-                  </a>
-                  <span class="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-300">
+                        </div>
+                        <div class="xl:w-1/3 md:w-1/3 p-4">
+                            <div class="bg-blue-300 p-6 rounded-lg bg-opacity-75">
+                                <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://static.taxidriverscuba.com/uploads/a8f51a7ebc.jpeg-1x1.jpg" alt="content">
+                                <h3 class="tracking-widest text-blue-500 text-xs font-medium title-font uppercase">Transfer from or to</h3>
+                                <h2 class="text-lg text-gray-900 font-medium title-font mb-4">José Martí Airport, Havana</h2>
+                                <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
+                                <div class="flex items-center flex-wrap mt-4">
+                                    <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
+                                        <svg class="w-4 h-4 ml-2" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                                            <path d="M5 12h14"></path>
+                                            <path d="M12 5l7 7-7 7"></path>
+                                        </svg>
+                                    </a>
+                                    <span class="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-300">
                     <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                       <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
                       <circle cx="12" cy="12" r="3"></circle>
                     </svg>1.2K
                   </span>
-                  <span class="text-gray-600 inline-flex items-center leading-none text-sm">
+                                    <span class="text-gray-600 inline-flex items-center leading-none text-sm">
                     <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
                       <path d="M21 11.5a8.38 8.38 0 01-.9 3.8 8.5 8.5 0 01-7.6 4.7 8.38 8.38 0 01-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 01-.9-3.8 8.5 8.5 0 014.7-7.6 8.38 8.38 0 013.8-.9h.5a8.48 8.48 0 018 8v.5z"></path>
                     </svg>6
                   </span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-              </div>
             </div>
-          </div>
-        </div>
-      </div>
-    </section>
+        </section>
 
-    <section class="text-gray-700 body-font">
-  <div class="container px-5 py-24 mx-auto">
-    <div class="flex flex-wrap -m-4">
-      <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260">
-        </a>
-        <div class="mt-4">
-          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-          <p class="mt-1">$16.00</p>
-        </div>
-      </div>
-      <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/421x261">
-        </a>
-        <div class="mt-4">
-          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
-          <p class="mt-1">$21.15</p>
-        </div>
-      </div>
-      <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/422x262">
-        </a>
-        <div class="mt-4">
-          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">Neptune</h2>
-          <p class="mt-1">$12.00</p>
-        </div>
-      </div>
-      <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/423x263">
-        </a>
-        <div class="mt-4">
-          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
-          <p class="mt-1">$18.40</p>
-        </div>
-      </div>
-      <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/424x264">
-        </a>
-        <div class="mt-4">
-          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
-          <p class="mt-1">$16.00</p>
-        </div>
-      </div>
-      <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/425x265">
-        </a>
-        <div class="mt-4">
-          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
-          <p class="mt-1">$21.15</p>
-        </div>
-      </div>
-      <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/427x267">
-        </a>
-        <div class="mt-4">
-          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">Neptune</h2>
-          <p class="mt-1">$12.00</p>
-        </div>
-      </div>
-      <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
-        <a class="block relative h-48 rounded overflow-hidden">
-          <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/428x268">
-        </a>
-        <div class="mt-4">
-          <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
-          <h2 class="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
-          <p class="mt-1">$18.40</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-<!-- END SERVICES-->
+        <section class="text-gray-700 body-font">
+            <div class="container px-5 py-24 mx-auto">
+                <div class="flex flex-wrap -m-4">
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
+                            <p class="mt-1">$16.00</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/421x261">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
+                            <p class="mt-1">$21.15</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/422x262">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Neptune</h2>
+                            <p class="mt-1">$12.00</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/423x263">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
+                            <p class="mt-1">$18.40</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/424x264">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">The Catalyzer</h2>
+                            <p class="mt-1">$16.00</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/425x265">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Shooting Stars</h2>
+                            <p class="mt-1">$21.15</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/427x267">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">Neptune</h2>
+                            <p class="mt-1">$12.00</p>
+                        </div>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
+                        <a class="block relative h-48 rounded overflow-hidden">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/428x268">
+                        </a>
+                        <div class="mt-4">
+                            <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
+                            <h2 class="text-gray-900 title-font text-lg font-medium">The 400 Blows</h2>
+                            <p class="mt-1">$18.40</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- END SERVICES-->
 
-    <section id="cta-banner" class="text-gray-700 body-font cta-custom-route-ilustration">
-      <div class="container px-5 py-24 mx-auto flex items-center md:flex-row flex-col">
-        <div class="flex flex-col md:pr-10 md:mb-0 mb-6 pr-0 w-full md:w-auto md:text-left text-center">
-          <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2>
-          <h1 class="md:text-3xl text-2xl font-medium title-font text-gray-900">Master Cleanse Reliac Heirloom</h1>
-        </div>
-        <div class="flex md:ml-auto md:mr-0 mx-auto items-center flex-shrink-0">
-            <airport-btn
-                description-text="{{ 'Taxi to or from' | trans }}"
-                action-text="{{ 'Airport' | trans }}"
-                action-url="#"
-            >
-            </airport-btn>
-            <custom-itinerary-btn
-                description-text="{{ 'Request a quote for a' | trans }}"
-                action-text="{{ 'custom itinerary' | trans }}"
-                action-url="#"
-            >
-            </custom-itinerary-btn>
+        <section id="cta-banner" class="text-gray-700 body-font cta-custom-route-ilustration">
+            <div class="container px-5 py-24 mx-auto flex items-center md:flex-row flex-col">
+                <div class="flex flex-col md:pr-10 md:mb-0 mb-6 pr-0 w-full md:w-auto md:text-left text-center">
+                    <h2 class="text-xs text-indigo-500 tracking-widest font-medium title-font mb-1">ROOF PARTY POLAROID</h2>
+                    <h1 class="md:text-3xl text-2xl font-medium title-font text-gray-900">Master Cleanse Reliac Heirloom</h1>
+                </div>
+                <div class="flex md:ml-auto md:mr-0 mx-auto items-center flex-shrink-0">
+                    <airport-btn
+                        description-text="{{ 'Taxi to or from' | trans }}"
+                        action-text="{{ 'Airport' | trans }}"
+                        action-url="#"
+                    >
+                    </airport-btn>
+                    <custom-itinerary-btn
+                        description-text="{{ 'Request a quote for a' | trans }}"
+                        action-text="{{ 'custom itinerary' | trans }}"
+                        action-url="#"
+                    >
+                    </custom-itinerary-btn>
 
-        </div>
-      </div>
-    </section>
+                </div>
+            </div>
+        </section>
 
-    <footer class="text-gray-700 body-font">
-      <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-no-wrap flex-wrap flex-col">
-        <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
-          <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
-            <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-blue-500 rounded-full" viewBox="0 0 24 24">
-              <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
-            </svg>
-            <span class="ml-3 text-xl">tailblocks</span>
-          </a>
-          <p class="mt-2 text-sm text-gray-500">Air plant banjo lyft occupy retro adaptogen indego</p>
-        </div>
-        <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
-          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-            <nav class="list-none mb-10">
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-            <nav class="list-none mb-10">
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-            <nav class="list-none mb-10">
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-          <div class="lg:w-1/4 md:w-1/2 w-full px-4">
-            <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
-            <nav class="list-none mb-10">
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">First Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
-              </li>
-              <li>
-                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
-              </li>
-            </nav>
-          </div>
-        </div>
-      </div>
-      <div class="bg-gray-200">
-        <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
-          <p class="text-gray-500 text-sm text-center sm:text-left">© 2020 taxidrivers —
-            <a href="https://twitter.com/habanatech" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@habanatech</a>
-          </p>
-          <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
+        <footer class="text-gray-700 body-font">
+            <div class="container px-5 py-24 mx-auto flex md:items-center lg:items-start md:flex-row md:flex-no-wrap flex-wrap flex-col">
+                <div class="w-64 flex-shrink-0 md:mx-0 mx-auto text-center md:text-left md:mt-0 mt-10">
+                    <a class="flex title-font font-medium items-center md:justify-start justify-center text-gray-900">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-10 h-10 text-white p-2 bg-blue-500 rounded-full" viewBox="0 0 24 24">
+                            <path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"></path>
+                        </svg>
+                        <span class="ml-3 text-xl">tailblocks</span>
+                    </a>
+                    <p class="mt-2 text-sm text-gray-500">Air plant banjo lyft occupy retro adaptogen indego</p>
+                </div>
+                <div class="flex-grow flex flex-wrap md:pr-20 -mb-10 md:text-left text-center order-first">
+                    <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+                        <nav class="list-none mb-10">
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                            </li>
+                        </nav>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+                        <nav class="list-none mb-10">
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                            </li>
+                        </nav>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+                        <nav class="list-none mb-10">
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                            </li>
+                        </nav>
+                    </div>
+                    <div class="lg:w-1/4 md:w-1/2 w-full px-4">
+                        <h2 class="title-font font-medium text-gray-900 tracking-widest text-sm mb-3">CATEGORIES</h2>
+                        <nav class="list-none mb-10">
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">First Link</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Second Link</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Third Link</a>
+                            </li>
+                            <li>
+                                <a class="text-gray-600 hover:text-gray-800">Fourth Link</a>
+                            </li>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <div class="bg-gray-200">
+                <div class="container mx-auto py-4 px-5 flex flex-wrap flex-col sm:flex-row">
+                    <p class="text-gray-500 text-sm text-center sm:text-left">© 2020 taxidrivers —
+                        <a href="https://twitter.com/habanatech" rel="noopener noreferrer" class="text-gray-600 ml-1" target="_blank">@habanatech</a>
+                    </p>
+                    <span class="inline-flex sm:ml-auto sm:mt-0 mt-2 justify-center sm:justify-start">
             <a class="text-gray-500">
               <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
                 <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
@@ -387,21 +337,21 @@
             </a>
 
           </span>
-        </div>
-      </div>
-    </footer>
+                </div>
+            </div>
+        </footer>
 
-    {{ encore_entry_script_tags('taxiDriversVue') }}
+        {{ encore_entry_script_tags('taxiDriversVue') }}
 
-  </body>
-  </html>
-<script>
-    import TiltDivider from "../../assets/taxidrivers/js/components/layout/tiltDivider";
-    import AirportBtn from "../../assets/taxidrivers/js/components/cta/airportBtn";
-    import CustomItineraryBtn from "../../assets/taxidrivers/js/components/cta/customItineraryBtn";
-    import LocationSelectInput from "../../assets/taxidrivers/js/components/cta/locationSelectInput";
-    import Slide from "../../assets/taxidrivers/js/components/layout/slide";
-    export default {
-        components: {Slide, LocationSelectInput, CustomItineraryBtn, AirportBtn, TiltDivider}
-    }
-</script>
+        <script>
+
+            import AirportBtn from "../../assets/taxidrivers/js/components/cta/airportBtn";
+            import CustomItineraryBtn from "../../assets/taxidrivers/js/components/cta/customItineraryBtn";
+            import LocationSelectInput from "../../assets/taxidrivers/js/components/cta/locationSelectInput";
+            import Slide from "../../assets/taxidrivers/js/components/layout/slide";
+            export default {
+                components: {Slide, LocationSelectInput, CustomItineraryBtn, AirportBtn, TiltDivider}
+            }
+        </script>
+
+    {% endblock body %}

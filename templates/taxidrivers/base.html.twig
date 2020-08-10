@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+{% apply spaceless %}
+    <html lang="{{ app.request.locale }}">
+    <head>
+        {{ include("taxidrivers/global/_meta.html.twig") }}
+
+        {% block meta %}{% endblock %}
+
+        <title>{% block title %}Welcome!{% endblock %} ~ TaxidriversCorp</title>
+
+        {{ encore_entry_link_tags('taxiDrivers') }}
+        {{ encore_entry_link_tags('taxiDriversVue') }}
+
+        {% block stylesheets %}{% endblock %}
+
+        {# Lazzy load for CSS as inline script #}
+        {# TODO: review need for lazy css load #}
+{#        {{ include('utils/loadCssScript.twig') }}#}
+
+    </head>
+    <body>
+
+    {{ include("taxidrivers/global/_header.html.twig") }}
+
+    {% block body %}
+    {% endblock %}
+
+{#    {{ include("taxidrivers_/global/_footer.html.twig") }}#}
+
+{#    {{ encore_entry_script_tags('taxiDriversApp') }}#}
+{#    {{ encore_entry_script_tags('taxiDriversAppNoCritical') }}#}
+
+
+    {{ encore_entry_script_tags('taxiDriversVue') }}
+    {% block javascripts %}{% endblock %}
+    </body>
+    </html>
+{% endapply %}

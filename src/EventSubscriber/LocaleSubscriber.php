@@ -65,7 +65,7 @@ class LocaleSubscriber implements EventSubscriberInterface
 
     public function switchLangIfParam(RequestEvent $event): void
     {
-        $requestedLang = $event->getRequest()->query->get('switchLang');
+        $requestedLang = $event->getRequest()->query->get('setLang');
         $_route        = $event->getRequest()->attributes->get('_route');
 
 
