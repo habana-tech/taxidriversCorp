@@ -1,4 +1,7 @@
 {
+    "composer/package-versions-deprecated": {
+        "version": "1.11.99"
+    },
     "doctrine/annotations": {
         "version": "1.0",
         "recipe": {
@@ -202,6 +205,9 @@
     },
     "psr/log": {
         "version": "1.1.2"
+    },
+    "roave/security-advisories": {
+        "version": "dev-latest"
     },
     "roukmoute/hashids-bundle": {
         "version": "1.4",
