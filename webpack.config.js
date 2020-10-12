@@ -26,9 +26,10 @@ Encore
 
 
      /**DASH*/
-
-    // .addEntry('dashApp', './assets/dash/scripts/index.js')
-    // .addEntry('dashAppPlaceMap', './assets/dash/scripts/mapBox/adminLocationSelector.js')
+    .addEntry('dashApp', './assets/dash/src/main.js')
+    .addEntry('dashApp_login', './assets/dash/src/login.js')
+    //.addEntry('dashApp', './assets/dash/scripts/index.js')
+    //.addEntry('dashAppPlaceMap', './assets/dash/scripts/mapBox/adminLocationSelector.js')
 
     /*Taxidrivers**/
     .addEntry('taxiDriversApp', './assets/taxidrivers/js/app.js')
@@ -70,8 +71,10 @@ Encore
     // enables @babel/preset-env polyfills
     .configureBabel(() => {}, {
         useBuiltIns: 'usage',
-        corejs: 3
+        corejs: 3,
+        // presets: ["@vue/cli-plugin-babel/preset"],
     })
+
 
     // enables Sass/SCSS support
     // .enableSassLoader()

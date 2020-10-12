@@ -6,9 +6,14 @@
         "postcss-import": "^12.0.1",
         "postcss-loader": "^3.0.0",
         "regenerator-runtime": "^0.13.7",
-        "tailwindcss": "^1.8.10",
         "vue-template-compiler": "^2.6.12",
-        "webpack-notifier": "^1.8.0"
+        "webpack-notifier": "^1.8.0",
+        "@vue/cli-plugin-babel": "4.5.6",
+        "@vue/cli-plugin-eslint": "4.5.6",
+        "@vue/cli-service": "4.5.6",
+        "babel-eslint": "10.1.0",
+        "eslint": "6.8.0",
+        "eslint-plugin-vue": "6.2.2"
     },
     "license": "UNLICENSED",
     "private": true,
@@ -27,7 +32,7 @@
         "lazysizes": "^5.2.2",
         "mapbox": "^1.0.0-beta10",
         "mapbox-gl": "^1.12.0",
-        "moment": "^2.29.0",
+        "moment": "^2.29.1",
         "node-sass": "^4.14.1",
         "popper.js": "^1.16.0",
         "sal.js": "^0.6.6",
@@ -36,7 +41,12 @@
         "swipe-listener": "^1.2.0",
         "vue": "^2.6.12",
         "vue-loader": "^15.9.3",
-        "vue-simple-suggest": "^1.10.2",
-        "waypoints": "^4.0.1"
+        "vue-simple-suggest": "^1.10.3",
+        "waypoints": "^4.0.1",
+        "vue-router": "3.4.3",
+        "@fortawesome/fontawesome-free": "5.14.0",
+        "@tailwindcss/custom-forms": "0.2.1",
+        "tailwindcss": "^1.8.13",
+        "@popperjs/core": "2.5.1"
     }
 }
