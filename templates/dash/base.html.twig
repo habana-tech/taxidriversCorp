@@ -7,7 +7,7 @@
 
 
         <title>{% block title %}Welcome to your DashBoard!{% endblock %} ~ TaxidriversCorp</title>
-            
+
         <style>
             #loader {
             transition: all 0.3s ease-in-out;
@@ -19,12 +19,12 @@
             background: #fff;
             z-index: 90000;
             }
-    
+
             #loader.fadeOut {
             opacity: 0;
             visibility: hidden;
             }
-    
+
             .spinner {
             width: 40px;
             height: 40px;
@@ -36,7 +36,7 @@
             -webkit-animation: sk-scaleout 1.0s infinite ease-in-out;
             animation: sk-scaleout 1.0s infinite ease-in-out;
             }
-    
+
             @-webkit-keyframes sk-scaleout {
             0% { -webkit-transform: scale(0) }
             100% {
@@ -44,7 +44,7 @@
                 opacity: 0;
             }
             }
-    
+
             @keyframes sk-scaleout {
             0% {
                 -webkit-transform: scale(0);
@@ -56,16 +56,52 @@
             }
             }
         </style>
-        
+
         {% block stylesheets %}
             {# 'app' must match the first argument to addEntry() in webpack.config.js#}
             {{ encore_entry_link_tags('dashApp') }}
-             
+
 
         {% endblock %}
     </head>
-    <body class="app">
-        
+
+    <body>
+
+    <noscript>
+        <strong
+        >We're sorry but vue-notus doesn't work properly without JavaScript
+            enabled. Please enable it to continue.</strong
+        >
+    </noscript>
+    <div id="app"></div>
+
+    {% block AppContent %}
+        <!-- @App Content -->
+        <!-- =================================================== -->
+{#        <div>#}
+{#            {% include "dash/global/_left-sidebar.html.twig" %}#}
+
+{#            <!-- #Main ============================ -->#}
+{#            <div class="page-container">#}
+
+{#                {% include "dash/global/_topbar.html.twig" %}#}
+
+                <!-- ### $App Screen Content ### -->
+                <main class='main-content bgc-grey-100'>
+                    <div id='mainContent'>
+                        {% block body %}
+                        {% endblock %}
+                    </div>
+                </main>
+
+{#                <!-- ### $App Screen Footer ### -->#}
+{#                <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">#}
+{#                    <span>Copyright © {{'now' | date('Y')}}. A project by <a href="https://habana.tech" target='_blank' title="Habana.Tech">Habana.tech</a>. All rights reserved.</span>#}
+{#                </footer>#}
+{#            </div>#}
+{#        </div>#}
+    {% endblock AppContent %}
+
         <!-- @Page Loader -->
         <!-- =================================================== -->
         <div id='loader'>
@@ -80,35 +116,9 @@
             });
         </script>
 
-        {% include "dash/global/_flashbag.html.twig" %}
+{#        {% include "dash/global/_flashbag.html.twig" %}#}
 
-        {% block AppContent %}
-            <!-- @App Content -->
-            <!-- =================================================== -->
-            <div>
-                    {% include "dash/global/_left-sidebar.html.twig" %}
-            
-                    <!-- #Main ============================ -->
-                    <div class="page-container">
-                    
-                    {% include "dash/global/_topbar.html.twig" %}
-            
-                    <!-- ### $App Screen Content ### -->
-                    <main class='main-content bgc-grey-100'>
-                        <div id='mainContent'>
-                            {% block body %}
-                            {% endblock %}
-                        </div>
-                    </main>
-            
-                    <!-- ### $App Screen Footer ### -->
-                    <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
-                        <span>Copyright © {{'now' | date('Y')}}. A project by <a href="https://habana.tech" target='_blank' title="Habana.Tech">Habana.tech</a>. All rights reserved.</span>
-                    </footer>
-                    </div>
-            </div>
-        {% endblock AppContent %}
-       
+
         {% block javascripts %}
             {{ encore_entry_script_tags('dashApp') }}
 
