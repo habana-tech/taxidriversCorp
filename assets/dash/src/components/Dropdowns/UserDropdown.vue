@@ -13,7 +13,7 @@
           <img
             alt="..."
             class="w-full rounded-full align-middle border-none shadow-lg"
-            :src="image"
+            :src="userAvatar"
           />
         </span>
       </div>
@@ -26,30 +26,15 @@
         block: dropdownPopoverShow,
       }"
     >
-      <a
-        href="javascript:void(0);"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-      >
-        Action
-      </a>
-      <a
-        href="javascript:void(0);"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-      >
-        Another action
-      </a>
-      <a
-        href="javascript:void(0);"
-        class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
-      >
-        Something else here
-      </a>
+      <span class="text-sm py-2 px-4 font-bold block w-full whitespace-no-wrap bg-transparent text-gray-800">{{ userEmail }}</span>
+
+
       <div class="h-0 my-2 border border-solid border-gray-200" />
       <a
-        href="javascript:void(0);"
+        href="/logout"
         class="text-sm py-2 px-4 font-normal block w-full whitespace-no-wrap bg-transparent text-gray-800"
       >
-        Seprated link
+        Logout
       </a>
     </div>
   </div>
@@ -58,13 +43,13 @@
 <script>
 import { createPopper } from "@popperjs/core";
 
-import image from "../../assets/img/team-1-800x800.jpg";
 
 export default {
   data() {
     return {
       dropdownPopoverShow: false,
-      image: image,
+      userEmail: sessionStorage.getItem('userEmail'),
+      userAvatar: sessionStorage.getItem('userAvatar'),
     };
   },
   methods: {

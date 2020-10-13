@@ -74,33 +74,14 @@
         >
     </noscript>
     <div id="app"></div>
+    {% block body %}
 
-    {% block AppContent %}
-        <!-- @App Content -->
-        <!-- =================================================== -->
-{#        <div>#}
-{#            {% include "dash/global/_left-sidebar.html.twig" %}#}
+    {% endblock %}
 
-{#            <!-- #Main ============================ -->#}
-{#            <div class="page-container">#}
-
-{#                {% include "dash/global/_topbar.html.twig" %}#}
-
-                <!-- ### $App Screen Content ### -->
-                <main class='main-content bgc-grey-100'>
-                    <div id='mainContent'>
-                        {% block body %}
-                        {% endblock %}
-                    </div>
-                </main>
-
-{#                <!-- ### $App Screen Footer ### -->#}
-{#                <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">#}
-{#                    <span>Copyright © {{'now' | date('Y')}}. A project by <a href="https://habana.tech" target='_blank' title="Habana.Tech">Habana.tech</a>. All rights reserved.</span>#}
-{#                </footer>#}
-{#            </div>#}
-{#        </div>#}
-    {% endblock AppContent %}
+    <script>
+        sessionStorage.setItem('userEmail', '{{ app.user.email }}');
+        sessionStorage.setItem('userAvatar', '{{ app.user.getRobotAvatar }}');
+    </script>
 
         <!-- @Page Loader -->
         <!-- =================================================== -->

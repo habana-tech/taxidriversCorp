@@ -20,12 +20,11 @@ import Dashboard from "./views/admin/Dashboard.vue";
 import Settings from "./views/admin/Settings.vue";
 import Tables from "./views/admin/Tables.vue";
 import Maps from "./views/admin/Maps.vue";
+import Places from "./views/admin/Places.vue";
 
 // views without layouts
 
-import Landing from "./views/Landing.vue";
 import Profile from "./views/Profile.vue";
-import Index from "./views/Index.vue";
 
 // routes
 
@@ -54,6 +53,18 @@ const routes = [
         ],
     },
 
+    {
+        path: "/",
+        redirect: "/services",
+        component: Admin,
+        children: [
+            {
+                path: "/places",
+                component: Places,
+            },
+
+        ],
+    },
     {
         path: "/profile",
         component: Profile,

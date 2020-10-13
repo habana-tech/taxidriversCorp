@@ -7,46 +7,23 @@
         <div class="w-full px-4 flex justify-center">
           <div class="relative">
             <img
-              alt="..."
-              :src="team2"
+              alt="userEmail"
+              :src="userAvatar"
               class="shadow-xl rounded-full h-auto align-middle border-none absolute -m-16 -ml-20 lg:-ml-16 max-w-150-px"
             />
           </div>
         </div>
         <div class="w-full px-4 text-center mt-20">
-          <div class="flex justify-center py-4 lg:pt-4 pt-8">
-            <div class="mr-4 p-3 text-center">
-              <span
-                class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-              >
-                22
-              </span>
-              <span class="text-sm text-gray-500">Friends</span>
-            </div>
-            <div class="mr-4 p-3 text-center">
-              <span
-                class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-              >
-                10
-              </span>
-              <span class="text-sm text-gray-500">Photos</span>
-            </div>
-            <div class="lg:mr-4 p-3 text-center">
-              <span
-                class="text-xl font-bold block uppercase tracking-wide text-gray-700"
-              >
-                89
-              </span>
-              <span class="text-sm text-gray-500">Comments</span>
-            </div>
+          <div class="flex justify-center py-4 lg:pt-4 pt-4">
+
           </div>
         </div>
       </div>
-      <div class="text-center mt-12">
+      <div class="text-center mt-8">
         <h3
           class="text-xl font-semibold leading-normal mb-2 text-gray-800 mb-2"
         >
-          Jenna Stones
+            {{ userEmail }}
         </h3>
         <div
           class="text-sm leading-normal mt-0 mb-2 text-gray-500 font-bold uppercase"
@@ -82,12 +59,12 @@
   </div>
 </template>
 <script>
-import team2 from "../../assets/img/team-2-800x800.jpg";
 
 export default {
   data() {
     return {
-      team2,
+        userAvatar: sessionStorage.getItem('userAvatar'),
+        userEmail: sessionStorage.getItem('userEmail'),
     };
   },
 };
