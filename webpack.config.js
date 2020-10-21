@@ -88,10 +88,11 @@ Encore
     //.enableTypeScriptLoader()
 
     // Enable Vue loader
-    .enableVueLoader()
+    //.enableVueLoader()
     // .enableVueLoader(() => {}, {
     //      useJsx: true
     // })
+    .enableVueLoader(() => {}, { runtimeCompilerBuild: false })
 
     .enablePostCssLoader((options) => {
         options.config = {
@@ -124,5 +125,9 @@ Encore
     //     Encore.disableCssExtraction();
     // }
 
+const config = Encore.getWebpackConfig();
+config.externals = {
+    moment: 'moment'    //for excluding moment.js. because chart.js depends on it optionally
+}
+module.exports = config;
 
-module.exports = Encore.getWebpackConfig();
