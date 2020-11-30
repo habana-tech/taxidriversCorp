@@ -3,6 +3,7 @@ security:
     App\Entity\User:
       algorithm: auto
 
+  enable_authenticator_manager: true
 
   # https://symfony.com/doc/current/security.html#where-do-users-come-from-user-providers
   providers:
@@ -18,7 +19,6 @@ security:
       pattern: ^/(_(profiler|wdt)|css|images|js)/
       security: false
     main:
-      anonymous: true
       lazy: true
       provider: app_user_provider
       guard:
@@ -31,6 +31,7 @@ security:
       remember_me:
         secret: '%kernel.secret%'
         remember_me_parameter: remember_me
+      login_throttling: ~
 
       # activate different ways to authenticate
       # https://symfony.com/doc/current/security.html#firewalls-authentication

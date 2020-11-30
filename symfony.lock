@@ -366,6 +366,9 @@
     "symfony/intl": {
         "version": "v5.0.4"
     },
+    "symfony/lock": {
+        "version": "v5.2.0"
+    },
     "symfony/mailer": {
         "version": "4.3",
         "recipe": {
@@ -488,6 +491,9 @@
     },
     "symfony/property-info": {
         "version": "v5.0.4"
+    },
+    "symfony/rate-limiter": {
+        "version": "v5.2.0"
     },
     "symfony/redis-messenger": {
         "version": "v5.1.0"
