@@ -33,6 +33,7 @@ public/.htaccess
 .idea/
 public/uploads
 .php_cs.cache
+public/build
 
 # vamos a incluir el archivo .env en el repo, tus cambios locales, dejalos en el archivo .env.local
 #.env
