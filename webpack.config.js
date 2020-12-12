@@ -88,11 +88,11 @@ Encore
     //.enableTypeScriptLoader()
 
     // Enable Vue loader
-    //.enableVueLoader()
+    .enableVueLoader()
     // .enableVueLoader(() => {}, {
     //      useJsx: true
     // })
-    .enableVueLoader(() => {}, { runtimeCompilerBuild: false })
+    // .enableVueLoader(() => {}, { runtimeCompilerBuild: false })
 
     .enablePostCssLoader((options) => {
         options.config = {
