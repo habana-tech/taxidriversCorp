@@ -1,4 +1,5 @@
 import Vue from 'vue';
+import "tailwindcss/tailwind.css"
 
 import tiltDivider from "./components/layout/tiltDivider";
 import airportBtn from "./components/cta/airportBtn";
@@ -21,7 +22,7 @@ new Vue({
 });
 
 new Vue({
-    el: 'section#hero',
+    el: 'div#hero',
     methods: {},
     components: {
         'airportBtn': airportBtn,

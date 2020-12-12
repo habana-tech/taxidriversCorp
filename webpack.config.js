@@ -17,27 +17,24 @@ Encore
     /*
      * ENTRY CONFIG
      *
-     * Add 1 entry for each "page" of your app
-     * (including one that's included on every page - e.g. "app")
-     *
      * Each entry will result in one JavaScript file (e.g. app.js)
      * and one CSS file (e.g. app.css) if your JavaScript imports CSS.
      */
-
+    .addEntry('app', './assets/app.js')
 
      /**DASH*/
-    .addEntry('dashApp', './assets/dash/src/main.js')
-    .addEntry('dashApp_login', './assets/dash/src/login.js')
-    //.addEntry('dashApp', './assets/dash/scripts/index.js')
-    //.addEntry('dashAppPlaceMap', './assets/dash/scripts/mapBox/adminLocationSelector.js')
-
-    /*Taxidrivers**/
-    .addEntry('taxiDriversApp', './assets/taxidrivers/js/app.js')
-    .addEntry('taxiDriversAppNoCritical', './assets/taxidrivers/js/app_no_critical.js')
-    .addEntry('taxiDriversIndex', './assets/taxidrivers/js/index.js')
-    .addEntry('taxiDriversIndexNoCritical', './assets/taxidrivers/js/index_no_critical.js')
-    .addEntry('taxiDriversPlace', './assets/taxidrivers/js/place.js')
-
+     .addEntry('dashApp', './assets/dash/src/main.js')
+     .addEntry('dashApp_login', './assets/dash/src/login.js')
+     //.addEntry('dashApp', './assets/dash/scripts/index.js')
+     //.addEntry('dashAppPlaceMap', './assets/dash/scripts/mapBox/adminLocationSelector.js')
+ 
+     /*Taxidrivers**/
+     .addEntry('taxiDriversApp', './assets/taxidrivers/js/app.js')
+     .addEntry('taxiDriversAppNoCritical', './assets/taxidrivers/js/app_no_critical.js')
+     .addEntry('taxiDriversIndex', './assets/taxidrivers/js/index.js')
+     .addEntry('taxiDriversIndexNoCritical', './assets/taxidrivers/js/index_no_critical.js')
+     .addEntry('taxiDriversPlace', './assets/taxidrivers/js/place.js')
+ 
     //Taxidrivers-tailwindcss
     .addStyleEntry('taxiDrivers', './assets/taxidrivers/css/app.scss')
     .addEntry('taxiDriversVue', './assets/taxidrivers/js/app_vue.js')
@@ -47,6 +44,10 @@ Encore
     .addEntry('vinalesApp', './assets/vinales/js/app.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
+
+
+    // enables the Symfony UX Stimulus bridge (used in assets/bootstrap.js)
+    .enableStimulusBridge('./assets/controllers.json')
 
     // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
     .splitEntryChunks()
@@ -68,31 +69,26 @@ Encore
     // enables hashed filenames (e.g. app.abc123.css)
     .enableVersioning(Encore.isProduction())
 
-    // enables @babel/preset-env polyfills
-    .configureBabel(() => {}, {
-        useBuiltIns: 'usage',
-        corejs: 3,
-        // presets: ["@vue/cli-plugin-babel/preset"],
+    .configureBabel((config) => {
+        config.plugins.push('@babel/plugin-proposal-class-properties');
     })
 
+    // enables @babel/preset-env polyfills
+    .configureBabelPresetEnv((config) => {
+        config.useBuiltIns = 'usage';
+        config.corejs = 3;
+    })
 
     // enables Sass/SCSS support
-    // .enableSassLoader()
+    //.enableSassLoader()
     .enableSassLoader(function (options) {}, {
-        resolveUrlLoader: false
-    })
-
-
-
+            resolveUrlLoader: false
+        })
     // uncomment if you use TypeScript
     //.enableTypeScriptLoader()
 
     // Enable Vue loader
     .enableVueLoader()
-    // .enableVueLoader(() => {}, {
-    //      useJsx: true
-    // })
-    // .enableVueLoader(() => {}, { runtimeCompilerBuild: false })
 
     .enablePostCssLoader((options) => {
         options.config = {
@@ -106,8 +102,9 @@ Encore
             config.modules.localIdentName = "[name]_[local]_[hash:base64:5]";
         }
     })
-
-
+    
+    // uncomment if you use React
+    //.enableReactPreset()
 
     // uncomment to get integrity="..." attributes on your script & link tags
     // requires WebpackEncoreBundle 1.4 or higher
@@ -115,19 +112,6 @@ Encore
 
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
-
-    // uncomment if you use API Platform Admin (composer req api-admin)
-    //.enableReactPreset()
-    //.addEntry('admin', './assets/js/admin.js')
 ;
-    //
-    // if (!Encore.isProduction()) {
-    //     Encore.disableCssExtraction();
-    // }
 
-const config = Encore.getWebpackConfig();
-config.externals = {
-    moment: 'moment'    //for excluding moment.js. because chart.js depends on it optionally
-}
-module.exports = config;
-
+module.exports = Encore.getWebpackConfig();
