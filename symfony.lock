@@ -96,6 +96,9 @@
     "egulias/email-validator": {
         "version": "2.1.17"
     },
+    "friendsofphp/proxy-manager-lts": {
+        "version": "v1.0.0"
+    },
     "friendsofsymfony/ckeditor-bundle": {
         "version": "2.0",
         "recipe": {
@@ -165,9 +168,6 @@
     },
     "ocramius/package-versions": {
         "version": "1.5.1"
-    },
-    "ocramius/proxy-manager": {
-        "version": "2.7.0"
     },
     "phenx/php-font-lib": {
         "version": "0.5.1"
@@ -501,6 +501,9 @@
     "symfony/property-info": {
         "version": "v5.0.4"
     },
+    "symfony/proxy-manager-bridge": {
+        "version": "v5.2.1"
+    },
     "symfony/rate-limiter": {
         "version": "v5.2.0"
     },
@@ -614,9 +617,6 @@
     "symfony/uid": {
         "version": "v5.1.2"
     },
-    "symfony/ux-chartjs": {
-        "version": "v1.1.0"
-    },
     "symfony/validator": {
         "version": "4.3",
         "recipe": {
@@ -704,9 +704,6 @@
         "files": [
             "./config/packages/vich_uploader.yaml"
         ]
-    },
-    "webimpress/safe-writer": {
-        "version": "2.0.0"
     },
     "webmozart/assert": {
         "version": "1.7.0"

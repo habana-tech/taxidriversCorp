@@ -18,8 +18,7 @@
         "vue-template-compiler": "^2.6.12",
         "stimulus": "^2.0.0",
         "regenerator-runtime": "^0.13.2",
-        "webpack-notifier": "^1.6.0",
-        "@symfony/ux-chartjs": "file:vendor/symfony/ux-chartjs/Resources/assets"
+        "webpack-notifier": "^1.6.0"
     },
     "license": "UNLICENSED",
     "private": true,

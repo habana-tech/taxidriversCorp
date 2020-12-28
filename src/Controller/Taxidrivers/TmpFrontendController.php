@@ -14,6 +14,7 @@ use Symfony\Component\Routing\Annotation\Route;
  */
 class TmpFrontendController extends AbstractController
 {
+    //TODO: delete this controller and temporal templates
     /**
      * @Route("/", name="_index")
      * @Cache(mustRevalidate=false, public=true, maxage=10800)

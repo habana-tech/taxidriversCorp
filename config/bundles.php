@@ -18,5 +18,4 @@ return [
     Symfony\WebpackEncoreBundle\WebpackEncoreBundle::class => ['all' => true],
     Vich\UploaderBundle\VichUploaderBundle::class => ['all' => true],
     Roukmoute\HashidsBundle\RoukmouteHashidsBundle::class => ['all' => true],
-    Symfony\UX\Chartjs\ChartjsBundle::class => ['all' => true],
 ];
