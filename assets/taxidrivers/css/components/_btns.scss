@@ -1,0 +1,17 @@
+.btn-rounded
+{
+    @apply bg-primary-500 text-white font-bold uppercase text-xs px-4 py-2 rounded shadow outline-none m-2 m-2;
+    transition: all .15s ease;
+
+        &:hover {
+            @apply shadow-md bg-primary-600;
+        }
+
+        &:active{
+            @apply bg-primary-400;
+        }
+
+        &:focus{
+            @apply outline-none;
+        }
+    }

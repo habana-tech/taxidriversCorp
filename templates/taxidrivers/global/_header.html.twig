@@ -1,9 +1,22 @@
-<header  id="header" class="text-gray-700 body-font">
-    <div class="container">
-        <a href="{{ path('index') }}" class="header-link-logo">
-            <img src="{{ asset('images/logo-wide.png') }}" alt="Viñales-Taxi-Cuba-logo">
-{#            <span class="ml-3 text-xl">Taxidrivers</span>#}
+<header  id="header" class="text-gray-700 body-font bg-gray-900">
+    <div id="big-logo-container" class="bg-white flex justify-center p-2">
+        <a href="{{ path('index') }}" class="header-link-logo m-auto">
+            <img src="{{ asset('images/logo-wide.png') }}" alt="Taxi Drivers Cuba">
         </a>
+    </div>
+    <div class="container flex flex-wrap">
+{#        <a href="{{ path('index') }}" class="header-link-logo ">#}
+{#            <img src="{{ asset('images/logo-icon.png') }}" alt="Viñales-Taxi-Cuba-logo">#}
+{#            <span class="ml-3 text-xl">Taxidrivers</span>#}
+{#        </a>#}
+
+        <button
+            v-on:click="navBarCTA($event)"
+            class="btn-rounded" type="button" style="">
+            <i class="fas fa-heart"></i> {% trans %}cta.book{% endtrans %}
+        </button>
+
+
         <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
             <a href="{{ path('index') }}#activities" class="header-link" data-section="#activities">
                 {% trans %}global.header.places{% endtrans %}
@@ -19,15 +32,24 @@
             </a>
 
 
+        </nav>
+
+        <nav id="meta-nav" class="flex flex-wrap items-center text-base justify-center justify-items-auto w-auto flex-row text-gray-200">
+            <a class="mr-3">
+                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
+                </svg>
+            </a>
+
+            <a class="mr-3">
+                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
+                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
+                </svg>
+            </a>
             {{ render(controller('App\\Controller\\Shared\\RegionsController::localeSelector',
                 {'currentLang': app.request.locale})) }}
         </nav>
-        <button
-            v-on:click="blackBtn($event)"
-            class="bg-blue-500 text-white active:bg-blue-600 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1" type="button" style="transition: all .15s ease">
-            <i class="fas fa-heart"></i> {% trans %}cta.book{% endtrans %}
-        </button>
-    </div>
 
-    <tilt-divider fill-color="rgba(20, 161, 230, 0.95)" background="#fff"></tilt-divider>
+    </div>
 </header>

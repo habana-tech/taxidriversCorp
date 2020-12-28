@@ -12,9 +12,8 @@ Vue.component("tiltDivider", tiltDivider);
 new Vue({
     el: '#header',
     methods: {
-        blackBtn: function (e) {
+        navBarCTA: function (e) {
             const button = e.target;
-            button.classList.toggle('rounded-full');
             console.log(button);
             // console.log('blackBtn');
         }

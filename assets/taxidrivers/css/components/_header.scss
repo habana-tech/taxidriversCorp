@@ -1,36 +1,5 @@
 #header{
 
-    //background: rgba(20, 161, 230, 0.95);
-    .container{
-        @apply mx-auto flex flex-wrap pt-4 pb-3 flex-col items-center;
-
-
-        @screen md{
-            & {
-                @apply flex-row;
-            }
-        }
-    }
-
-    .header-link-logo{
-        @apply flex font-medium items-center text-gray-900 mb-2;
-
-        @screen md {
-            & {
-                margin-left: auto;
-                margin-right: auto;
-            }
-        }
-    }
-
-    .header-link {
-        @apply mr-5;
-
-        &:hover {
-            @apply text-gray-900;
-        }
-    }
-
     .locale-selector{
         position: relative;
         & ul{
