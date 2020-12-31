@@ -27,14 +27,14 @@ Encore
      .addEntry('dashApp_login', './assets/dash/src/login.js')
      //.addEntry('dashApp', './assets/dash/scripts/index.js')
      //.addEntry('dashAppPlaceMap', './assets/dash/scripts/mapBox/adminLocationSelector.js')
- 
+
      /*Taxidrivers**/
      .addEntry('taxiDriversApp', './assets/taxidrivers/js/app.js')
      .addEntry('taxiDriversAppNoCritical', './assets/taxidrivers/js/app_no_critical.js')
      .addEntry('taxiDriversIndex', './assets/taxidrivers/js/index.js')
      .addEntry('taxiDriversIndexNoCritical', './assets/taxidrivers/js/index_no_critical.js')
      .addEntry('taxiDriversPlace', './assets/taxidrivers/js/place.js')
- 
+
     //Taxidrivers-tailwindcss
     .addStyleEntry('taxiDrivers', './assets/taxidrivers/css/app.scss')
     .addEntry('taxiDriversVue', './assets/taxidrivers/js/app_vue.js')
@@ -102,7 +102,7 @@ Encore
             config.modules.localIdentName = "[name]_[local]_[hash:base64:5]";
         }
     })
-    
+
     // uncomment if you use React
     //.enableReactPreset()
 
@@ -113,5 +113,11 @@ Encore
     // uncomment if you're having problems with a jQuery plugin
     //.autoProvidejQuery()
 ;
+
+const config = Encore.getWebpackConfig();
+config.externals = {
+    moment: 'moment'    //for excluding moment.js. because chart.js depends on it optionally
+}
+module.exports = config;
 
 module.exports = Encore.getWebpackConfig();

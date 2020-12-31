@@ -1,0 +1,3 @@
+[submodule "public/build"]
+	path = public/build
+	url = git@github.com:habana-tech/txdCorp-build.git
