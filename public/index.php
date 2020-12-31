@@ -19,6 +19,8 @@ if ($_SERVER['APP_DEBUG']) {
 
     Debug::enable();
 }
+ini_set('session.save_path', dirname(__DIR__).'/var/session');
+ini_set('session.gc_probability', 1);
 
 $kernel = new Kernel($_SERVER['APP_ENV'], (bool) $_SERVER['APP_DEBUG']);
 $request = Request::createFromGlobals();
