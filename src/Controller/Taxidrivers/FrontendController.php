@@ -4,7 +4,9 @@ namespace App\Controller\Taxidrivers;
 
 use App\Entity\Place;
 use App\Repository\PlaceRepository;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Cache;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 /**
@@ -14,12 +16,15 @@ class FrontendController extends AbstractController
 {
     /**
      * @Route("/", name="index")
+     * @Cache(public=true, expires="now+2h")
+     * @param PlaceRepository $placeRepository
+     * @return Response
      */
-    public function index(PlaceRepository $placeRepository)
+    public function index(PlaceRepository $placeRepository): Response
     {
         $places = $placeRepository->findAll();
 
-        return $this->render('taxidrivers/index.html.twig', [
+        return $this->render('taxidrivers/layout.html.twig', [
             'places'=>$places
         ]);
     }
@@ -30,7 +35,7 @@ class FrontendController extends AbstractController
      */
     public function place(/*, Place $id*/)
     {
-        return $this->render('taxidrivers/place.html.twig', [
+        return $this->render('taxidrivers_/place.html.twig', [
             //'place'=>$place
         ]);
     }

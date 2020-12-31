@@ -1,0 +1,26 @@
+<section id="reviews" class="section reviews lazyload"
+        {#Start loading tripadvisor widget#}
+         data-script="https://www.tripadvisor.com/wejs?uniq=25&locationId=13554747&lang={{ lang }}&border=false&display_version=2&wtype=selfserveprop&rating=true&nreviews=4&writereviewlink=true&popIdx=true&iswide=false">
+    <div class="section__title">
+        <h2>{% trans %}index.review.title{% endtrans %}</h2>
+    </div>
+    <div class="section__description">
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. </p>
+    </div>
+    <div class="section__content reviews__content">
+
+        <div class="reviews__content__widget">
+            <div id="TA_selfserveprop25" class="TA_selfserveprop">
+                <ul class="TA_links">
+                    <li>Reviews of <a href="https://www.tripadvisor.com/Attraction_Review-g147271-d13485075-Reviews-Cubyke-Havana_Ciudad_de_la_Habana_Province_Cuba.html">Taxi Drivers Cuba</a></li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="reviews__content__gallery gallery">
+            {% for i in 1..4 %}
+                {{ include('taxidrivers_/global/_review.html.twig', {'class':'gallery__item'}) }}
+            {% endfor %}
+        </div>
+    </div>
+</section>

@@ -61,7 +61,7 @@ class Service implements ImageFieldInterface, GalleryFieldInterface, MachineName
 
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=200)
      */
     private $name;
 

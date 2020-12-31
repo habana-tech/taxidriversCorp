@@ -21,7 +21,7 @@ class Place
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=200)
      */
     private $name;
 
@@ -31,7 +31,7 @@ class Place
     private $public;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=200, nullable=true)
      */
     private $address;
 

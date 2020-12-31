@@ -1,70 +1,59 @@
-{% extends 'dash/base.html.twig' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width,initial-scale=1.0" />
+    <link rel="shortcut icon" href="/favicon.png" />
+    <link
+        rel="apple-touch-icon"
+        sizes="76x76"
+        href="/apple-touch-icon.png"
+    />
+    <title>
+        Taxidrivers Corp | Admin
+    </title>
 
-{% block AppContent %}
+    {% block stylesheets %}
+        {# 'app' must match the first argument to addEntry() in webpack.config.js#}
+        {{ encore_entry_link_tags('dashApp_login') }}
 
-<div class="peers ai-s fxw-nw h-100vh">
+
+    {% endblock %}
 
 
-      <div class="d-n@sm- peer peer-greed h-100 pos-r bgr-n bgpX-c bgpY-c bgsz-cv" style='background-image: url("{{ asset('dash/images/bg.jpg') }}")'>
-        <div class="pos-a centerXY">
-          <div class="bgc-white bdrs-50p pos-r login-center-circle" style='width: 120px; height: 120px;'>
-          </div>
-          <img class="pos-a centerXY" src="{{ asset('dash/images/logo.png') }}" alt="logo">
-        </div>
-      </div>
-        <div class="col-12 col-md-4 peer pX-40 pY-80 h-100 bgc-white scrollable pos-r" style='min-width: 320px;'>
-          {% if app.user %}
-              <div class="mb-3">
-                  You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
-              </div>
-          {% endif %}
+</head>
+<body class="text-gray-800 antialiased">
+<noscript>
+    <strong
+    >We're sorry but vue-notus doesn't work properly without JavaScript
+        enabled. Please enable it to continue.</strong
+    >
+</noscript>
+{% if app.user %}
+    <div class="mb-3">
+        You are logged in as {{ app.user.username }}, <a href="{{ path('app_logout') }}">Logout</a>
+    </div>
+{% endif %}
 
-          <h4 class="fw-300 c-grey-900 mB-40">Login</h4>
-
-          {% if error %}
-                <div class="alert alert-danger text-muted">
+{% if error %}
+    <div class="alert alert-danger text-muted">
                     <span class="fa fa-asterisk">
                         {{ error.messageKey|trans(error.messageData, 'security') }}
                     </span>
-                </div>
-          {% endif %}
-            <form method="post">
+    </div>
+{% endif %}
+<div id="app">
+    <auth
+        url-forgot-password="{{ url('app_forgot_password') }}"
+        csrf-token="{{ csrf_token('authenticate') }}"
+        last-username="{{ last_username }}"
+    ></auth>
+</div>
+<!-- built files will be auto injected -->
 
-                <div class="form-group">
-                  <label class="text-normal text-dark">email</label>
-                  <input type="email" value="{{ last_username }}" name="email" id="inputEmail" class="form-control" placeholder="JohnDoe@example.com" required autofocus>
-
-                  <input type="hidden" name="_csrf_token"
-                         value="{{ csrf_token('authenticate') }}"
-                  >
-
-                </div>
-                <div class="form-group">
-                  <label class="text-normal text-dark">Password</label>
-                  <input type="password" name="password" id="inputPassword" class="form-control" required>
-
-                </div>
-                <div class="form-group">
-                   <label>
-                        <input type="checkbox" name="_remember_me"> Remember me
-                    </label>
-                </div>
-                <div class="form-group">
-                  <div class="peers ai-c jc-sb fxw-nw">
-                    <div class="peer">
-                      <div class="checkbox checkbox-circle checkbox-info peers ai-c">
-                        <a href="{{ url('app_forgot_password') }}">Forgot password?</a>
-
-                      </div>
-                    </div>
-                    <div class="peer">
-                      <button type="submit"  class="btn btn-primary">Login</button>
-                    </div>
-                  </div>
-                </div>
-
-            </form>
-        </div>
-      </div>
-    
+{% block javascripts %}
+    {{ encore_entry_script_tags('dashApp_login') }}
 {% endblock %}
+</body>
+</html>

@@ -24,22 +24,22 @@ class Client
     private $id;
 
     /**
-     * @ORM\Column(type="string", length=255, unique=true)
+     * @ORM\Column(type="string", length=200, unique=true)
      */
     private $email;
 
     /**
-     * @ORM\Column(type="string", length=255)
+     * @ORM\Column(type="string", length=200)
      */
     private $name;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=25, nullable=true)
      */
     private $telephone;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=60, nullable=true)
      */
     private $country;
 
@@ -49,20 +49,24 @@ class Client
     private $bookings;
 
     /**
-     * @ORM\Column(type="string", length=255, nullable=true)
+     * @ORM\Column(type="string", length=4, nullable=true)
      */
     private $locale;
 
-    public function __construct()
+    public function __construct($email = null, $name = null, $locale = null)
     {
         $this->bookings = new ArrayCollection();
         $this->setUniqueId('txd-c');
 
-        if (isset($_SESSION['_locale']) === true) {
+        if ($locale !== null) {
+            $this->locale = $locale;
+        } elseif (isset($_SESSION['_locale']) === true) {
             $this->locale = $_SESSION['_locale'];
         } else {
             $this->locale = 'en';
         }
+        $this->name  = $name;
+        $this->email = $email;
     }
 
     public function getId(): ?int
@@ -185,5 +189,18 @@ class Client
     public function getSessionLang()
     {
         return $this->getLocale();
+    }
+
+    public static function createFromArray(array $data)
+    {
+        if (isset($data['name']) === false) {
+            return false;
+        }
+
+        if (isset($data['email']) === false) {
+            return false;
+        }
+
+        return (new Client($data['name'], $data['email']));
     }
 }

@@ -23,7 +23,7 @@ class User implements UserInterface
     private $email;
 
     /**
-     * @ORM\Column(type="json")
+     * @ORM\Column(type="simple_array")
      */
     private $roles = [];
 
@@ -116,5 +116,13 @@ class User implements UserInterface
         return $this->email;
     }
 
-
+    /**
+     * @return string URL for generate an unique robot like avatar per user name
+     */
+    public function getRobotAvatar(): string
+    {
+        //TODO: reset the image url
+        //return 'https://robohash.org/' . hash('md5', $this->getEmail()).'?set=set4';
+        return 'https://dash.taxidrivers.wip/build/images/team-2-800x800.3e08ef14.jpg';
+    }
 }

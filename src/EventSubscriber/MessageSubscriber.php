@@ -8,10 +8,7 @@
 namespace App\EventSubscriber;
 
 use Symfony\Component\EventDispatcher\EventSubscriberInterface;
-use Symfony\Component\HttpKernel\Event\ExceptionEvent;
-use Symfony\Component\HttpKernel\KernelEvents;
 use Symfony\Component\Mailer\Event\MessageEvent;
-use Symfony\Component\Mime\Message;
 use Symfony\Component\Mime\Email;
 use Symfony\Component\Mime\Address;
 
@@ -28,7 +25,7 @@ class MessageSubscriber implements EventSubscriberInterface
         return [
             MessageEvent::class => [
                 [
-                    'addFromToEmails',
+                    'addFromHeaderToEmails',
                     0,
                 ],
             ],
@@ -39,11 +36,11 @@ class MessageSubscriber implements EventSubscriberInterface
     /**
      * @param MessageEvent $event
      */
-    public function addFromToEmails(MessageEvent $event): void
+    public function addFromHeaderToEmails(MessageEvent $event): void
     {
         if ($event->getMessage() instanceof Email) {
             // TODO: set the real email.
-            $event->getMessage()->from(new Address('web@taxidriverscuba.com', 'TaxidriversCorp'));
+            $event->getMessage()->from(new Address('noreply@taxidriverscuba.com', 'TaxidriversCorp'));
         }
     }
 }

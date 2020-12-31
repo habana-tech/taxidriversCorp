@@ -1,0 +1,22 @@
+{% extends 'taxidrivers_/base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block stylesheets %}
+    {{ encore_entry_link_tags('taxiDriversPlace') }}
+{% endblock %}
+
+
+{% block body %}
+    <main>
+        {{ include('taxidrivers_/place/_hero.html.twig') }}
+
+        {{ include('taxidrivers_/place/_description.html.twig') }}
+
+        {{ include('taxidrivers_/place/_services.html.twig') }}
+    </main>
+{% endblock %}
+
+{% block javascripts %}
+    {{ encore_entry_script_tags('taxiDriversPlace') }}
+{% endblock %}

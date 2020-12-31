@@ -1,0 +1,37 @@
+#header{
+
+    .locale-selector{
+        position: relative;
+        & ul{
+            display: flex;
+            flex-flow: column;
+            position: absolute;
+            //grid-template-columns: repeat(3, 1fr);
+            //grid-template-rows: repeat(2, 1fr);
+            justify-items: center;
+            gap: .8em;
+        }
+
+        & li.country-flag > svg {
+            width: 1em;
+        }
+
+        &:hover li{
+            visibility: visible;
+        }
+
+        & li{
+            visibility: hidden;
+
+            &.selected{
+                visibility: visible;
+                //grid-column-start: 1;
+                //grid-column-end: 4;
+                //grid-row-start: 1;
+                //grid-row-end: 1;
+            }
+        }
+    }
+
+
+}
