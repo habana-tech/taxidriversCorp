@@ -126,9 +126,6 @@
     "habanatech/business-model": {
         "version": "v1.0.0"
     },
-    "hashids/hashids": {
-        "version": "3.0.0"
-    },
     "imagine/imagine": {
         "version": "1.2.3"
     },
@@ -204,18 +201,6 @@
     },
     "roave/security-advisories": {
         "version": "dev-latest"
-    },
-    "roukmoute/hashids-bundle": {
-        "version": "1.4",
-        "recipe": {
-            "repo": "github.com/symfony/recipes-contrib",
-            "branch": "master",
-            "version": "1.4",
-            "ref": "cbd9de476f57c91bd6f8a4db1fd0ed05befa8fc4"
-        },
-        "files": [
-            "config/packages/roukmoute_hashids.yaml"
-        ]
     },
     "sabberworm/php-css-parser": {
         "version": "8.3.0"
