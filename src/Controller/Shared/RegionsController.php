@@ -12,6 +12,7 @@ use Symfony\Component\DependencyInjection\ParameterBag\ContainerBagInterface;
 
 class RegionsController extends AbstractController
 {
+    //TODO: remove this controller!
     public function localeSelector($currentLang = null, ContainerBagInterface $params): Response
     {
         $locales  = explode('|', $params->get('app_locales'));

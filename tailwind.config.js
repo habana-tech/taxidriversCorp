@@ -29,6 +29,10 @@ module.exports = {
             orange: colors.orange,
             primary: colors.lightBlue,
         },
+        fontFamily: {
+            'sans': ['Noto Sans','Open Sans', 'Oswald', 'Ubuntu', 'ui-sans-serif', 'system-ui'],
+            'serif': ['Noto Serif','Georgia', 'Cambria', "Times New Roman", 'Times', 'ui-serif'],
+        }
     },
     variants: {
         extend: {},

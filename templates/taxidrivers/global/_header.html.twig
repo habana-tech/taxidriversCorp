@@ -1,9 +1,19 @@
+<!-- This example requires Tailwind CSS v2.0+ -->
 <header  id="header" class="text-gray-700 body-font bg-gray-900">
-    <div id="big-logo-container" class="bg-white flex justify-center p-2">
+    {# start LOGO #}
+    <div id="big-logo-container" class="bg-white md:flex justify-center p-2 hidden">
         <a href="{{ path('index') }}" class="header-link-logo m-auto">
             <img src="{{ asset('images/logo-wide.png') }}" alt="Taxi Drivers Cuba">
         </a>
     </div>
+    {# END LOGO #}
+    <header-menu
+        about-us-title="{{ 'Nav.AboutUs' | trans }}"
+        services-title="{{ 'Nav.Services' | trans }}"
+        contact-title="{{ 'Nav.Contact' | trans }}"
+        current-lang="{{ app.request.locale }}"
+        action-url="#"></header-menu>
+
     <div class="container flex flex-wrap">
 {#        <a href="{{ path('index') }}" class="header-link-logo ">#}
 {#            <img src="{{ asset('images/logo-icon.png') }}" alt="Viñales-Taxi-Cuba-logo">#}
@@ -30,8 +40,6 @@
             <a href="{{ path('index') }}#contact_faq" data-section="#contact_faq" class="header-link">
                 {% trans %}global.header.contact{% endtrans %}
             </a>
-
-
         </nav>
 
         <nav id="meta-nav" class="flex flex-wrap items-center text-base justify-center justify-items-auto w-auto flex-row text-gray-200">
@@ -47,8 +55,7 @@
                     <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                 </svg>
             </a>
-            {{ render(controller('App\\Controller\\Shared\\RegionsController::localeSelector',
-                {'currentLang': app.request.locale})) }}
+
         </nav>
 
     </div>

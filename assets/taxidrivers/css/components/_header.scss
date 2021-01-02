@@ -2,36 +2,48 @@
 
     .locale-selector{
         position: relative;
+        button{
+            align-content: center;
+            display: flex;
+            gap: .3em;
+            span{
+                padding-left: 2px;
+            }
+        }
         & ul{
+
             display: flex;
             flex-flow: column;
             position: absolute;
             //grid-template-columns: repeat(3, 1fr);
             //grid-template-rows: repeat(2, 1fr);
             justify-items: center;
-            gap: .8em;
         }
 
-        & li.country-flag > svg {
+        & li.country-flag a > svg {
             width: 1em;
         }
 
-        &:hover li{
-            visibility: visible;
-        }
-
         & li{
-            visibility: hidden;
-
-            &.selected{
-                visibility: visible;
-                //grid-column-start: 1;
-                //grid-column-end: 4;
-                //grid-row-start: 1;
-                //grid-row-end: 1;
+            & > a
+            {
+                display: flex;
+                gap: .2em;
             }
         }
     }
 
+    nav {
+        .submenu-btn{
+            @apply group rounded-md p-2 text-gray-500 inline-flex items-center text-base font-medium;
+
+            &:hover{
+                @apply text-gray-200;
+            }
+            &:focus{
+                @apply text-gray-100 outline-none ring-2 ring-blue-500;
+            }
+        }
+    }
 
 }

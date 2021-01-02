@@ -1,19 +1,24 @@
 {% if locales is defined and locales is not empty %}
-<div class="lang locale-selector">
+
+<div class="lang locale-selector group">
     <button
         v-on:hover="showLanguageSelector($event)"
         v-on:click="showLanguageSelector($event)"
         v-on:focusout="hideLanguageSelector($event)"
 
-        class="text-white text-black active:bg-blue-600 w-4 h-4 font-bold uppercase text-xs px-4 py-2 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1" type="button" style="transition: all .15s ease">
-        {{  source('shared/inlineSvg/langs.svg') }}
+        class="text-white text-black active:bg-blue-600 w-10 h-4 font-bold uppercase text-xs px-0 py-0 rounded shadow hover:shadow-md outline-none focus:outline-none mr-1 mb-1" type="button" style="transition: all .15s ease">
+{#        {{  source('shared/inlineSvg/langs.svg') }}#}
+        {{  source('shared/inlineSvg/'~ current ~'-flag.svg') }}
+        <span>{{ current }}</span>
     </button>
-    <ul class="locale-selector-list">
+    <ul class="locale-selector-list mt-3 bg-gray-900 group-hover:opacity-100 opacity-0 transition-opacity">
         {% for locale in locales %}
-            <li class="{% if current == locale %}selected{% endif %} {{ locale }} country-flag">
-                {{  source('shared/inlineSvg/'~ locale ~'-flag.svg') }}
-                <a href="?setLang={{ locale }}">{{ locale | upper }}</a>
-            </li>
+            {% if current != locale %}
+                <li class="{{ locale }} country-flag hover:bg-gray-700 p-1 text-xs text-white text-black">
+                    <a href="?setLang={{ locale }}">{{  source('shared/inlineSvg/'~ locale ~'-flag.svg') }} {{ locale | upper }}</a>
+                </li>
+            {% endif %}
+
         {% endfor %}
     </ul>
 </div>
