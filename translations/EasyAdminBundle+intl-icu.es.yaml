@@ -3,3 +3,4 @@ user.logged_in_as: __user.logged_in_as
 user.anonymous: __user.anonymous
 user.signout: __user.signout
 user.exit_impersonation: __user.exit_impersonation
+label.form.empty_value: __label.form.empty_value

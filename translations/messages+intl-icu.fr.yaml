@@ -1,5 +1,4 @@
 '[Default]': '__[Default]'
-Places: __Places
 index.contact.title: __index.contact.title
 index.contact.your_name: __index.contact.your_name
 index.contact.your_email: __index.contact.your_email
@@ -22,6 +21,7 @@ global.header.contact: __global.header.contact
 global.header.book: __global.header.book
 global.button.see_more: __global.button.see_more
 index.meta.description: __index.meta.description
+Places: __Places
 Nav.Services: __Nav.Services
 Nav.AboutUs: __Nav.AboutUs
 Nav.Contact: __Nav.Contact

@@ -1,2 +1,46 @@
 '[Default]': '__[Default]'
 Places: __Places
+index.contact.title: __index.contact.title
+index.contact.your_name: __index.contact.your_name
+index.contact.your_email: __index.contact.your_email
+index.contact.your_message: __index.contact.your_message
+index.faq.title: __index.faq.title
+index.place.title: __index.place.title
+index.us.title: __index.us.title
+index.review.title: __index.review.title
+place.book.date: __place.book.date
+place.book.time: __place.book.time
+place.book.people: __place.book.people
+place.book.price: __place.book.price
+place.book.name: __place.book.name
+place.book.email: __place.book.email
+place.book.message: __place.book.message
+global.header.places: __global.header.places
+global.header.review: __global.header.review
+global.header.us: __global.header.us
+global.header.contact: __global.header.contact
+global.header.book: __global.header.book
+global.button.see_more: __global.button.see_more
+index.meta.description: __index.meta.description
+Nav.Services: __Nav.Services
+Nav.AboutUs: __Nav.AboutUs
+Nav.Contact: __Nav.Contact
+'Airport transfer': '__Airport transfer'
+'Get a taxi to or from any cuban airport': '__Get a taxi to or from any cuban airport'
+Experiences: __Experiences
+'Live Cuba in first person enjoying an unforgettable experience': '__Live Cuba in first person enjoying an unforgettable experience'
+'Intercity Taxi': '__Intercity Taxi'
+'Related Services': '__Related Services'
+'Custom Itinerary': '__Custom Itinerary'
+'Who we are?': '__Who we are?'
+'A small team with great passion for classic cars': '__A small team with great passion for classic cars'
+'Taxi Drivers in numbers': '__Taxi Drivers in numbers'
+'You are our priority from day one': '__You are our priority from day one'
+'Reviews & Testimonials': '__Reviews & Testimonials'
+'Recent Posts': '__Recent Posts'
+'View all posts': '__View all posts'
+'Anything else?': '__Anything else?'
+'Taxi to or from': '__Taxi to or from'
+Airport: __Airport
+'Request a quote for a': '__Request a quote for a'
+'custom itinerary': '__custom itinerary'
