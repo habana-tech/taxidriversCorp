@@ -1,13 +1,13 @@
 <template>
-    <div class="relative bg-gray-800" v-on-clickaway="onClickAwayMainMenu">
+    <div class="bg-gray-800" v-on-clickaway="onClickAwayMainMenu">
         <div class="max-w-7xl mx-auto px-4 sm:px-6">
-            <div class="flex justify-between items-center border-b-2 border-gray-100 py-4 md:justify-start md:space-x-10">
+            <div class="flex justify-between items-center py-4 md:justify-start md:space-x-10">
                 <div class="flex justify-start lg:w-0 lg:flex-1">
-                    <a href="#" class="md:hidden">
+                    <a href="#" class="">
                         <img class="h-8 w-auto sm:h-10 inline-block" src="/images/logo-icon.png" alt="Taxidrivers">
-                        <span class="text-red-500 font-bold font-serif">Taxi</span>
-                        <span class="text-blue-500 font-bold font-serif">Drivers</span>
-                        <span class="text-blue-500 font-bold font-serif">Cuba</span>
+                        <span class="md:hidden text-red-500 font-bold font-serif">Taxi</span>
+                        <span class="md:hidden text-blue-500 font-bold font-serif">Drivers</span>
+                        <span class="md:hidden text-blue-500 font-bold font-serif">Cuba</span>
                     </a>
                 </div>
                 <div class="-mr-2 -my-2 md:hidden">
@@ -22,7 +22,7 @@
                 <nav class="hidden md:flex space-x-10">
                     <div class="relative" v-on-clickaway="onClickAwayServicesMenu">
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-                        <button type="button" @click="isServicesMenuOpen = !isServicesMenuOpen" class="submenu-btn">
+                        <button type="button" @click="isServicesMenuOpen = !isServicesMenuOpen" class="menu-btn">
                             <span>{{ ServicesTitle }}</span>
                             <!--
                               Heroicon name: chevron-down
@@ -53,65 +53,57 @@
                             leave-to-class="opacity-0 translate-y-1"
                         >
                             <div v-show="isServicesMenuOpen" class="absolute z-10 -ml-4 mt-3 transform px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2">
-                            <div class="rounded-lg shadow-lg ring-1 ring-grey-200 ring-opacity-5 overflow-hidden">
-                                <div class="relative grid gap-6 bg-gray-800 px-5 py-4 sm:gap-8 sm:p-8">
-                                    <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-700 group">
-                                        <!-- Heroicon name: chart-bar -->
-                                        <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                            <div class="submenu-container">
+                                <div class="submenu-grid">
+                                    <a href="#" class="submenu-btn">
+                                        <!-- Heroicon name: modified-plane -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M 8.0891558,11.861231 10.775375,20.680764 22.019312,3.9900631 1.920395,5.0094884 Z m 0,0 6.9650822,-3.9355788" />
                                         </svg>
-                                        <div class="ml-4">
-                                            <p class="text-base font-medium text-gray-200">
+                                        <div>
+                                            <p>
                                                 {{ NavServicesAirportTransferTitle  }}
                                             </p>
-                                            <p class="mt-1 text-sm text-gray-400">
+                                            <p>
                                                 {{ NavServicesAirportTransferIntro }}
                                             </p>
                                         </div>
                                     </a>
 
-                                    <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-700 group">
-                                                <!-- Heroicon name: sparkles -->
-                                                <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
-                                                </svg>
-                                                <div class="ml-4">
-                                                    <p class="text-base font-medium text-gray-200">
-                                                        {{ NavServicesExperiencesTitle }}
-                                                    </p>
-                                                    <p class="mt-1 text-sm text-gray-400">
-                                                        {{ NavServicesExperiencesIntro }}
-                                                    </p>
-                                                </div>
-                                            </a>
+                                    <a href="#" class="submenu-btn">
+                                        <!-- Heroicon name: sparkles -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
+                                        </svg>
+                                        <div class="ml-4">
+                                            <p class="text-base font-medium text-gray-200">
+                                                {{ NavServicesExperiencesTitle }}
+                                            </p>
+                                            <p class="mt-1 text-sm text-gray-400">
+                                                {{ NavServicesExperiencesIntro }}
+                                            </p>
+                                        </div>
+                                    </a>
 
-                                    <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-700 group">
-                                                    <!-- Heroicon name: location-marker -->
-                                                    <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
-                                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
-                                                    </svg>
-                                                    <div class="ml-4">
-                                                        <p class="text-base font-medium text-gray-200">
-                                                            {{ NavServicesTaxiTitle }}
-                                                        </p>
-                                                        <p class="mt-1 text-sm text-gray-400">
-                                                            {{ NavServicesTaxiIntro }}
-                                                        </p>
-                                                    </div>
-                                                </a>
+                                    <a href="#" class="submenu-btn">
+                                        <!-- Heroicon name: location-marker -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                                        </svg>
+                                        <div class="ml-4">
+                                            <p class="text-base font-medium text-gray-200">
+                                                {{ NavServicesTaxiTitle }}
+                                            </p>
+                                            <p class="mt-1 text-sm text-gray-400">
+                                                {{ NavServicesTaxiIntro }}
+                                            </p>
+                                        </div>
+                                    </a>
 
                                 </div>
-                                <div class="px-5 py-5 bg-gray-600 space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
-                                    <div class="flow-root">
-                                        <a href="#" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-200 hover:bg-gray-500">
-                                            <!-- Heroicon name: view-grid-add -->
-                                            <svg class="flex-shrink-0 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"/>
-                                            </svg>
-                                            <span class="ml-3">Related services</span>
-                                        </a>
-                                    </div>
+                                <div class="submenu-foot space-y-6 sm:flex sm:space-y-0 sm:space-x-10 sm:px-8">
+
                                     <div class="flow-root">
                                         <a href="#" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-200 hover:bg-gray-500">
                                             <!-- Heroicon name: map -->
@@ -119,9 +111,20 @@
                                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
                                             </svg>
 
-                                            <span class="ml-3">Custom Itinerary</span>
+                                            <span class="ml-3">{{ NavServicesCustomItinerary }}</span>
                                         </a>
                                     </div>
+
+                                    <div class="flow-root">
+                                        <a href="#" class="-m-3 p-3 flex items-center rounded-md text-base font-medium text-gray-200 hover:bg-gray-500">
+                                            <!-- Heroicon name: view-grid-add -->
+                                            <svg class="flex-shrink-0 h-6 w-6 text-gray-400" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 14v6m-3-3h6M6 10h2a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2zm10 0h2a2 2 0 002-2V6a2 2 0 00-2-2h-2a2 2 0 00-2 2v2a2 2 0 002 2zM6 20h2a2 2 0 002-2v-2a2 2 0 00-2-2H6a2 2 0 00-2 2v2a2 2 0 002 2z"/>
+                                            </svg>
+                                            <span class="ml-3">{{ NavServicesRelated }}</span>
+                                        </a>
+                                    </div>
+
 
                                 </div>
                             </div>
@@ -131,7 +134,7 @@
 
                     <div class="relative" v-on-clickaway="onClickAwayAboutMenu">
                         <!-- Item active: "text-gray-900", Item inactive: "text-gray-500" -->
-                        <button type="button" @click="isAboutMenuOpen = !isAboutMenuOpen"  class="submenu-btn">
+                        <button type="button" @click="isAboutMenuOpen = !isAboutMenuOpen"  class="menu-btn">
                             <span> {{ AboutUsTitle }}</span>
                             <!--
                               Heroicon name: chevron-down
@@ -162,102 +165,79 @@
                             leave-to-class="opacity-0 translate-y-1"
                         >
                             <div v-show="isAboutMenuOpen"  class="absolute z-10 left-1/2 transform -translate-x-1/2 mt-3 px-2 w-screen max-w-md sm:px-0">
-                            <div class="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
-                                <div class="relative grid gap-6 bg-white px-5 py-4 sm:gap-8 sm:p-8">
-                                    <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                        <!-- Heroicon name: support -->
-                                        <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M18.364 5.636l-3.536 3.536m0 5.656l3.536 3.536M9.172 9.172L5.636 5.636m3.536 9.192l-3.536 3.536M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-5 0a4 4 0 11-8 0 4 4 0 018 0z" />
+                            <div class="submenu-container">
+                                <div class="submenu-grid">
+                                    <a href="#" class="submenu-btn">
+                                        <!-- Heroicon name: identification -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V8a2 2 0 00-2-2h-5m-4 0V5a2 2 0 114 0v1m-4 0a2 2 0 104 0m-5 8a2 2 0 100-4 2 2 0 000 4zm0 0c1.306 0 2.417.835 2.83 2M9 14a3.001 3.001 0 00-2.83 2M15 11h3m-3 4h2"/>
                                         </svg>
                                         <div class="ml-4">
-                                            <p class="text-base font-medium text-gray-900">
-                                                Help Center
+                                            <p>
+                                                {{ NavAboutWhoWeAreTitle }}
                                             </p>
-                                            <p class="mt-1 text-sm text-gray-500">
-                                                Get all of your questions answered in our forums or contact support.
+                                            <p>
+                                                {{ NavAboutWhoWeAreIntro }}
                                             </p>
                                         </div>
                                     </a>
 
-                                    <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                        <!-- Heroicon name: bookmark-alt -->
-                                        <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 4v12l-4-2-4 2V4M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    <a href="#" class="submenu-btn">
+                                        <!-- Heroicon name: presentation-chart-bar -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 13v-1m4 1v-3m4 3V8M8 21l4-4 4 4M3 4h18M4 4h16v12a1 1 0 01-1 1H5a1 1 0 01-1-1V4z"/>
                                         </svg>
-                                        <div class="ml-4">
-                                            <p class="text-base font-medium text-gray-900">
-                                                Guides
+                                        <div >
+                                            <p>
+                                                {{ NavAboutWeInNumbersTitle }}
                                             </p>
-                                            <p class="mt-1 text-sm text-gray-500">
-                                                Learn how to maximize our platform to get the most out of it.
+                                            <p>
+                                                {{ NavAboutWeInNumbersIntro }}
                                             </p>
                                         </div>
                                     </a>
 
-                                    <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                        <!-- Heroicon name: calendar -->
-                                        <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    <a href="#" class="submenu-btn">
+                                        <!-- Heroicon name: user-group -->
+                                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"/>
                                         </svg>
-                                        <div class="ml-4">
-                                            <p class="text-base font-medium text-gray-900">
-                                                Events
+                                        <div>
+                                            <p>
+                                                {{ NavAboutReviewsTitle }}
                                             </p>
-                                            <p class="mt-1 text-sm text-gray-500">
-                                                See what meet-ups and other events we might be planning near you.
+                                            <p>
+                                                {{ NavAboutReviewsIntro }}
                                             </p>
                                         </div>
                                     </a>
 
-                                    <a href="#" class="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
-                                        <!-- Heroicon name: shield-check -->
-                                        <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                                        </svg>
-                                        <div class="ml-4">
-                                            <p class="text-base font-medium text-gray-900">
-                                                Security
-                                            </p>
-                                            <p class="mt-1 text-sm text-gray-500">
-                                                Understand how we take your privacy seriously.
-                                            </p>
-                                        </div>
-                                    </a>
                                 </div>
-                                <div class="px-5 py-5 bg-gray-50 sm:px-8 sm:py-8">
+                                <div class="submenu-foot sm:px-8 sm:py-8">
                                     <div>
-                                        <h3 class="text-sm tracking-wide font-medium text-gray-500 uppercase">
-                                            Recent Posts
+                                        <h3 class="text-sm tracking-wide font-medium text-gray-200 uppercase">
+                                            {{ NavAboutRecentPost }}
                                         </h3>
                                         <ul class="mt-4 space-y-4">
                                             <li class="text-base truncate">
-                                                <a href="#" class="font-medium text-gray-900 hover:text-gray-700">
+                                                <a href="#" class="font-medium text-gray-900 hover:text-gray-200">
                                                     Boost your conversion rate
-                                                </a>
-                                            </li>
-
-                                            <li class="text-base truncate">
-                                                <a href="#" class="font-medium text-gray-900 hover:text-gray-700">
-                                                    How to use search engine optimization to drive traffic to your site
-                                                </a>
-                                            </li>
-
-                                            <li class="text-base truncate">
-                                                <a href="#" class="font-medium text-gray-900 hover:text-gray-700">
-                                                    Improve your customer experience
                                                 </a>
                                             </li>
                                         </ul>
                                     </div>
                                     <div class="mt-5 text-sm">
-                                        <a href="#" class="font-medium text-indigo-600 hover:text-indigo-500"> View all posts <span aria-hidden="true">&rarr;</span></a>
+                                        <a href="#" class="font-medium text-blue-500 hover:text-blue-300">
+                                            {{ NavAboutAllPosts }} <span aria-hidden="true">&rarr;</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         </transition>
                     </div>
-                    <a href="#ContactSection" class="submenu-btn">
+
+                    <a href="#ContactSection" class="menu-btn">
                         {{ ContactTitle }}
                     </a>
 
@@ -276,8 +256,7 @@
                             <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
                         </svg>
                     </a>
-                    <locale-selector
-                    :current-lang="CurrentLang"></locale-selector>
+                    <locale-selector :current-lang="CurrentLang"></locale-selector>
 
                 </div>
             </div>
@@ -306,7 +285,12 @@
                 <div class="pt-5 pb-6 px-5">
                     <div class="flex items-center justify-between">
                         <div>
-                            <img class="h-8 w-auto sm:h-10" src="/images/logo-icon.png" alt="Taxidrivers">
+                            <a href="#" class="md:hidden">
+                                <img class="h-8 w-auto sm:h-10 inline-block" src="/images/logo-icon.png" alt="Taxidrivers">
+                                <span class="text-red-500 font-bold font-serif">Taxi</span>
+                                <span class="text-blue-500 font-bold font-serif">Drivers</span>
+                                <span class="text-blue-500 font-bold font-serif">Cuba</span>
+                            </a>
                         </div>
                         <div class="-mr-2">
                             <button type="button" @click="isMenuOpen = false" class="bg-gray-800 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-900 hover:bg-gray-500 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500">
@@ -320,100 +304,74 @@
                     </div>
                     <div class="mt-6">
                         <nav class="grid gap-y-8">
-                            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                                <!-- Heroicon name: chart-bar -->
-                                <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z" />
+                            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-700">
+                                <!-- Heroicon name: modified-plane -->
+                                <svg class="flex-shrink-0 h-6 w-6 text-blue-600"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M 8.0891558,11.861231 10.775375,20.680764 22.019312,3.9900631 1.920395,5.0094884 Z m 0,0 6.9650822,-3.9355788" />
                                 </svg>
-                                <span class="ml-3 text-base font-medium text-gray-900">
-                                    Analytics
+                                <span class="ml-3 text-base font-medium text-gray-400">
+                                    {{ NavServicesAirportTransferTitle  }}
                                 </span>
                             </a>
 
-                            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                                <!-- Heroicon name: cursor-click -->
-                                <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122" />
+                            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-700">
+                                <!-- Heroicon name: sparkles -->
+                                <svg class="flex-shrink-0 h-6 w-6 text-blue-600"  xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 3v4M3 5h4M6 17v4m-2-2h4m5-16l2.286 6.857L21 12l-5.714 2.143L13 21l-2.286-6.857L5 12l5.714-2.143L13 3z"/>
                                 </svg>
-                                <span class="ml-3 text-base font-medium text-gray-900">
-                Engagement
-              </span>
+                                <span class="ml-3 text-base font-medium text-gray-400">
+                                    {{ NavServicesExperiencesTitle  }}
+                                </span>
                             </a>
 
-                            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                                <!-- Heroicon name: shield-check -->
-                                <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-700">
+                                <!-- Heroicon name: location-marker -->
+                                <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
                                 </svg>
-                                <span class="ml-3 text-base font-medium text-gray-900">
-                Security
-              </span>
+                                <span class="ml-3 text-base font-medium text-gray-400">
+                                    {{ NavServicesTaxiTitle  }}
+                                </span>
                             </a>
 
-                            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                                <!-- Heroicon name: view-grid -->
-                                <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-700">
+                                <!-- Heroicon name: map -->
+                                <svg class="flex-shrink-0 h-6 w-6 text-blue-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
                                 </svg>
-                                <span class="ml-3 text-base font-medium text-gray-900">
-                Integrations
-              </span>
+                                <span class="ml-3 text-base font-medium text-gray-400">
+                                    {{ NavServicesCustomItinerary  }}
+                                </span>
                             </a>
 
-                            <a href="#" class="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
-                                <!-- Heroicon name: refresh -->
-                                <svg class="flex-shrink-0 h-6 w-6 text-indigo-600" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                </svg>
-                                <span class="ml-3 text-base font-medium text-gray-900">
-                Automations
-              </span>
-                            </a>
                         </nav>
                     </div>
                 </div>
                 <div class="py-6 px-5 space-y-6">
                     <div class="grid grid-cols-2 gap-y-4 gap-x-8">
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                            Pricing
+                        <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-400">
+                            {{ NavAboutWhoWeAreTitle }}
                         </a>
 
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                            Docs
+                        <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-400">
+                            {{ NavAboutReviewsTitle }}
                         </a>
 
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                            Enterprise
+                        <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-400">
+                            {{ NavAboutRecentPost }}
                         </a>
 
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                            Blog
+                        <a href="#" class="text-base font-medium text-gray-500 hover:text-gray-400">
+                            {{ NavAboutWeInNumbersTitle }}
                         </a>
 
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                            Help Center
-                        </a>
-
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                            Guides
-                        </a>
-
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                            Security
-                        </a>
-
-                        <a href="#" class="text-base font-medium text-gray-900 hover:text-gray-700">
-                            Events
-                        </a>
                     </div>
                     <div>
-                        <a href="#" class="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                            Sign up
-                        </a>
                         <p class="mt-6 text-center text-base font-medium text-gray-500">
-                            Existing customer?
+                            {{ MobileNavContactMsg }}
                             <a href="#" class="text-indigo-600 hover:text-indigo-500">
-                                Sign in
+                                {{ ContactTitle }}
                             </a>
                         </p>
                     </div>
@@ -450,46 +408,89 @@ export default {
         },
     },
     props: {
-        ServicesTitle: {
-            type: String,
-            default: 'Services'
-        },
-        AboutUsTitle: {
-            type: String,
-            default: 'About Us'
-        },
-        ContactTitle: {
-            type: String,
-            default: 'Contact'
-        },
         CurrentLang: {
             type: String,
             default: 'en'
         },
+        ServicesTitle: {
+            type: String,
+            default: '__Services'
+        },
+        AboutUsTitle: {
+            type: String,
+            default: '__About Us'
+        },
+        ContactTitle: {
+            type: String,
+            default: '__Contact'
+        },
         NavServicesAirportTransferTitle: {
             type: String,
-            default: 'Airport transfer'
+            default: '__Airport transfer'
         },
         NavServicesAirportTransferIntro: {
             type: String,
-            default: 'Get a taxi to or from any cuban airport'
+            default: '__Get a taxi to or from any cuban airport'
         },
         NavServicesExperiencesTitle: {
             type: String,
-            default: 'Experiences'
+            default: '__Experiences'
         },
         NavServicesExperiencesIntro: {
             type: String,
-            default: 'Live Cuba in first person enjoying an unforgettable experience'
+            default: '__Live Cuba in first person enjoying an unforgettable experience'
         },
         NavServicesTaxiTitle: {
             type: String,
-            default: 'Intercity Taxi'
+            default: '__Intercity Taxi'
         },
-        NavServicesTaxiIntro: {
+        NavServicesRelated: {
             type: String,
-            default: 'A private and safe transfer just for you and your family'
+            default: '__Related Services'
         },
+        NavServicesCustomItinerary: {
+            type: String,
+            default: '__Custom Itinerary'
+        },
+        NavAboutWhoWeAreTitle: {
+            type: String,
+            default: '__Who we are?'
+        },
+        NavAboutWhoWeAreIntro: {
+            type: String,
+            default: '__A small team with great passion for classic cars'
+        },
+        NavAboutWeInNumbersTitle: {
+            type: String,
+            default: '__Taxi Drivers in numbers'
+        },
+        NavAboutWeInNumbersIntro: {
+            type: String,
+            default: '__You are our priority from day one'
+        },
+        NavAboutReviewsTitle: {
+            type: String,
+            default: '__Reviews & Testimonials'
+        },
+        NavAboutReviewsIntro: {
+            type: String,
+            default: '__'
+        },
+
+        NavAboutRecentPost: {
+            type: String,
+            default: '__Recent Posts'
+        },
+        NavAboutAllPosts: {
+            type: String,
+            default: '__View all posts'
+        },
+
+        MobileNavContactMsg: {
+            type: String,
+            default: '__Anything else?'
+        },
+
 
 
     },

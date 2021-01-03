@@ -1,62 +1,33 @@
-<!-- This example requires Tailwind CSS v2.0+ -->
-<header  id="header" class="text-gray-700 body-font bg-gray-900">
-    {# start LOGO #}
-    <div id="big-logo-container" class="bg-white md:flex justify-center p-2 hidden">
-        <a href="{{ path('index') }}" class="header-link-logo m-auto">
-            <img src="{{ asset('images/logo-wide.png') }}" alt="Taxi Drivers Cuba">
-        </a>
-    </div>
-    {# END LOGO #}
+{# start LOGO #}
+<div id="big-logo-container" class="bg-white md:flex justify-center p-2 hidden">
+    <a href="{{ path('index') }}" class="header-link-logo m-auto">
+        <img src="{{ asset('images/logo-wide.png') }}" alt="Taxi Drivers Cuba">
+    </a>
+</div>
+{# END LOGO #}
+
+<header  id="header" class="fixed md:sticky top-0 w-full text-gray-700 body-font bg-gray-900 z-50">
     <header-menu
-        about-us-title="{{ 'Nav.AboutUs' | trans }}"
-        services-title="{{ 'Nav.Services' | trans }}"
-        contact-title="{{ 'Nav.Contact' | trans }}"
         current-lang="{{ app.request.locale }}"
+        services-title="{{ 'Nav.Services' | trans }}"
+        about-us-title="{{ 'Nav.AboutUs' | trans }}"
+        contact-title="{{ 'Nav.Contact' | trans }}"
+        nav-services-airport-transfer-title="{{ 'Airport transfer' | trans }}"
+        nav-services-airport-transfer-intro="{{ 'Get a taxi to or from any cuban airport' | trans }}"
+        nav-services-experiences-title="{{ 'Experiences' | trans }}"
+        nav-services-experiences-intro="{{ 'Live Cuba in first person enjoying an unforgettable experience' | trans }}"
+        nav-services-taxi-title="{{ 'Intercity Taxi' | trans }}"
+        nav-services-related="{{ 'Related Services' | trans }}"
+        nav-services-custom-itinerary="{{ 'Custom Itinerary' | trans }}"
+        nav-about-who-we-are-title="{{ 'Who we are?' | trans }}"
+        nav-about-who-we-are-intro="{{ 'A small team with great passion for classic cars' | trans }}"
+        nav-about-we-in-numbers-title="{{ 'Taxi Drivers in numbers' | trans }}"
+        nav-about-we-in-numbers-intro="{{ 'You are our priority from day one' | trans }}"
+        nav-about-reviews-title="{{ 'Reviews & Testimonials' | trans }}"
+        nav-about-reviews-intro=""
+        nav-about-recent-post="{{ 'Recent Posts' | trans }}"
+        nav-about-all-posts="{{ 'View all posts' | trans }}"
+        mobile-nav-contact-msg="{{ 'Anything else?' | trans }}"
+
         action-url="#"></header-menu>
-
-    <div class="container flex flex-wrap">
-{#        <a href="{{ path('index') }}" class="header-link-logo ">#}
-{#            <img src="{{ asset('images/logo-icon.png') }}" alt="Viñales-Taxi-Cuba-logo">#}
-{#            <span class="ml-3 text-xl">Taxidrivers</span>#}
-{#        </a>#}
-
-        <button
-            v-on:click="navBarCTA($event)"
-            class="btn-rounded" type="button" style="">
-            <i class="fas fa-heart"></i> {% trans %}cta.book{% endtrans %}
-        </button>
-
-
-        <nav class="md:ml-auto md:mr-auto flex flex-wrap items-center text-base justify-center">
-            <a href="{{ path('index') }}#activities" class="header-link" data-section="#activities">
-                {% trans %}global.header.places{% endtrans %}
-            </a>
-            <a href="{{ path('index') }}#why_with_us" data-section="#why_with_us" class="header-link">
-                {% trans %}global.header.review{% endtrans %}
-            </a>
-            <a href="{{ path('index') }}#more_places" data-section="#more_places" class="header-link">
-                {% trans %}global.header.us{% endtrans %}
-            </a>
-            <a href="{{ path('index') }}#contact_faq" data-section="#contact_faq" class="header-link">
-                {% trans %}global.header.contact{% endtrans %}
-            </a>
-        </nav>
-
-        <nav id="meta-nav" class="flex flex-wrap items-center text-base justify-center justify-items-auto w-auto flex-row text-gray-200">
-            <a class="mr-3">
-                <svg fill="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                    <path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"></path>
-                </svg>
-            </a>
-
-            <a class="mr-3">
-                <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-5 h-5" viewBox="0 0 24 24">
-                    <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
-                    <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37zm1.5-4.87h.01"></path>
-                </svg>
-            </a>
-
-        </nav>
-
-    </div>
 </header>

@@ -34,7 +34,7 @@
     }
 
     nav {
-        .submenu-btn{
+        .menu-btn{
             @apply group rounded-md p-2 text-gray-500 inline-flex items-center text-base font-medium;
 
             &:hover{
@@ -44,6 +44,36 @@
                 @apply text-gray-100 outline-none ring-2 ring-blue-500;
             }
         }
+        div.submenu-container{
+            @apply rounded-lg shadow-lg ring-1 ring-gray-200 ring-opacity-5 overflow-hidden;
+        }
+        div.submenu-grid{
+            @apply relative grid gap-6 bg-gray-800 px-5 py-4 sm:gap-8 sm:p-8;
+
+            a.submenu-btn{
+                @apply -m-3 p-3 flex items-start rounded-lg;
+                &:hover{
+                    @apply bg-gray-700;
+                }
+
+                & > svg {
+                    @apply flex-shrink-0 h-6 w-6 text-blue-600;
+                }
+                & div{
+                    @apply ml-4;
+                    & > p:first-child{
+                        @apply text-base font-medium text-gray-200;
+                    }
+                    & > p:last-child{
+                        @apply mt-1 text-sm text-gray-400;
+                    }
+                }
+            }
+        }
+        div.submenu-foot{
+            @apply px-5 py-5 bg-gray-600;
+        }
+
     }
 
 }
