@@ -25,6 +25,12 @@ class FrontendController extends AbstractController
         $places = $placeRepository->findAll();
 
         return $this->render('taxidrivers/layout.html.twig', [
+            'hero' => [
+                    'image' => 'images/old-car-full-16x9.jpg',
+                    'link' => '#',
+                    'title' => "Ready to discover Cuba?",
+                    'subtitle' => 'Vinales, Varadero, airports or any other place in Cuba'
+            ],
             'places'=>$places
         ]);
     }
