@@ -8,7 +8,6 @@
 
 namespace App\DataHelpers;
 
-
 class CurrencyRelations
 {
     public $currencies = [
@@ -23,8 +22,7 @@ class CurrencyRelations
     {
         $allowedCurrencies = array_keys($this->currencies);
 
-        if($currency and in_array($currency, $allowedCurrencies))
-        {
+        if ($currency and in_array($currency, $allowedCurrencies)) {
             $this->currency = $currency;
             return true;
         }

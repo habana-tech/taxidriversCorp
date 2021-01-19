@@ -1,72 +1,21 @@
 {% extends 'taxidrivers/base.html.twig' %}
     {% block body %}
-        <div class="bg-gray-50 h-screen34 bg-fixed bg-bottom relative" style="background-image: url('{{ asset(hero.image) }}')">
-            <div class="max-w-7xl h-full mx-auto pt-16 py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
-                <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-                    <span class="lg:text-4xl text-3xl block mb-4 text-white">{{ hero.title }}</span>
-                    <span class="lg:text-3xl text-2xl block text-white">{{ hero.subtitle }}</span>
-                </h2>
-                <div class="mt-8 lex lg:mt-0 lg:flex-shrink-0">
 
-                    <div class="ml-3 inline-flex rounded-md shadow">
-                        <a href="{{ hero.link }}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
-                            Learn more
-                        </a>
-                    </div>
-                </div>
-            </div>
+        {% include('taxidrivers/homepage/_hero.html.twig') %}
 
-            <div class="cards-overlay mx-8 shadow-lg rounded-t absolute bottom-0 right-0 lg:h-40 h-20 ">
-                <img class="h-full lg:p-4 p-2" src="{{ asset('images/tripadvisor/excelencia_en.png') }}">
-            </div>
-        </div>
 
-        <section id="hero" class="text-gray-700 body-font backgroung-sun-tornado">
 
-            <div class="container mx-auto flex px-5 py-24 md:flex-row flex-col items-center ">
-                <div class="lg:flex-grow md:w-1/2 lg:pr-24 md:pr-16 flex flex-col md:items-start md:text-left mb-16 md:mb-0 items-center text-center">
-                    <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Knausgaard typewriter readymade marfa</h1>
-                    <p class="mb-8 leading-relaxed">Chillwave portland ugh, knausgaard fam polaroid iPhone. Man braid swag typewriter affogato, hella selvage wolf narwhal dreamcatcher.</p>
-                    <div class="flex w-full md:justify-start justify-center">
-                        <input class="bg-gray-100 rounded mr-4 border border-gray-400 focus:outline-none focus:border-blue-500 text-base px-4 lg:w-full xl:w-1/2 w-2/4 md:w-full" placeholder="Placeholder" type="text">
-
-                        <button class="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">Go!</button>
-                        <location-select-input></location-select-input>
-                    </div>
-                    <p class="text-sm mt-2 text-gray-500 mb-8 w-full">Neutra shabby chic ramps, viral fixie.</p>
-
-                    <div class="flex lg:flex-row md:flex-col">
-                        <airport-btn
-                            description-text="{{ 'Taxi to or from' | trans }}"
-                            action-text="{{ 'Airport' | trans }}"
-                            action-url="#"
-                        >
-                        </airport-btn>
-                        <custom-itinerary-btn
-                            description-text="{{ 'Request a quote for a' | trans }}"
-                            action-text="{{ 'custom itinerary' | trans }}"
-                            action-url="#"
-                        >
-                        </custom-itinerary-btn>
-                    </div>
-                </div>
-                <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
-                    <img class="object-cover object-center shadow-lg rounded max-w-full" alt="hero" src="https://localhost:8000/images/sample.jpg">
-                    {#            <slide#}
-                    {#            slides="{0:{ subTitle: 'hola', title:'hola', placeName:'cuba'} }"></slide>#}
-                </div>
-            </div>
-        </section>
+    {#      include 'homepage/_user_location.html.twig'     #}
 
 
         <!--
           SERVICES
         -->
-        <section class="text-gray-700 body-font">
-            <div class="container px-5 py-24 mx-auto">
+        <section class="max-w-7xl mx-auto text-gray-700 body-font">
+            <div class="px-5 py-24 mx-auto">
                 <div class="flex flex-wrap w-full mb-20">
                     <div class="lg:w-1/3 w-full mb-6 lg:mb-0">
-                        <h1 class="sm:text-3xl text-2xl font-medium title-font mb-2 text-gray-900">Our Services</h1>
+                        <h1 class="lg:text-5xl text-3   xl font-medium title-font mb-2 text-gray-900">Our Services</h1>
                         <div class="h-1 w-20 bg-blue-500 rounded"></div>
                     </div>
                     <div class="lg:w-2/3 w-full mb-6 lg:mb-0">
@@ -86,9 +35,8 @@
                         <div class="xl:w-1/3 md:w-1/3 p-4">
                             <div class="bg-gray-100 p-6 rounded-lg bg-opacity-75">
                                 <img class="h-40 rounded w-full object-cover object-center mb-6" src="https://static.taxidriverscuba.com/uploads/fbecb2ad79.jpeg-1x1.jpg" alt="content">
-                                <h3 class="tracking-widest text-blue-500 text-xs font-medium title-font uppercase">Transfer from or to</h3>
+                                <h3 class="tracking-widest text-blue-500 text-xs font-medium title-font uppercase">{{ 'Transfer from or to' | trans }}</h3>
                                 <h2 class="text-lg text-gray-900 font-medium title-font mb-4"> Juan Gualberto Gómez Airport, Varadero</h2>
-                                <p class="leading-relaxed text-base">Fingerstache flexitarian street art 8-bit waistcoat. Distillery hexagon disrupt edison bulbche.</p>
 
                                 <div class="flex items-center flex-wrap mt-4">
                                     <a class="text-indigo-500 inline-flex items-center md:mb-2 lg:mb-0">Learn More
@@ -98,10 +46,10 @@
                                         </svg>
                                     </a>
                                     <span class="text-gray-600 mr-3 inline-flex items-center lg:ml-auto md:ml-0 ml-auto leading-none text-sm pr-3 py-1 border-r-2 border-gray-300">
-                    <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
-                      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                      <circle cx="12" cy="12" r="3"></circle>
-                    </svg>1.2K
+                         <svg class="w-5 h-5 mr-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                        </svg>
+                        1.2K
                   </span>
                                     <span class="text-gray-600 inline-flex items-center leading-none text-sm">
                     <svg class="w-4 h-4 mr-1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" viewBox="0 0 24 24">
@@ -149,7 +97,7 @@
                 <div class="flex flex-wrap -m-4">
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/420x260">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="420x260">
                         </a>
                         <div class="mt-4">
                             <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
@@ -159,7 +107,7 @@
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/421x261">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="421x261">
                         </a>
                         <div class="mt-4">
                             <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
@@ -169,7 +117,7 @@
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/422x262">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="422x262">
                         </a>
                         <div class="mt-4">
                             <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
@@ -179,7 +127,7 @@
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/423x263">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="423x263">
                         </a>
                         <div class="mt-4">
                             <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
@@ -189,7 +137,7 @@
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/424x264">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="424x264">
                         </a>
                         <div class="mt-4">
                             <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
@@ -199,7 +147,7 @@
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/425x265">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="425x265">
                         </a>
                         <div class="mt-4">
                             <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
@@ -209,7 +157,7 @@
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/427x267">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="427x267">
                         </a>
                         <div class="mt-4">
                             <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>
@@ -219,7 +167,7 @@
                     </div>
                     <div class="lg:w-1/4 md:w-1/2 p-4 w-full">
                         <a class="block relative h-48 rounded overflow-hidden">
-                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="https://dummyimage.com/428x268">
+                            <img alt="ecommerce" class="object-cover object-center w-full h-full block" src="428x268">
                         </a>
                         <div class="mt-4">
                             <h3 class="text-gray-500 text-xs tracking-widest title-font mb-1">CATEGORY</h3>

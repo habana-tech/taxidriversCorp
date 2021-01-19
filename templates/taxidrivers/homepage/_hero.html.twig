@@ -1,0 +1,20 @@
+<div class="bg-gray-50 h-screen34 bg-fixed bg-bottom relative" style="background-image: url('{{ asset(hero.image) }}')">
+    <div class="max-w-7xl h-full mx-auto pt-16 py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+        <h2 class="text-3xl font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+            <span class="lg:text-4xl text-3xl block mb-4 text-white">{{ hero.title }}</span>
+            <span class="lg:text-3xl text-2xl block text-white">{{ hero.subtitle }}</span>
+        </h2>
+        <div class="mt-8 lex lg:mt-0 lg:flex-shrink-0">
+
+            <div class="ml-3 inline-flex rounded-md shadow">
+                <a href="{{ hero.link }}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
+                    {{ "Learn more" | trans }}
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="cards-overlay mx-8 shadow-lg rounded-t absolute bottom-0 right-0 lg:h-40 h-20 ">
+        <img class="h-full lg:p-4 p-2" src="{{ asset('images/tripadvisor/excelencia_en.png') }}">
+    </div>
+</div>
