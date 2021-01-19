@@ -12,7 +12,9 @@ module.exports = {
     darkMode: false, // or 'media' or 'class'
     theme: {
         extend: {
-
+            height: {
+                screen34: '75vh',
+            },
         },
         colors: {
             extend: {},
