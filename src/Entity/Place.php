@@ -2,44 +2,57 @@
 
 namespace App\Entity;
 
-use HabanaTech\BusinessModel\ORM\Traits\MetadataFieldTrait;
+use App\DataDefinitions\Translations\TranslatedEntityInterface;
+use App\DataDefinitions\Translations\TranslatedEntityTrait;
+use App\ORM\Fields\MetadataTrait;
 use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\PlaceRepository")
  */
-class Place
+class Place implements TranslatedEntityInterface
 {
-
-    use MetadataFieldTrait;
+    use MetadataTrait;
+    use TranslatedEntityTrait;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $name;
-
-    /**
-     * @ORM\Column(type="boolean")
-     */
-    private $public;
+    private ?string $name;
 
     /**
      * @ORM\Column(type="string", length=200, nullable=true)
      */
-    private $address;
+    private ?string $address;
 
-    private $locationString;
+    /**
+     * @ORM\ManyToOne(targetEntity=Place::class, inversedBy="translations")
+     */
+    private ?Place $translatedEntity;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Place::class, mappedBy="translatedEntity")
+     */
+    private ArrayCollection $translations;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Image::class)
+     */
+    private ArrayCollection $images;
+
 
     public function __construct()
     {
-        $this->taxiServices = new ArrayCollection();
+        $this->translations = new ArrayCollection();
+        $this->images = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -64,17 +77,6 @@ class Place
         return $this->getName()?? '';
     }
 
-    public function isPublic(): ?bool
-    {
-        return $this->public;
-    }
-
-    public function setPublic(bool $public): self
-    {
-        $this->public = $public;
-
-        return $this;
-    }
 
     public function getAddress(): ?string
     {
@@ -88,21 +90,90 @@ class Place
         return $this;
     }
 
-    /**
-     * @param $string
-     * @return $this
-     */
-    public function setLocationString($string)
+    public function getTranslatedObj(): TranslatedEntityInterface
     {
-        $this->locationString = $string;
+        return $this->getTranslatedEntity();
+    }
+
+    public function getTranslationList(): Collection
+    {
+        return $this->getTranslations();
+    }
+
+    public function getCurrentLang(): string
+    {
+        return $this->currentLang;
+    }
+
+    public function getTranslatedProperties(): array
+    {
+        return ['name', 'address'];
+    }
+
+    public function getTranslatedEntity(): ?self
+    {
+        return $this->translatedEntity;
+    }
+
+    public function setTranslatedEntity(?self $translatedEntity): self
+    {
+        $this->translatedEntity = $translatedEntity;
+
         return $this;
     }
 
     /**
-     * @return mixed
+     * @return Collection|self[]
      */
-    public function getLocationString()
+    public function getTranslations(): Collection
     {
-        return $this->locationString;
+        return $this->translations;
     }
+
+    public function addTranslation(self $translation): self
+    {
+        if (!$this->translations->contains($translation)) {
+            $this->translations[] = $translation;
+            $translation->setTranslatedEntity($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTranslation(self $translation): self
+    {
+        if ($this->translations->removeElement($translation)) {
+            // set the owning side to null (unless already changed)
+            if ($translation->getTranslatedEntity() === $this) {
+                $translation->setTranslatedEntity(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Image[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        $this->images->removeElement($image);
+
+        return $this;
+    }
+
 }

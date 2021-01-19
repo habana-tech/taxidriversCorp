@@ -2,37 +2,28 @@
 
 namespace App\Entity;
 
-use HabanaTech\BusinessModel\ORM\Traits\ActiveFieldTrait;
-use HabanaTech\BusinessModel\ORM\Interfaces\GalleryFieldInterface;
-use HabanaTech\BusinessModel\ORM\Traits\GalleryFieldTrait;
-use HabanaTech\BusinessModel\ORM\Interfaces\ImageFieldInterface;
-use HabanaTech\BusinessModel\ORM\Traits\ImageFieldTrait;
-use HabanaTech\BusinessModel\ORM\Interfaces\MachineNameInterface;
-use HabanaTech\BusinessModel\ORM\Traits\MachineNameTrait;
-use HabanaTech\BusinessModel\ORM\Traits\PriorityFieldTrait;
-use HabanaTech\BusinessModel\ORM\Interfaces\TranslatableInterface;
-use HabanaTech\BusinessModel\ORM\Traits\TranslationTrait;
-use HabanaTech\BusinessModel\ORM\Traits\MetadataFieldTrait;
+use App\DataDefinitions\Translations\TranslatedEntityInterface;
+use App\DataDefinitions\Translations\TranslatedEntityTrait;
+use App\ORM\Fields\ActiveFieldTrait;
+use App\ORM\Fields\MachineNameTrait;
+use App\ORM\Fields\MetadataTrait;
+use App\ORM\Fields\PriorityTrait;
+use App\ORM\Interfaces\MachineNameInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use Vich\UploaderBundle\Mapping\Annotation as Vich;
-
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ServiceRepository")
- * @Vich\Uploadable
  * @ORM\HasLifecycleCallbacks
  */
-class Service implements ImageFieldInterface, GalleryFieldInterface, MachineNameInterface, TranslatableInterface
+class Service implements MachineNameInterface, TranslatedEntityInterface
 {
-    use ImageFieldTrait;
     use ActiveFieldTrait;
-    use MetadataFieldTrait;
-    use GalleryFieldTrait;
-    use PriorityFieldTrait;
+    use MetadataTrait;
+    use PriorityTrait;
     use MachineNameTrait;
-    use TranslationTrait;
+    use TranslatedEntityTrait;
 
 
     /**
@@ -65,6 +56,26 @@ class Service implements ImageFieldInterface, GalleryFieldInterface, MachineName
      */
     private $name;
 
+    /**
+     * @ORM\ManyToOne(targetEntity=Service::class, inversedBy="translations")
+     */
+    private $translatedEntity;
+
+    /**
+     * @ORM\OneToMany(targetEntity=Service::class, mappedBy="translatedEntity")
+     */
+    private $translations;
+
+    /**
+     * @ORM\ManyToMany(targetEntity=Image::class)
+     */
+    private $images;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
+
 
     public function getName(): ?string
     {
@@ -86,6 +97,8 @@ class Service implements ImageFieldInterface, GalleryFieldInterface, MachineName
     {
         $this->gallery            = new ArrayCollection();
         $this->intermediatePlaces = new ArrayCollection();
+        $this->translations = new ArrayCollection();
+        $this->images = new ArrayCollection();
 
     }//end __construct()
 
@@ -193,4 +206,101 @@ class Service implements ImageFieldInterface, GalleryFieldInterface, MachineName
         return $this->name;
     }
 
+    public function getTranslatedObj(): TranslatedEntityInterface
+    {
+        return $this->translatedEntity;
+    }
+
+    public function getTranslationList(): Collection
+    {
+        return $this->translations;
+    }
+
+    public function getCurrentLang(): string
+    {
+        return $this->currentLang;
+    }
+
+    public function getTranslatedProperties(): array
+    {
+        return ['name', 'description'];
+    }
+
+    public function getTranslatedEntity(): ?self
+    {
+        return $this->translatedEntity;
+    }
+
+    public function setTranslatedEntity(?self $translatedEntity): self
+    {
+        $this->translatedEntity = $translatedEntity;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|self[]
+     */
+    public function getTranslations(): Collection
+    {
+        return $this->translations;
+    }
+
+    public function addTranslation(self $translation): self
+    {
+        if (!$this->translations->contains($translation)) {
+            $this->translations[] = $translation;
+            $translation->setTranslatedEntity($this);
+        }
+
+        return $this;
+    }
+
+    public function removeTranslation(self $translation): self
+    {
+        if ($this->translations->removeElement($translation)) {
+            // set the owning side to null (unless already changed)
+            if ($translation->getTranslatedEntity() === $this) {
+                $translation->setTranslatedEntity(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|Image[]
+     */
+    public function getImages(): Collection
+    {
+        return $this->images;
+    }
+
+    public function addImage(Image $image): self
+    {
+        if (!$this->images->contains($image)) {
+            $this->images[] = $image;
+        }
+
+        return $this;
+    }
+
+    public function removeImage(Image $image): self
+    {
+        $this->images->removeElement($image);
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
+
+        return $this;
+    }
 }

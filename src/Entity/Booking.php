@@ -2,8 +2,8 @@
 
 namespace App\Entity;
 
-use HabanaTech\BusinessModel\ORM\Fields\Timestampable;
-use HabanaTech\BusinessModel\ORM\Traits\UniqueIdPropertyTrait;
+use App\ORM\Fields\TimestampableTrait;
+use App\ORM\Fields\UniqueIdTrait;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -11,68 +11,68 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Booking
 {
-    use UniqueIdPropertyTrait;
-    use Timestampable;
+    use UniqueIdTrait;
+    use TimestampableTrait;
 
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="float", nullable=true)
      */
-    private $price;
+    private ?float $price;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Client", inversedBy="bookings", cascade={"persist"})
      * @ORM\JoinColumn(nullable=false)
      */
-    private $client;
+    private ?Client $client;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Place")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $origin;
+    private ?Place $origin;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Place")
      * @ORM\JoinColumn(nullable=false)
      */
-    private $destination;
+    private ?Place $destination;
 
     /**
      * @ORM\Column(type="date")
      */
-    private $travelDate;
+    private ?\DateTimeInterface $travelDate;
 
     /**
      * @ORM\Column(type="time")
      */
-    private $travelTime;
+    private ?\DateTimeInterface $travelTime;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $comment;
+    private ?string $comment;
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $currency;
+    private ?string $currency;
 
     /**
      * @ORM\Column(type="json", nullable=true)
      */
-    private $campaign = [];
+    private array $campaign = [];
 
     /**
      * @ORM\Column(type="integer")
      */
-    private $passenger;
+    private ?int $passenger;
 
 
     public function __construct()
@@ -196,7 +196,6 @@ class Booking
 
     public function __toString()
     {
-        $id = $this->id;
         $date = $this->travelDate->format('d/m/Y');
         $origin = $this->origin->getName();
         $destination = $this->destination->getName();
@@ -213,18 +212,6 @@ class Booking
         $this->passenger = $passenger;
 
         return $this;
-    }
-
-    public function setNewClient(Client $client)
-    {
-        if ($this->client === null){
-            $this->client = $client;
-        }
-    }
-
-    public function getNewClient()
-    {
-        return null;
     }
 
 }

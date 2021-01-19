@@ -2,14 +2,13 @@
 
 namespace App\Entity;
 
-use HabanaTech\BusinessModel\Services\ImageBase64ThumbCreator;
+use App\Services\ImageBase64ThumbCreator;
 use DateTimeImmutable;
 use Doctrine\ORM\Mapping as ORM;
-use HabanaTech\BusinessModel\ORM\Fields\Timestampable;
+use App\ORM\Fields\TimestampableTrait;
 use Symfony\Component\HttpFoundation\File\File;
 use Symfony\Component\HttpFoundation\File\UploadedFile;
 use Symfony\Component\Validator\Context\ExecutionContextInterface;
-use Vich\UploaderBundle\Form\Type\VichFileType;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 
@@ -19,7 +18,7 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Image
 {
-    use Timestampable;
+    use TimestampableTrait;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -116,7 +115,7 @@ class Image
             $base64Converter = new ImageBase64ThumbCreator($file->getRealPath());
             $this->setBase64($base64Converter->getBase64data());
             $this->updatedAt = new DateTimeImmutable();
-            if (!$this->description && $file->getFilename()) {
+            if (!$this->description && $file->getFilename() && $file instanceof UploadedFile) {
                 $this->description = substr(basename($file->getClientOriginalName()), 0, -4);
             }
         }

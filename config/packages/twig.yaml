@@ -1,4 +1,4 @@
 twig:
     default_path: '%kernel.project_dir%/templates'
-    paths:
-        '%kernel.project_dir%/vendor/habanatech/business-model/BusinessModel/templates': HabanaTech_BusinessModel
+#    paths:
+#        '%kernel.project_dir%/vendor/habanatech/business-model/BusinessModel/templates': HabanaTech_BusinessModel

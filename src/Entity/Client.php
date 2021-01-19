@@ -2,26 +2,26 @@
 
 namespace App\Entity;
 
-use HabanaTech\BusinessModel\ORM\Fields\Timestampable;
-use HabanaTech\BusinessModel\ORM\Traits\UniqueIdPropertyTrait;
+use App\ORM\Fields\TimestampableTrait;
+use App\ORM\Fields\UniqueIdTrait;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
-use HabanaTech\BusinessModel\Services\CountryTelephoneNumber;
+use App\Services\CountryTelephoneNumber;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ClientRepository")
  */
 class Client
 {
-    use UniqueIdPropertyTrait;
-    use Timestampable;
+    use UniqueIdTrait;
+    use TimestampableTrait;
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private $id;
+    private ?int $id;
 
     /**
      * @ORM\Column(type="string", length=200, unique=true)
@@ -36,17 +36,17 @@ class Client
     /**
      * @ORM\Column(type="string", length=25, nullable=true)
      */
-    private $telephone;
+    private ?string $telephone;
 
     /**
      * @ORM\Column(type="string", length=60, nullable=true)
      */
-    private $country;
+    private ?string $country;
 
     /**
      * @ORM\OneToMany(targetEntity="App\Entity\Booking", mappedBy="client", orphanRemoval=true)
      */
-    private $bookings;
+    private ArrayCollection $bookings;
 
     /**
      * @ORM\Column(type="string", length=4, nullable=true)
@@ -166,7 +166,6 @@ class Client
     }
     public function __toString()
     {
-        // TODO: Implement __toString() method.
         $tmp = $this->getName() . " (". $this->getEmail() .")";
         if ($this->getCountry()) {
             $tmp.= " [".$this->getCountry()."]";
@@ -186,7 +185,7 @@ class Client
         return $this;
     }
 
-    public function getSessionLang()
+    public function getSessionLang(): ?string
     {
         return $this->getLocale();
     }
