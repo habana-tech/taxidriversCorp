@@ -30,17 +30,17 @@ class Image
     /**
     * @Vich\UploadableField(mapping="images", fileNameProperty="imageName", size="imageSize")
     */
-    private $imageFile;
+    private ?File $imageFile;
 
     /**
      * @ORM\Column(type="string", length=180, nullable=true)
      */
-    private $imageName;
+    private ?string $imageName;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
      */
-    private $imageSize;
+    private ?int $imageSize;
 
     /**
      * @ORM\Column(type="string", length=200, nullable=true)
@@ -173,4 +173,6 @@ class Image
             ;
         }
     }
+
+
 }

@@ -1,7 +1,7 @@
 <template>
   <!-- Header -->
-  <div class="relative md:pt-32 pb-32 pt-12 bg-blue-400"
-       style="">
+  <div class="relative md:pt-32 pb-32 pt-12 bg-blue-400 bg-center bg-fixed"
+       style="background-image: url('images/old-car-full-16x9.jpg')">
     <div class="px-4 md:px-10 mx-auto w-full">
       <div>
         <!-- Card stats -->

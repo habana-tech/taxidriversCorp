@@ -3,6 +3,10 @@
 namespace App\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Security\Core\Encoder\EncoderFactory;
+use Symfony\Component\Security\Core\Encoder\EncoderFactoryInterface;
+use Symfony\Component\Security\Core\Encoder\PasswordEncoderInterface;
+use Symfony\Component\Security\Core\Encoder\UserPasswordEncoder;
 use Symfony\Component\Security\Core\User\UserInterface;
 
 /**
@@ -25,13 +29,25 @@ class User implements UserInterface
     /**
      * @ORM\Column(type="simple_array")
      */
-    private $roles = [];
+    private $roles = ['ROLE_USER'];
 
     /**
      * @var string The hashed password
      * @ORM\Column(type="string")
      */
     private $password;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $avatar;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $plainPassword;
+
+
 
     public function getId(): ?int
     {
@@ -99,7 +115,7 @@ class User implements UserInterface
      */
     public function getSalt()
     {
-        // not needed when using the "bcrypt" algorithm in security.yaml
+        return;// not needed when using the "bcrypt" algorithm in security.yaml
     }
 
     /**
@@ -125,4 +141,30 @@ class User implements UserInterface
         //return 'https://robohash.org/' . hash('md5', $this->getEmail()).'?set=set4';
         return 'https://dash.taxidrivers.wip/build/images/team-2-800x800.3e08ef14.jpg';
     }
+
+    public function getAvatar(): ?string
+    {
+        return $this->avatar;
+//        return $this->avatar ?? $this->getRobotAvatar();
+    }
+
+    public function setAvatar(?string $avatar): self
+    {
+        $this->avatar = $avatar;
+
+        return $this;
+    }
+
+    public function getPlainPassword(): ?string
+    {
+        return $this->plainPassword;
+    }
+
+    public function setPlainPassword(?string $plainPassword): self
+    {
+        $this->plainPassword = $plainPassword;
+
+        return $this;
+    }
+
 }
