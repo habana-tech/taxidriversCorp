@@ -2,6 +2,7 @@
 
 namespace App\Controller\Dash;
 
+use App\Repository\UserRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Notifier\ChatterInterface;
@@ -27,7 +28,10 @@ class BoardController extends AbstractController
     public function index()
     {
 
-        return $this->render('dash/board/index.html.twig', ['controller_name' => 'BoardController']);
+        return $this->render('dash/board/index.html.twig',
+            [
+                'controller_name' => 'BoardController',
+            ]);
     }
 
 

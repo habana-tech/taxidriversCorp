@@ -6,9 +6,11 @@ use App\Entity\Image;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
+use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractDashboardController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\Security\Core\User\UserInterface;
 
 class DashboardController extends AbstractDashboardController
 {
@@ -30,6 +32,7 @@ class DashboardController extends AbstractDashboardController
 
             // the path defined in this method is passed to the Twig asset() function
             ->setFaviconPath('apple-touch-icon.png')
+
 
             // set this option if you prefer the page content to span the entire
             // browser width, instead of the default design which sets a max width
@@ -61,5 +64,11 @@ class DashboardController extends AbstractDashboardController
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }
 
-
+    public function configureUserMenu(UserInterface $user): UserMenu
+    {
+        if ($user instanceof User) {
+            return (parent::configureUserMenu($user))->setAvatarUrl($user->getRobotAvatar());
+        }
+        return parent::configureUserMenu($user);
+    }
 }

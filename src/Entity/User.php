@@ -138,8 +138,8 @@ class User implements UserInterface
     public function getRobotAvatar(): string
     {
         //TODO: reset the image url
-        //return 'https://robohash.org/' . hash('md5', $this->getEmail()).'?set=set4';
-        return 'https://dash.taxidrivers.wip/build/images/team-2-800x800.3e08ef14.jpg';
+        return 'https://robohash.org/' . hash('md5', $this->getEmail()).'?set=set5';
+//        return 'https://dash.taxidrivers.wip/build/images/team-2-800x800.3e08ef14.jpg';
     }
 
     public function getAvatar(): ?string
