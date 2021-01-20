@@ -3,6 +3,7 @@
 namespace App\Controller\Dash;
 
 use App\Entity\Image;
+use App\Entity\Place;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -56,10 +57,11 @@ class DashboardController extends AbstractDashboardController
             MenuItem::linkToDashboard('Dashboard', 'fa fa-home'),
 
             MenuItem::section('Content'),
-            MenuItem::linkToCrud('Images', 'fa fa-image', Image::class),
+            MenuItem::linkToCrud('Places', 'fa fa-map', Place::class),
 
             MenuItem::section('Management'),
             MenuItem::linkToCrud('Users', 'fa fa-users', User::class),
+            MenuItem::linkToCrud('Images', 'fa fa-images', Image::class),
             ];
         // yield MenuItem::linkToCrud('The Label', 'fas fa-list', EntityClass::class);
     }

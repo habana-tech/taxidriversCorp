@@ -14,11 +14,14 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\ImageRepository")
- * @Vich\Uploadable()
  */
 class Image
 {
     use TimestampableTrait;
+
+    public const UPLOAD_DIR = 'public/uploads/img/';
+    public const BASE_PATH = 'uploads/img/';
+    public const UPLOADED_FILE_NAME_PATTERN = '[slug]-[contenthash].[extension]';
     /**
      * @ORM\Id()
      * @ORM\GeneratedValue()
@@ -28,14 +31,9 @@ class Image
 
 
     /**
-    * @Vich\UploadableField(mapping="images", fileNameProperty="imageName", size="imageSize")
-    */
-    private ?File $imageFile;
-
-    /**
      * @ORM\Column(type="string", length=180, nullable=true)
      */
-    private ?string $imageName;
+    private ?string $filename;
 
     /**
      * @ORM\Column(type="integer", nullable=true)
@@ -45,86 +43,64 @@ class Image
     /**
      * @ORM\Column(type="string", length=200, nullable=true)
      */
-    private $description;
+    private ?string $description;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $base64;
+    private ?string $base64;
 
     public function getId(): ?int
     {
         return $this->id;
     }
 
+    /**
+     * @return string|null
+     */
+    public function getFilename(): ?string
+    {
+        return $this->filename;
+    }
+
+    /**
+     * @param string|null $filename
+     */
+    public function setFilename(?string $filename): void
+    {
+        $this->filename = $filename;
+    }
+
+
     public function getImagePath(): string
     {
-        return 'uploads/images/'.$this->getImageName();
-    }
-
-    /**
-     * @return string
-     */
-    public function getStaticImagePath(): string
-    {
-        return $this->getImagePath();
-    }
-
-    public function getImageName(): ?string
-    {
-        return $this->imageName ?? 'no-image';
-    }
-
-    public function setImageName(string $imageName = null): self
-    {
-        $this->imageName = $imageName;
-
-        return $this;
-    }
-
-    public function getImageSize(): ?int
-    {
-        return $this->imageSize;
-    }
-
-    public function setImageSize(int $imageSize = null): self
-    {
-        $this->imageSize = $imageSize;
-
-        return $this;
-    }
-
-    /**
-     * @return File
-     */
-    public function getImageFile(): ?File
-    {
-        return $this->imageFile;
+        return 'uploads/images/'.$this->getFilename();
     }
 
 
-    /**
-     * @param File|null $file
-     * @return $this
-     * @throws \Exception
-     */
-    public function setImageFile(?File $file = null): self
-    {
-        $this->imageFile = $file;
-        if ($file !== null) {
-            $base64Converter = new ImageBase64ThumbCreator($file->getRealPath());
-            $this->setBase64($base64Converter->getBase64data());
-            $this->updatedAt = new DateTimeImmutable();
-            if (!$this->description && $file->getFilename() && $file instanceof UploadedFile) {
-                $this->description = substr(basename($file->getClientOriginalName()), 0, -4);
-            }
-        }
-        return $this;
-    }
+//
+//    /**
+//     * @param File|null $file
+//     * @return $this
+//     * @throws \Exception
+//     */
+//    public function setImageFile(?File $file = null): self
+//    {
+//        $this->imageFile = $file;
+//        if ($file !== null) {
+//            $base64Converter = new ImageBase64ThumbCreator($file->getRealPath());
+//            $this->setBase64($base64Converter->getBase64data());
+//            $this->updatedAt = new DateTimeImmutable();
+//            if (!$this->description && $file->getFilename() && $file instanceof UploadedFile) {
+//                $this->description = substr(basename($file->getClientOriginalName()), 0, -4);
+//            }
+//        }
+//        return $this;
+//    }
 
     public function __toString()
     {
-        return $this->description ?? $this->getImageName();
+        return $this->description ?? $this->getImagePath();
     }
 
     public function getDescription(): ?string
@@ -146,33 +122,34 @@ class Image
 
     public function setBase64(?string $base64): self
     {
+        //TODO: setup the base64 initialization
         $this->base64 = $base64;
 
         return $this;
     }
 
 
-    /**
-     * @Assert\Callback
-     * @param ExecutionContextInterface $context
-     */
-    public function validate(ExecutionContextInterface $context)
-    {
-        if (! in_array($this->imageFile->getMimeType(), array(
-            'image/jpeg',
-            'image/gif',
-            'image/png',
-            'image/svg+xml',
-            'image/svg',
-
-        ))) {
-            $context
-                ->buildViolation('Wrong file type (jpg,gif,png,svg)')
-                ->atPath('fileName')
-                ->addViolation()
-            ;
-        }
-    }
+//    /**
+//     * @Assert\Callback
+//     * @param ExecutionContextInterface $context
+//     */
+//    public function validate(ExecutionContextInterface $context)
+//    {
+//        if (! in_array($this->imageFile->getMimeType(), array(
+//            'image/jpeg',
+//            'image/gif',
+//            'image/png',
+//            'image/svg+xml',
+//            'image/svg',
+//
+//        ))) {
+//            $context
+//                ->buildViolation('Wrong file type (jpg,gif,png,svg)')
+//                ->atPath('fileName')
+//                ->addViolation()
+//            ;
+//        }
+//    }
 
 
 }

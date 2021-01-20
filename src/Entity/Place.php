@@ -21,7 +21,7 @@ class Place implements TranslatedEntityInterface
      * @ORM\GeneratedValue()
      * @ORM\Column(type="integer")
      */
-    private ?int $id;
+    private $id;
 
     /**
      * @ORM\Column(type="string", length=200)
@@ -47,6 +47,11 @@ class Place implements TranslatedEntityInterface
      * @ORM\ManyToMany(targetEntity=Image::class)
      */
     private ArrayCollection $images;
+
+    /**
+     * @ORM\Column(type="text", nullable=true)
+     */
+    private $description;
 
 
     public function __construct()
@@ -172,6 +177,18 @@ class Place implements TranslatedEntityInterface
     public function removeImage(Image $image): self
     {
         $this->images->removeElement($image);
+
+        return $this;
+    }
+
+    public function getDescription(): ?string
+    {
+        return $this->description;
+    }
+
+    public function setDescription(?string $description): self
+    {
+        $this->description = $description;
 
         return $this;
     }
