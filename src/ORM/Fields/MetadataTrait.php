@@ -12,7 +12,7 @@ trait MetadataTrait
     /**
      * @var PropertyAccessor
      */
-    private PropertyAccessor $propertyAccessor;
+    private $propertyAccessor;
 
     protected function createPropertyAccessor(): void
     {

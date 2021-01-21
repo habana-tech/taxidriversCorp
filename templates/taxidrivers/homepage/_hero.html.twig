@@ -7,7 +7,8 @@
         <div class="mt-8 lex lg:mt-0 lg:flex-shrink-0">
 
             <div class="ml-3 inline-flex rounded-md shadow">
-                <a href="{{ hero.link }}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-indigo-600 bg-white hover:bg-indigo-50">
+                <a href="{{ hero.link }}" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md
+transition duration-500 ease-in-out bg-white transform hover:-translate-y-1 hover:scale-110">
                     {{ "Learn more" | trans }}
                 </a>
             </div>
@@ -15,6 +16,6 @@
     </div>
 
     <div class="cards-overlay mx-8 shadow-lg rounded-t absolute bottom-0 right-0 lg:h-40 h-20 ">
-        <img class="h-full lg:p-4 p-2" src="{{ asset('images/tripadvisor/excelencia_en.png') }}">
+        <img class="animate-heartbeat h-full lg:p-4 p-2" src="{{ asset('images/tripadvisor/excelencia_en.png') }}">
     </div>
 </div>

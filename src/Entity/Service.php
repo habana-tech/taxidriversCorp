@@ -35,46 +35,51 @@ class Service implements MachineNameInterface, TranslatedEntityInterface
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Place")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $origin;
+    private ?Place $origin;
 
     /**
      * @ORM\ManyToOne(targetEntity="App\Entity\Place")
-     * @ORM\JoinColumn(nullable=false)
+     * @ORM\JoinColumn(nullable=true)
      */
-    private $destination;
+    private ?Place $destination;
 
     /**
      * @ORM\ManyToMany(targetEntity="App\Entity\Place")
      */
-    private $intermediatePlaces;
+    private Collection $intermediatePlaces;
 
 
     /**
      * @ORM\Column(type="string", length=200)
      */
-    private $name;
+    private ?string $name;
 
     /**
      * @ORM\ManyToOne(targetEntity=Service::class, inversedBy="translations")
      */
-    private $translatedEntity;
+    private ?Service $translatedEntity;
 
     /**
      * @ORM\OneToMany(targetEntity=Service::class, mappedBy="translatedEntity")
      */
-    private $translations;
+    private Collection $translations;
 
     /**
      * @ORM\ManyToMany(targetEntity=Image::class)
      */
-    private $images;
+    private Collection $images;
 
     /**
      * @ORM\Column(type="text", nullable=true)
      */
-    private $description;
+    private string $description;
+
+    /**
+     * @ORM\Column(type="string", length=255, nullable=true)
+     */
+    private $image;
 
 
     public function getName(): ?string
@@ -95,7 +100,6 @@ class Service implements MachineNameInterface, TranslatedEntityInterface
      */
     public function __construct()
     {
-        $this->gallery            = new ArrayCollection();
         $this->intermediatePlaces = new ArrayCollection();
         $this->translations = new ArrayCollection();
         $this->images = new ArrayCollection();
@@ -300,6 +304,18 @@ class Service implements MachineNameInterface, TranslatedEntityInterface
     public function setDescription(?string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
 
         return $this;
     }
