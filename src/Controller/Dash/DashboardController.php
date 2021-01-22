@@ -6,6 +6,7 @@ use App\Entity\Image;
 use App\Entity\Place;
 use App\Entity\Service;
 use App\Entity\User;
+use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
 use EasyCorp\Bundle\EasyAdminBundle\Config\UserMenu;
@@ -34,6 +35,8 @@ class DashboardController extends AbstractDashboardController
 
             // the path defined in this method is passed to the Twig asset() function
             ->setFaviconPath('apple-touch-icon.png')
+
+
 
 
             // set this option if you prefer the page content to span the entire

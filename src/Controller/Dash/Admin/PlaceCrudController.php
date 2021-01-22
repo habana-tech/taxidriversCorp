@@ -25,11 +25,22 @@ class PlaceCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
+
+        $filterPlaces = function (QueryBuilder $queryBuilder) {
+            return $queryBuilder->resetDQLPart('from')
+                ->select('p')->from('App:Place', 'p')
+                ->where('p.translatedEntity IS NULL');
+        };
+
         return [
             IdField::new('id')->onlyOnIndex()->hideOnForm(),
-            BooleanField::new('isMainLanguage')->hideOnForm()->setLabel('Principal'),
+//            BooleanField::new('isMainLanguage')
+//                ->hideOnForm()
+//                ->setVirtual()
+//                ->setLabel('Principal'),
 
             AssociationField::new('translatedEntity')
+                ->setQueryBuilder($filterPlaces)
                 ->setLabel('Traducción de')
                 ->setHelp('Seleccione el "Lugar" que desea traducir'),
 
