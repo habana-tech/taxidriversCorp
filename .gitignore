@@ -37,3 +37,8 @@ public/uploads
 # vamos a incluir el archivo .env en el repo, tus cambios locales, dejalos en el archivo .env.local
 #.env
 
+
+###> phpunit/phpunit ###
+/phpunit.xml
+.phpunit.result.cache
+###< phpunit/phpunit ###
