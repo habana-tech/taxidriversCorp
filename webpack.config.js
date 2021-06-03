@@ -90,7 +90,7 @@ Encore
     // Enable Vue loader
     // .enableVueLoader()
     .enableVueLoader(() => {}, { runtimeCompilerBuild: false })
-    
+
     .enablePostCssLoader((options) => {
         options.config = {
             // directory where the postcss.config.js file is stored
