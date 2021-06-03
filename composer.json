@@ -12,9 +12,11 @@
         "ext-json": "*",
         "dompdf/dompdf": "*",
         "easycorp/easyadmin-bundle": "~3.1",
+        "erusev/parsedown": "^1.7",
         "friendsofsymfony/ckeditor-bundle": "^2.2",
         "google/recaptcha": "~1.2.4",
         "liip/imagine-bundle": "~2.3.0",
+        "roave/security-advisories": "dev-latest",
         "sensio/framework-extra-bundle": "^5.6",
         "symfony/asset": "^5.3",
         "symfony/console": "^5.3",
@@ -43,8 +45,8 @@
         "symfony/yaml": "^5.3",
         "twig/cssinliner-extra": "~3.0",
         "twig/inky-extra": "^3.1",
-        "vich/uploader-bundle": "^1.15",
-        "roave/security-advisories": "dev-latest"
+        "twig/markdown-extra": "^3.3",
+        "vich/uploader-bundle": "^1.15"
     },
     "require-dev": {
         "symfony/debug-pack": "*",

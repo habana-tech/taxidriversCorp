@@ -10,7 +10,7 @@ controllers_dash_security:
 
 
 controllers:
-    resource: '../../src/Controller/{Taxidrivers,Vinales}/*'
+    resource: '../../src/Controller/{Taxidrivers,Vinales,Offer}/*'
     type: annotation
     requirements:
         _locale: '%app_locales%'

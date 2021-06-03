@@ -42,6 +42,10 @@ Encore
 
     /*Vinales**/
     .addEntry('vinalesApp', './assets/vinales/js/app.js')
+
+
+    /*Offers**/
+    .addEntry('offer', './assets/offer/app.js')
     //.addEntry('page1', './assets/js/page1.js')
     //.addEntry('page2', './assets/js/page2.js')
 

@@ -2,12 +2,12 @@ const colors = require('tailwindcss/colors')
 
 module.exports = {
     purge: {
-        //    // enabled: true,
-        //     content: ['./assets/**/*.html',
-        //         './assets/**/*.vue',
-        //         './assets/**/*.jsx',
-        //         './templates/**/*.html',
-        //         './templates/**/*.twig']
+        enabled: true,
+        content: ['./assets/**/*.html',
+                './assets/**/*.vue',
+                './assets/**/*.jsx',
+                './templates/**/*.html',
+                './templates/**/*.twig']
     },
     darkMode: false, // or 'media' or 'class'
     theme: {
@@ -44,6 +44,9 @@ module.exports = {
             },
             animation: {
                 heartbeat: 'heartbeat 2.5s ease-in-out infinite both',
+            },
+            blur: {
+                xs: '2px',
             }
         },
         colors: {
