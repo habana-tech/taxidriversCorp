@@ -38,14 +38,4 @@ class FrontendController extends AbstractController
         ]);
     }
 
-    /**
-     * @Route("/place/{id}", name="place")
-     * @param Place $id
-     */
-    public function place(/*, Place $id*/)
-    {
-        return $this->render('taxidrivers_/place.html.twig', [
-            //'place'=>$place
-        ]);
-    }
 }
