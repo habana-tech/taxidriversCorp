@@ -9,6 +9,7 @@ parameters:
     domain.taxidrivers: '%env(DOMAIN_TAXIDRIVERS)%'
     domain.vinales: '%env(DOMAIN_VINALES)%'
     domain.dash: '%env(DOMAIN_DASH)%'
+    domain.offer: '%env(DOMAIN_OFFER)%'
     mailer.sender.address: 'web@taxidriverscuba.com'
 
     # This parameter defines the codes of the locales (languages) enabled in the application
