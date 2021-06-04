@@ -2,8 +2,17 @@
 {% apply spaceless %}
     <html lang="{{ app.request.locale }}">
     <head>
-        {{ include("taxidrivers/global/_meta.html.twig") }}
+{#        {{ include("taxidrivers/global/_meta.html.twig") }}#}
 
+        <!-- Global site tag (gtag.js) - Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-075ZL883Y0"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'G-075ZL883Y0');
+        </script>
         {% block meta %}{% endblock %}
 
         <title>{% block title %}Welcome!{% endblock %} ~ TaxidriversCorp</title>
